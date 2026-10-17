@@ -1,0 +1,1783 @@
+{
+  "schema": "icicle-twin/log@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "uboot-doc": {
+      "title": "U-Boot doc/board/microchip/mpfs_icicle.rst at v2022.01",
+      "repo": "https://github.com/u-boot/u-boot",
+      "commit": null,
+      "ref": "tag v2022.01",
+      "url": "https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst",
+      "licence": "GPL-2.0+",
+      "licence_note": ".. SPDX-License-Identifier: GPL-2.0+",
+      "local": "reference/vendor/web-bootlogs/u-boot_v2022.01_mpfs_icicle.rst"
+    }
+  },
+  "id": "linux",
+  "console": "MMUART1",
+  "tty": "ttyS0",
+  "cp2108_interface": 1,
+  "baud": 115200,
+  "source": {
+    "file": "reference/vendor/web-bootlogs/u-boot_v2022.01_mpfs_icicle.rst",
+    "url": "https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst",
+    "where": "lines 558-828",
+    "licence": "GPL-2.0+",
+    "id": "uboot-doc",
+    "blob_sha1": "a4b10c6bd74260e12029f4c117a5fb1897a03f4f",
+    "transform": "the 3-space reStructuredText code-block indent is removed; tabs and everything else are kept",
+    "lines": [558, 828],
+    "section": "Sample boot log from MPFS Icicle Kit (continued after 'Starting kernel ...')"
+  },
+  "timebase": {"unit": "s", "origin": "Linux printk time since the kernel started (not since reset)"},
+  "kernel": "5.6.16 (OpenEmbedded nodistro.0, hostname icicle-kit-es)",
+  "trim_rule": "every kernel line is kept and tagged (hw=false for pure software lines); systemd unit lines that touch no hardware are replaced by {kind:'elided'} markers that give the source line range",
+  "lines": [
+    {
+      "kind": "line",
+      "id": "linux.558",
+      "src_line": 558,
+      "text": "[    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000",
+      "event": "ddr.memmap.reserved",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.559",
+      "src_line": 559,
+      "text": "[    0.000000] Linux version 5.6.16 (oe-user@oe-host) (gcc version 9.3.0 (GCC)) #1 SMP Fri Oct 9 11:49:47 UTC 2020",
+      "event": "linux.version",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.560",
+      "src_line": 560,
+      "text": "[    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')",
+      "event": "sbi.console",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.561",
+      "src_line": 561,
+      "text": "[    0.000000] printk: bootconsole [sbi0] enabled",
+      "event": "sbi.console",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.562",
+      "src_line": 562,
+      "text": "[    0.000000] Zone ranges:",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.563",
+      "src_line": 563,
+      "text": "[    0.000000]   DMA32    [mem 0x0000000080200000-0x00000000bfffffff]",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.564",
+      "src_line": 564,
+      "text": "[    0.000000]   Normal   empty",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.565",
+      "src_line": 565,
+      "text": "[    0.000000] Movable zone start for each node",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.566",
+      "src_line": 566,
+      "text": "[    0.000000] Early memory node ranges",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.567",
+      "src_line": 567,
+      "text": "[    0.000000]   node   0: [mem 0x0000000080200000-0x00000000bfffffff]",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.568",
+      "src_line": 568,
+      "text": "[    0.000000] Zeroed struct page in unavailable ranges: 512 pages",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.569",
+      "src_line": 569,
+      "text": "[    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x00000000bfffffff]",
+      "event": "ddr.zones",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.570",
+      "src_line": 570,
+      "text": "[    0.000000] software IO TLB: mapped [mem 0xb9e00000-0xbde00000] (64MB)",
+      "event": "ddr.swiotlb",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.571",
+      "src_line": 571,
+      "text": "[    0.000000] CPU with hartid=0 is not available",
+      "event": "e51.not_available",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.572",
+      "src_line": 572,
+      "text": "[    0.000000] CPU with hartid=0 is not available",
+      "event": "e51.not_available",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.573",
+      "src_line": 573,
+      "text": "[    0.000000] elf_hwcap is 0x112d",
+      "event": "cpu.isa",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.574",
+      "src_line": 574,
+      "text": "[    0.000000] percpu: Embedded 17 pages/cpu s29784 r8192 d31656 u69632",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.575",
+      "src_line": 575,
+      "text": "[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 258055",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.576",
+      "src_line": 576,
+      "text": "[    0.000000] Kernel command line: earlycon=sbi root=/dev/mmcblk0p3 rootwait console=ttyS0,115200n8 uio_pdrv_genirq.of_id=generic-uio",
+      "event": "linux.cmdline",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.577",
+      "src_line": 577,
+      "text": "[    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.578",
+      "src_line": 578,
+      "text": "[    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.579",
+      "src_line": 579,
+      "text": "[    0.000000] Sorting __ex_table...",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.580",
+      "src_line": 580,
+      "text": "[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.581",
+      "src_line": 581,
+      "text": "[    0.000000] Memory: 941440K/1046528K available (4118K kernel code, 280K rwdata, 1687K rodata, 169K init, 273K bss, 105088K reserved, 0K cma-reserved)",
+      "event": "ddr.memory.total",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.582",
+      "src_line": 582,
+      "text": "[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1",
+      "event": "harts.count",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.583",
+      "src_line": 583,
+      "text": "[    0.000000] rcu: Hierarchical RCU implementation.",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.584",
+      "src_line": 584,
+      "text": "[    0.000000] rcu: \tRCU event tracing is enabled.",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.585",
+      "src_line": 585,
+      "text": "[    0.000000] rcu: \tRCU restricting CPUs from NR_CPUS=5 to nr_cpu_ids=4.",
+      "event": "harts.count",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.586",
+      "src_line": 586,
+      "text": "[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.587",
+      "src_line": 587,
+      "text": "[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.588",
+      "src_line": 588,
+      "text": "[    0.000000] NR_IRQS: 0, nr_irqs: 0, preallocated irqs: 0",
+      "event": "linux.misc",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.589",
+      "src_line": 589,
+      "text": "[    0.000000] plic: mapped 53 interrupts with 4 handlers for 9 contexts.",
+      "event": "plic.init",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.590",
+      "src_line": 590,
+      "text": "[    0.000000] riscv_timer_init_dt: Registering clocksource cpuid [0] hartid [1]",
+      "event": "clint.timer",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.591",
+      "src_line": 591,
+      "text": "[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 3526361616960 ns",
+      "event": "clint.timer",
+      "t": 0.0,
+      "t_raw": "0.000000",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.592",
+      "src_line": 592,
+      "text": "[    0.000015] sched_clock: 64 bits at 1000kHz, resolution 1000ns, wraps every 2199023255500ns",
+      "event": "clint.timer",
+      "t": 1.5e-05,
+      "t_raw": "0.000015",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.593",
+      "src_line": 593,
+      "text": "[    0.008679] Console: colour dummy device 80x25",
+      "event": "linux.misc",
+      "t": 0.008679,
+      "t_raw": "0.008679",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.594",
+      "src_line": 594,
+      "text": "[    0.013112] Calibrating delay loop (skipped), value calculated using timer frequency.. 2.00 BogoMIPS (lpj=10000)",
+      "event": "clint.timer",
+      "t": 0.013112,
+      "t_raw": "0.013112",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.595",
+      "src_line": 595,
+      "text": "[    0.023368] pid_max: default: 32768 minimum: 301",
+      "event": "linux.misc",
+      "t": 0.023368,
+      "t_raw": "0.023368",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.596",
+      "src_line": 596,
+      "text": "[    0.028314] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.028314,
+      "t_raw": "0.028314",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.597",
+      "src_line": 597,
+      "text": "[    0.035766] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.035766,
+      "t_raw": "0.035766",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.598",
+      "src_line": 598,
+      "text": "[    0.047099] rcu: Hierarchical SRCU implementation.",
+      "event": "linux.misc",
+      "t": 0.047099,
+      "t_raw": "0.047099",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.599",
+      "src_line": 599,
+      "text": "[    0.052813] smp: Bringing up secondary CPUs ...",
+      "event": "harts.smp_up",
+      "t": 0.052813,
+      "t_raw": "0.052813",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.600",
+      "src_line": 600,
+      "text": "[    0.061581] smp: Brought up 1 node, 4 CPUs",
+      "event": "harts.smp_up",
+      "t": 0.061581,
+      "t_raw": "0.061581",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.601",
+      "src_line": 601,
+      "text": "[    0.067069] devtmpfs: initialized",
+      "event": "linux.misc",
+      "t": 0.067069,
+      "t_raw": "0.067069",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.602",
+      "src_line": 602,
+      "text": "[    0.073621] random: get_random_u32 called from bucket_table_alloc.isra.0+0x4e/0x150 with crng_init=0",
+      "event": "linux.misc",
+      "t": 0.073621,
+      "t_raw": "0.073621",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.603",
+      "src_line": 603,
+      "text": "[    0.074409] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns",
+      "event": "linux.misc",
+      "t": 0.074409,
+      "t_raw": "0.074409",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.604",
+      "src_line": 604,
+      "text": "[    0.093399] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.093399,
+      "t_raw": "0.093399",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.605",
+      "src_line": 605,
+      "text": "[    0.101879] NET: Registered protocol family 16",
+      "event": "linux.misc",
+      "t": 0.101879,
+      "t_raw": "0.101879",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.606",
+      "src_line": 606,
+      "text": "[    0.110336] microchip-pfsoc-clkcfg 20002000.clkcfg: Registered PFSOC core clocks",
+      "event": "clkcfg.probe",
+      "t": 0.110336,
+      "t_raw": "0.110336",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.607",
+      "src_line": 607,
+      "text": "[    0.132717] usbcore: registered new interface driver usbfs",
+      "event": "linux.misc",
+      "t": 0.132717,
+      "t_raw": "0.132717",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.608",
+      "src_line": 608,
+      "text": "[    0.138225] usbcore: registered new interface driver hub",
+      "event": "linux.misc",
+      "t": 0.138225,
+      "t_raw": "0.138225",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.609",
+      "src_line": 609,
+      "text": "[    0.143813] usbcore: registered new device driver usb",
+      "event": "linux.misc",
+      "t": 0.143813,
+      "t_raw": "0.143813",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.610",
+      "src_line": 610,
+      "text": "[    0.148939] pps_core: LinuxPPS API ver. 1 registered",
+      "event": "linux.misc",
+      "t": 0.148939,
+      "t_raw": "0.148939",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.611",
+      "src_line": 611,
+      "text": "[    0.153929] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>",
+      "event": "linux.misc",
+      "t": 0.153929,
+      "t_raw": "0.153929",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.612",
+      "src_line": 612,
+      "text": "[    0.163071] PTP clock support registered",
+      "event": "linux.misc",
+      "t": 0.163071,
+      "t_raw": "0.163071",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.613",
+      "src_line": 613,
+      "text": "[    0.168521] clocksource: Switched to clocksource riscv_clocksource",
+      "event": "clint.timer",
+      "t": 0.168521,
+      "t_raw": "0.168521",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.614",
+      "src_line": 614,
+      "text": "[    0.174927] VFS: Disk quotas dquot_6.6.0",
+      "event": "linux.misc",
+      "t": 0.174927,
+      "t_raw": "0.174927",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.615",
+      "src_line": 615,
+      "text": "[    0.179016] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)",
+      "event": "linux.misc",
+      "t": 0.179016,
+      "t_raw": "0.179016",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.616",
+      "src_line": 616,
+      "text": "[    0.205536] NET: Registered protocol family 2",
+      "event": "linux.misc",
+      "t": 0.205536,
+      "t_raw": "0.205536",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.617",
+      "src_line": 617,
+      "text": "[    0.210944] tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.210944,
+      "t_raw": "0.210944",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.618",
+      "src_line": 618,
+      "text": "[    0.219393] TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.219393,
+      "t_raw": "0.219393",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.619",
+      "src_line": 619,
+      "text": "[    0.227497] TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.227497,
+      "t_raw": "0.227497",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.620",
+      "src_line": 620,
+      "text": "[    0.235440] TCP: Hash tables configured (established 8192 bind 8192)",
+      "event": "linux.misc",
+      "t": 0.23544,
+      "t_raw": "0.235440",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.621",
+      "src_line": 621,
+      "text": "[    0.242537] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.242537,
+      "t_raw": "0.242537",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.622",
+      "src_line": 622,
+      "text": "[    0.249285] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)",
+      "event": "linux.misc",
+      "t": 0.249285,
+      "t_raw": "0.249285",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.623",
+      "src_line": 623,
+      "text": "[    0.256690] NET: Registered protocol family 1",
+      "event": "linux.misc",
+      "t": 0.25669,
+      "t_raw": "0.256690",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.624",
+      "src_line": 624,
+      "text": "[    0.262585] workingset: timestamp_bits=62 max_order=18 bucket_order=0",
+      "event": "linux.misc",
+      "t": 0.262585,
+      "t_raw": "0.262585",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.625",
+      "src_line": 625,
+      "text": "[    0.281036] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 249)",
+      "event": "linux.misc",
+      "t": 0.281036,
+      "t_raw": "0.281036",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.626",
+      "src_line": 626,
+      "text": "[    0.288481] io scheduler mq-deadline registered",
+      "event": "linux.misc",
+      "t": 0.288481,
+      "t_raw": "0.288481",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.627",
+      "src_line": 627,
+      "text": "[    0.292983] io scheduler kyber registered",
+      "event": "linux.misc",
+      "t": 0.292983,
+      "t_raw": "0.292983",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.628",
+      "src_line": 628,
+      "text": "[    0.298895] microsemi,mss-gpio 20122000.gpio: Microsemi MSS GPIO registered 32 GPIOs",
+      "event": "gpio2.probe",
+      "t": 0.298895,
+      "t_raw": "0.298895",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.629",
+      "src_line": 629,
+      "text": "[    0.453723] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled",
+      "event": "mmuart.driver",
+      "t": 0.453723,
+      "t_raw": "0.453723",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.630",
+      "src_line": 630,
+      "text": "[    0.462911] printk: console [ttyS0] disabled",
+      "event": "mmuart1.console",
+      "t": 0.462911,
+      "t_raw": "0.462911",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.631",
+      "src_line": 631,
+      "text": "[    0.467216] 20100000.serial: ttyS0 at MMIO 0x20100000 (irq = 12, base_baud = 9375000) is a 16550A",
+      "event": "mmuart.probe",
+      "t": 0.467216,
+      "t_raw": "0.467216",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.632",
+      "src_line": 632,
+      "text": "[    0.476201] printk: console [ttyS0] enabled",
+      "event": "mmuart1.console",
+      "t": 0.476201,
+      "t_raw": "0.476201",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.633",
+      "src_line": 633,
+      "text": "[    0.476201] printk: console [ttyS0] enabled",
+      "event": "mmuart1.console",
+      "t": 0.476201,
+      "t_raw": "0.476201",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.634",
+      "src_line": 634,
+      "text": "[    0.484576] printk: bootconsole [sbi0] disabled",
+      "event": "sbi.console",
+      "t": 0.484576,
+      "t_raw": "0.484576",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.635",
+      "src_line": 635,
+      "text": "[    0.484576] printk: bootconsole [sbi0] disabled",
+      "event": "sbi.console",
+      "t": 0.484576,
+      "t_raw": "0.484576",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.636",
+      "src_line": 636,
+      "text": "[    0.494920] 20102000.serial: ttyS1 at MMIO 0x20102000 (irq = 13, base_baud = 9375000) is a 16550A",
+      "event": "mmuart.probe",
+      "t": 0.49492,
+      "t_raw": "0.494920",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.637",
+      "src_line": 637,
+      "text": "[    0.505068] 20104000.serial: ttyS2 at MMIO 0x20104000 (irq = 14, base_baud = 9375000) is a 16550A",
+      "event": "mmuart.probe",
+      "t": 0.505068,
+      "t_raw": "0.505068",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.638",
+      "src_line": 638,
+      "text": "[    0.533336] loop: module loaded",
+      "event": "linux.misc",
+      "t": 0.533336,
+      "t_raw": "0.533336",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.639",
+      "src_line": 639,
+      "text": "[    0.572284] Rounding down aligned max_sectors from 4294967295 to 4294967288",
+      "event": "linux.misc",
+      "t": 0.572284,
+      "t_raw": "0.572284",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.640",
+      "src_line": 640,
+      "text": "[    0.580000] db_root: cannot open: /etc/target",
+      "event": "linux.misc",
+      "t": 0.58,
+      "t_raw": "0.580000",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.641",
+      "src_line": 641,
+      "text": "[    0.585413] libphy: Fixed MDIO Bus: probed",
+      "event": "linux.misc",
+      "t": 0.585413,
+      "t_raw": "0.585413",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.642",
+      "src_line": 642,
+      "text": "[    0.591526] libphy: MACB_mii_bus: probed",
+      "event": "gem1.mdio.probe",
+      "t": 0.591526,
+      "t_raw": "0.591526",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.643",
+      "src_line": 643,
+      "text": "[    0.598060] macb 20112000.ethernet eth0: Cadence GEM rev 0x0107010c at 0x20112000 irq 17 (56:34:12:00:fc:00)",
+      "event": "gem1.probe",
+      "t": 0.59806,
+      "t_raw": "0.598060",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.644",
+      "src_line": 644,
+      "text": "[    0.608352] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver",
+      "event": "linux.misc",
+      "t": 0.608352,
+      "t_raw": "0.608352",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.645",
+      "src_line": 645,
+      "text": "[    0.615001] ehci-platform: EHCI generic platform driver",
+      "event": "linux.misc",
+      "t": 0.615001,
+      "t_raw": "0.615001",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.646",
+      "src_line": 646,
+      "text": "[    0.620446] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver",
+      "event": "linux.misc",
+      "t": 0.620446,
+      "t_raw": "0.620446",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.647",
+      "src_line": 647,
+      "text": "[    0.626632] ohci-platform: OHCI generic platform driver",
+      "event": "linux.misc",
+      "t": 0.626632,
+      "t_raw": "0.626632",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.648",
+      "src_line": 648,
+      "text": "[    0.632326] usbcore: registered new interface driver cdc_acm",
+      "event": "linux.misc",
+      "t": 0.632326,
+      "t_raw": "0.632326",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.649",
+      "src_line": 649,
+      "text": "[    0.637996] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters",
+      "event": "linux.misc",
+      "t": 0.637996,
+      "t_raw": "0.637996",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.650",
+      "src_line": 650,
+      "text": "[    0.646459] i2c /dev entries driver",
+      "event": "linux.misc",
+      "t": 0.646459,
+      "t_raw": "0.646459",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.651",
+      "src_line": 651,
+      "text": "[    0.650852] microsemi-mss-i2c 2010b000.i2c: Microsemi I2C Probe Complete",
+      "event": "i2c1.probe",
+      "t": 0.650852,
+      "t_raw": "0.650852",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.652",
+      "src_line": 652,
+      "text": "[    0.658010] sdhci: Secure Digital Host Controller Interface driver",
+      "event": "linux.misc",
+      "t": 0.65801,
+      "t_raw": "0.658010",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.653",
+      "src_line": 653,
+      "text": "[    0.664326] sdhci: Copyright(c) Pierre Ossman",
+      "event": "linux.misc",
+      "t": 0.664326,
+      "t_raw": "0.664326",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.654",
+      "src_line": 654,
+      "text": "[    0.668754] sdhci-pltfm: SDHCI platform and OF driver helper",
+      "event": "linux.misc",
+      "t": 0.668754,
+      "t_raw": "0.668754",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.655",
+      "src_line": 655,
+      "text": "[    0.706845] mmc0: SDHCI controller on 20008000.sdhc [20008000.sdhc] using ADMA 64-bit",
+      "event": "mmc.host.probe",
+      "t": 0.706845,
+      "t_raw": "0.706845",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.656",
+      "src_line": 656,
+      "text": "[    0.715052] usbcore: registered new interface driver usbhid",
+      "event": "linux.misc",
+      "t": 0.715052,
+      "t_raw": "0.715052",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.657",
+      "src_line": 657,
+      "text": "[    0.720722] usbhid: USB HID core driver",
+      "event": "linux.misc",
+      "t": 0.720722,
+      "t_raw": "0.720722",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.658",
+      "src_line": 658,
+      "text": "[    0.725174] pac193x 0-0010: Chip revision: 0x03",
+      "event": "pac1934.probe",
+      "t": 0.725174,
+      "t_raw": "0.725174",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.659",
+      "src_line": 659,
+      "text": "[    0.733339] pac193x 0-0010: :pac193x_prep_iio_channels: Channel 0 active",
+      "event": "pac1934.probe",
+      "t": 0.733339,
+      "t_raw": "0.733339",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.660",
+      "src_line": 660,
+      "text": "[    0.740127] pac193x 0-0010: :pac193x_prep_iio_channels: Channel 1 active",
+      "event": "pac1934.probe",
+      "t": 0.740127,
+      "t_raw": "0.740127",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.661",
+      "src_line": 661,
+      "text": "[    0.746881] pac193x 0-0010: :pac193x_prep_iio_channels: Channel 2 active",
+      "event": "pac1934.probe",
+      "t": 0.746881,
+      "t_raw": "0.746881",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.662",
+      "src_line": 662,
+      "text": "[    0.753686] pac193x 0-0010: :pac193x_prep_iio_channels: Channel 3 active",
+      "event": "pac1934.probe",
+      "t": 0.753686,
+      "t_raw": "0.753686",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.663",
+      "src_line": 663,
+      "text": "[    0.760495] pac193x 0-0010: :pac193x_prep_iio_channels: Active chip channels: 25",
+      "event": "pac1934.probe",
+      "t": 0.760495,
+      "t_raw": "0.760495",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.664",
+      "src_line": 664,
+      "text": "[    0.778006] NET: Registered protocol family 10",
+      "event": "linux.misc",
+      "t": 0.778006,
+      "t_raw": "0.778006",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.665",
+      "src_line": 665,
+      "text": "[    0.784929] Segment Routing with IPv6",
+      "event": "linux.misc",
+      "t": 0.784929,
+      "t_raw": "0.784929",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.666",
+      "src_line": 666,
+      "text": "[    0.788875] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver",
+      "event": "linux.misc",
+      "t": 0.788875,
+      "t_raw": "0.788875",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.667",
+      "src_line": 667,
+      "text": "[    0.795743] NET: Registered protocol family 17",
+      "event": "linux.misc",
+      "t": 0.795743,
+      "t_raw": "0.795743",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.668",
+      "src_line": 668,
+      "text": "[    0.801191] hctosys: unable to open rtc device (rtc0)",
+      "event": "rtc.absent",
+      "t": 0.801191,
+      "t_raw": "0.801191",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.669",
+      "src_line": 669,
+      "text": "[    0.807774] Waiting for root device /dev/mmcblk0p3...",
+      "event": "mmc.wait_root",
+      "t": 0.807774,
+      "t_raw": "0.807774",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.670",
+      "src_line": 670,
+      "text": "[    0.858506] mmc0: mmc_select_hs200 failed, error -74",
+      "event": "mmc.emmc.hs200_fail",
+      "t": 0.858506,
+      "t_raw": "0.858506",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.671",
+      "src_line": 671,
+      "text": "[    0.865764] mmc0: new MMC card at address 0001",
+      "event": "mmc.emmc.detected",
+      "t": 0.865764,
+      "t_raw": "0.865764",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.672",
+      "src_line": 672,
+      "text": "[    0.872564] mmcblk0: mmc0:0001 DG4008 7.28 GiB",
+      "event": "mmc.emmc.partitions",
+      "t": 0.872564,
+      "t_raw": "0.872564",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.673",
+      "src_line": 673,
+      "text": "[    0.878777] mmcblk0boot0: mmc0:0001 DG4008 partition 1 4.00 MiB",
+      "event": "mmc.emmc.partitions",
+      "t": 0.878777,
+      "t_raw": "0.878777",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.674",
+      "src_line": 674,
+      "text": "[    0.886182] mmcblk0boot1: mmc0:0001 DG4008 partition 2 4.00 MiB",
+      "event": "mmc.emmc.partitions",
+      "t": 0.886182,
+      "t_raw": "0.886182",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.675",
+      "src_line": 675,
+      "text": "[    0.892633] mmcblk0rpmb: mmc0:0001 DG4008 partition 3 4.00 MiB, chardev (247:0)",
+      "event": "mmc.emmc.partitions",
+      "t": 0.892633,
+      "t_raw": "0.892633",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.676",
+      "src_line": 676,
+      "text": "[    0.919029] GPT:Primary header thinks Alt. header is not at the end of the disk.",
+      "event": "mmc.emmc.gpt_warning",
+      "t": 0.919029,
+      "t_raw": "0.919029",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.677",
+      "src_line": 677,
+      "text": "[    0.926448] GPT:2255841 != 15273599",
+      "event": "mmc.emmc.gpt_warning",
+      "t": 0.926448,
+      "t_raw": "0.926448",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.678",
+      "src_line": 678,
+      "text": "[    0.930019] GPT:Alternate GPT header not at the end of the disk.",
+      "event": "mmc.emmc.gpt_warning",
+      "t": 0.930019,
+      "t_raw": "0.930019",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.679",
+      "src_line": 679,
+      "text": "[    0.936029] GPT:2255841 != 15273599",
+      "event": "mmc.emmc.gpt_warning",
+      "t": 0.936029,
+      "t_raw": "0.936029",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.680",
+      "src_line": 680,
+      "text": "[    0.939583] GPT: Use GNU Parted to correct GPT errors.",
+      "event": "mmc.emmc.gpt_warning",
+      "t": 0.939583,
+      "t_raw": "0.939583",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.681",
+      "src_line": 681,
+      "text": "[    0.944800]  mmcblk0: p1 p2 p3",
+      "event": "mmc.emmc.partitions",
+      "t": 0.9448,
+      "t_raw": "0.944800",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.682",
+      "src_line": 682,
+      "text": "[    0.966696] EXT4-fs (mmcblk0p3): INFO: recovery required on readonly filesystem",
+      "event": "rootfs.mount",
+      "t": 0.966696,
+      "t_raw": "0.966696",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.683",
+      "src_line": 683,
+      "text": "[    0.974105] EXT4-fs (mmcblk0p3): write access will be enabled during recovery",
+      "event": "rootfs.mount",
+      "t": 0.974105,
+      "t_raw": "0.974105",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.684",
+      "src_line": 684,
+      "text": "[    1.052362] random: fast init done",
+      "event": "linux.misc",
+      "t": 1.052362,
+      "t_raw": "1.052362",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.685",
+      "src_line": 685,
+      "text": "[    1.057961] EXT4-fs (mmcblk0p3): recovery complete",
+      "event": "rootfs.mount",
+      "t": 1.057961,
+      "t_raw": "1.057961",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.686",
+      "src_line": 686,
+      "text": "[    1.065734] EXT4-fs (mmcblk0p3): mounted filesystem with ordered data mode. Opts: (null)",
+      "event": "rootfs.mount",
+      "t": 1.065734,
+      "t_raw": "1.065734",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.687",
+      "src_line": 687,
+      "text": "[    1.074002] VFS: Mounted root (ext4 filesystem) readonly on device 179:3.",
+      "event": "rootfs.mount",
+      "t": 1.074002,
+      "t_raw": "1.074002",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.688",
+      "src_line": 688,
+      "text": "[    1.081654] Freeing unused kernel memory: 168K",
+      "event": "linux.misc",
+      "t": 1.081654,
+      "t_raw": "1.081654",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.689",
+      "src_line": 689,
+      "text": "[    1.086108] This architecture does not have kernel memory protection.",
+      "event": "linux.misc",
+      "t": 1.086108,
+      "t_raw": "1.086108",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.690",
+      "src_line": 690,
+      "text": "[    1.092629] Run /sbin/init as init process",
+      "event": "linux.misc",
+      "t": 1.092629,
+      "t_raw": "1.092629",
+      "hw": false
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.691",
+      "src_lines": [691, 691],
+      "count": 1,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.692",
+      "src_line": 692,
+      "text": "[    1.754192] systemd[1]: systemd 244.3+ running in system mode. (+PAM -AUDIT -SELINUX +IMA -APPARMOR -SMACK +SYSVINIT +UTMP -LIBCRYPTSETUP -GCRYPT -GNUTLS +ACL +XZ -LZ4 -SECCOMP +BLKID -ELFUTILS +KMOD -IDN2 -IDN -PCRE2 default-hierarchy=hybrid)",
+      "event": "linux.systemd",
+      "t": 1.754192,
+      "t_raw": "1.754192",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.693",
+      "src_line": 693,
+      "text": "[    1.776361] systemd[1]: Detected architecture riscv64.",
+      "event": "linux.systemd",
+      "t": 1.776361,
+      "t_raw": "1.776361",
+      "hw": false
+    },
+    {"kind": "line", "id": "linux.694", "src_line": 694, "text": "", "event": "console.blank", "hw": false},
+    {
+      "kind": "line",
+      "id": "linux.695",
+      "src_line": 695,
+      "text": "Welcome to OpenEmbedded nodistro.0!",
+      "event": "linux.welcome",
+      "hw": false
+    },
+    {"kind": "line", "id": "linux.696", "src_line": 696, "text": "", "event": "console.blank", "hw": false},
+    {
+      "kind": "line",
+      "id": "linux.697",
+      "src_line": 697,
+      "text": "[    1.829651] systemd[1]: Set hostname to <icicle-kit-es>.",
+      "event": "linux.hostname",
+      "t": 1.829651,
+      "t_raw": "1.829651",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.698",
+      "src_line": 698,
+      "text": "[    2.648597] random: systemd: uninitialized urandom read (16 bytes read)",
+      "event": "linux.misc",
+      "t": 2.648597,
+      "t_raw": "2.648597",
+      "hw": false
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.699",
+      "src_lines": [699, 700],
+      "count": 2,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.701",
+      "src_line": 701,
+      "text": "[    2.698779] random: systemd: uninitialized urandom read (16 bytes read)",
+      "event": "linux.misc",
+      "t": 2.698779,
+      "t_raw": "2.698779",
+      "hw": false
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.702",
+      "src_lines": [702, 703],
+      "count": 2,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.704",
+      "src_line": 704,
+      "text": "[    2.748716] random: systemd: uninitialized urandom read (16 bytes read)",
+      "event": "linux.misc",
+      "t": 2.748716,
+      "t_raw": "2.748716",
+      "hw": false
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.705",
+      "src_lines": [705, 725],
+      "count": 21,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.726",
+      "src_line": 726,
+      "text": "[    3.149868] systemd[1]: Listening on Network Service Netlink Socket.",
+      "event": "gem1.netif",
+      "t": 3.149868,
+      "t_raw": "3.149868",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.727",
+      "src_line": 727,
+      "text": "[  OK  ] Listening on Network Service Netlink Socket.",
+      "event": "gem1.netif",
+      "hw": true
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.728",
+      "src_lines": [728, 737],
+      "count": 10,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.738",
+      "src_line": 738,
+      "text": "[    3.355883] systemd[1]: Starting File System Check on Root Device...",
+      "event": "rootfs.mount",
+      "t": 3.355883,
+      "t_raw": "3.355883",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.739",
+      "src_line": 739,
+      "text": "         Starting File System Check on Root Device...",
+      "event": "rootfs.mount",
+      "hw": true
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.740",
+      "src_lines": [740, 747],
+      "count": 8,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.748",
+      "src_line": 748,
+      "text": "[    3.471368] systemd[1]: Starting udev Coldplug all Devices...",
+      "event": "udev.coldplug",
+      "t": 3.471368,
+      "t_raw": "3.471368",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.749",
+      "src_line": 749,
+      "text": "         Starting udev Coldplug all Devices...",
+      "event": "udev.coldplug",
+      "hw": true
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.750",
+      "src_lines": [750, 757],
+      "count": 8,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.758",
+      "src_line": 758,
+      "text": "[  OK  ] Started udev Coldplug all Devices.",
+      "event": "udev.coldplug",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.759",
+      "src_line": 759,
+      "text": "[  OK  ] Started File System Check on Root Device.",
+      "event": "rootfs.mount",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.760",
+      "src_line": 760,
+      "text": "         Starting Remount Root and Kernel File Systems...",
+      "event": "rootfs.mount",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.761",
+      "src_line": 761,
+      "text": "[    8.133469] EXT4-fs (mmcblk0p3): re-mounted. Opts: (null)",
+      "event": "rootfs.mount",
+      "t": 8.133469,
+      "t_raw": "8.133469",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.762",
+      "src_line": 762,
+      "text": "[  OK  ] Started Remount Root and Kernel File Systems.",
+      "event": "rootfs.mount",
+      "hw": true
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.763",
+      "src_lines": [763, 780],
+      "count": 18,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.781",
+      "src_line": 781,
+      "text": "[   11.618575] random: crng init done",
+      "event": "linux.misc",
+      "t": 11.618575,
+      "t_raw": "11.618575",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.782",
+      "src_line": 782,
+      "text": "[   11.622007] random: 7 urandom warning(s) missed due to ratelimiting",
+      "event": "linux.misc",
+      "t": 11.622007,
+      "t_raw": "11.622007",
+      "hw": false
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.783",
+      "src_lines": [783, 799],
+      "count": 17,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {"kind": "line", "id": "linux.800", "src_line": 800, "text": "         Starting Network Service...", "event": "gem1.netif", "hw": true},
+    {
+      "kind": "elided",
+      "id": "linux.elided.801",
+      "src_lines": [801, 801],
+      "count": 1,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.802",
+      "src_line": 802,
+      "text": "[   12.602455] macb 20112000.ethernet eth0: PHY [20112000.ethernet-ffffffff:09] driver [Vitesse VSC8662] (irq=POLL)",
+      "event": "gem1.phy.attach",
+      "t": 12.602455,
+      "t_raw": "12.602455",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.803",
+      "src_line": 803,
+      "text": "[   12.612795] macb 20112000.ethernet eth0: configuring for phy/sgmii link mode",
+      "event": "gem1.sgmii.config",
+      "t": 12.612795,
+      "t_raw": "12.612795",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.804",
+      "src_line": 804,
+      "text": "[   12.622153] pps pps0: new PPS source ptp0",
+      "event": "gem1.ptp",
+      "t": 12.622153,
+      "t_raw": "12.622153",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.805",
+      "src_line": 805,
+      "text": "[  OK     12.626725] macb 20112000.ethernet: gem-ptp-timer ptp clock registered.",
+      "event": "gem1.ptp",
+      "t": 12.626725,
+      "t_raw": "12.626725",
+      "hw": true,
+      "flags": ["interleaved"],
+      "note": "systemd's coloured '[  OK  ]' status and a kernel message were written over each other on the console"
+    },
+    {
+      "kind": "line",
+      "id": "linux.806",
+      "src_line": 806,
+      "text": "0m] Started Network Service.",
+      "event": "gem1.netif",
+      "hw": true,
+      "flags": ["interleaved"],
+      "note": "systemd's coloured '[  OK  ]' status and a kernel message were written over each other on the console"
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.807",
+      "src_lines": [807, 815],
+      "count": 9,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.816",
+      "src_line": 816,
+      "text": "[  OK  ] Started Serial Getty on ttyS0.",
+      "event": "mmuart1.getty",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "linux.817",
+      "src_line": 817,
+      "text": "[  OK  ] Reached target Login Prompts.",
+      "event": "linux.systemd",
+      "hw": false
+    },
+    {
+      "kind": "line",
+      "id": "linux.818",
+      "src_line": 818,
+      "text": "[  OK  ] Reached target Multi-User System.",
+      "event": "linux.systemd",
+      "hw": false
+    },
+    {
+      "kind": "elided",
+      "id": "linux.elided.819",
+      "src_lines": [819, 820],
+      "count": 2,
+      "reason": "systemd unit lines with no hardware effect",
+      "text": "",
+      "elided": true
+    },
+    {"kind": "line", "id": "linux.821", "src_line": 821, "text": "", "event": "console.blank", "hw": false},
+    {
+      "kind": "line",
+      "id": "linux.822",
+      "src_line": 822,
+      "text": "OpenEmbedded nodistro.0 icicle-kit-es ttyS0",
+      "event": "login.issue",
+      "hw": true
+    },
+    {"kind": "line", "id": "linux.823", "src_line": 823, "text": "", "event": "console.blank", "hw": false},
+    {
+      "kind": "line",
+      "id": "linux.824",
+      "src_line": 824,
+      "text": "icicle-kit-es login: [   15.795564] macb 20112000.ethernet eth0: Link is Up - 1Gbps/Full - flow control tx",
+      "event": "eth0.link.up",
+      "t": 15.795564,
+      "t_raw": "15.795564",
+      "hw": true,
+      "flags": ["interleaved"],
+      "note": "two writers on the console: the text before the timestamp was already on the line",
+      "args": {
+        "speed": "1Gbps",
+        "duplex": "Full",
+        "flow_control": "tx",
+        "phy": "U4 VSC8662 port 1",
+        "mac": "GEM1 0x20112000",
+        "prefix": "icicle-kit-es login: ",
+        "prefix_event": "login.prompt"
+      }
+    },
+    {
+      "kind": "line",
+      "id": "linux.825",
+      "src_line": 825,
+      "text": "[   15.803306] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready",
+      "event": "eth0.ready",
+      "t": 15.803306,
+      "t_raw": "15.803306",
+      "hw": true
+    },
+    {"kind": "line", "id": "linux.826", "src_line": 826, "text": "", "event": "console.blank", "hw": false},
+    {"kind": "line", "id": "linux.827", "src_line": 827, "text": "icicle-kit-es login: root", "event": "login.input", "hw": true},
+    {"kind": "line", "id": "linux.828", "src_line": 828, "text": "root@icicle-kit-es:~#", "event": "login.shell", "hw": true}
+  ]
+}

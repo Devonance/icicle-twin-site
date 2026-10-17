@@ -1,0 +1,49 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "hss": {
+      "title": "Hart Software Services (HSS)",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md and per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services (shallow clone, git-ignored)"
+    }
+  },
+  "id": "hss-boot-copy",
+  "firstLine": 327,
+  "title": "copyBootImageToDDR_(): 'Copying N bytes to 0x...'",
+  "lang": "c",
+  "repo": "https://github.com/polarfire-soc/hart-software-services",
+  "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+  "ref": null,
+  "path": "init/hss_boot_init.c",
+  "start_line": 327,
+  "end_line": 339,
+  "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/init/hss_boot_init.c#L327-L339",
+  "blob_sha1": "a4b2fbb86afeb2af1b0b70cf7537531de98946c6",
+  "licence": "MIT",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": "Copyright 2019-2025 Microchip FPGA Embedded Systems Solutions",
+  "steps": ["boot.copy"],
+  "note": "The eMMC-to-DDR copy that logs/hss.json shows as 748336 bytes to 0xa0000000.",
+  "highlights": [],
+  "lines": [
+    "static bool copyBootImageToDDR_(struct HSS_BootImage *pBootImage, char *pDest,",
+    "    size_t srcOffset, HSS_BootImageCopyFnPtr_t pCopyFunction)",
+    "{",
+    "    bool result = true;",
+    "",
+    "    printBootImageDetails_(pBootImage);",
+    "",
+    "    mHSS_DEBUG_PRINTF(LOG_NORMAL, \"Copying %lu bytes to 0x%lx\\n\",",
+    "        pBootImage->bootImageLength, pDest);",
+    "    result = pCopyFunction(pDest, srcOffset, pBootImage->bootImageLength);",
+    "",
+    "    return result;",
+    "}"
+  ],
+  "notes": {"327": "The eMMC-to-DDR copy that logs/hss.json shows as 748336 bytes to 0xa0000000."}
+}

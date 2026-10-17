@@ -1,0 +1,790 @@
+{
+ "schema": "icicle-twin/sockets@1",
+ "generated_by": "tools/peripherals/build_sockets.py",
+ "retrieved": "2026-10-16",
+ "sources": {
+  "footprints": "public/data/board/footprints.json (WP-01, derived from Microchip's Icicle Kit board files)",
+  "nets": "public/data/board/nets.json",
+  "packages": "assets/packages/board-parts.glb (WP-41): connector heights and mouth overhang only"
+ },
+ "frame": "attach: board frame mm (x right, y down from the top-left corner), z = height above the top surface; rotationDeg = rotation of the peripheral's local +x axis about the board normal, CCW seen from the top in the board-local frame (y up). Edge sockets: +x points out of the board through the mouth and attach is the mouth centre. Header sockets: +x runs along the row from pin 1 toward the higher pins and attach is the centre of the pin field at the top of the header.",
+ "sockets": [
+  {
+   "type": "J11_USB",
+   "label": "J11 USB (CP2108 UART)",
+   "kind": "edge",
+   "refdes": [
+    "J11"
+   ],
+   "pinNets": {
+    "J11.1": "N19783696",
+    "J11.2": "CP2108_D-",
+    "J11.3": "CP2108_D+",
+    "J11.4": "Net_34",
+    "J11.5": "GND",
+    "J11.6": "N19783372",
+    "J11.7": "N19783372",
+    "J11.8": "N19783372",
+    "J11.9": "N19783372",
+    "J11.10": "N19783372",
+    "J11.11": "N19783372"
+   },
+   "attach": {
+    "x": 184.348,
+    "y": 101.981,
+    "z": 1.3,
+    "rotationDeg": 0,
+    "side": "top"
+   },
+   "allowed": [
+    "usb-uart-cable"
+   ],
+   "heightMm": 2.6,
+   "boxes": [
+    {
+     "refdes": "J11",
+     "cx": 181.39,
+     "cy": 101.981,
+     "w": 5.6,
+     "h": 7.4,
+     "rotDeg": 180.0,
+     "zMin": 0.0,
+     "zMax": 2.6
+    }
+   ]
+  },
+  {
+   "type": "J33_USB",
+   "label": "J33 USB (embedded FlashPro6)",
+   "kind": "edge",
+   "refdes": [
+    "J33"
+   ],
+   "pinNets": {
+    "J33.1": "USB_5V_FP6",
+    "J33.2": "DM_FP6",
+    "J33.3": "DP_FP6",
+    "J33.4": "ID_FP6",
+    "J33.5": "USB_GND_FP6",
+    "J33.6": "N19881218",
+    "J33.7": "N19881218",
+    "J33.8": "N19881218",
+    "J33.9": "N19881218",
+    "J33.10": "N19881218",
+    "J33.11": "N19881218"
+   },
+   "attach": {
+    "x": -1.468,
+    "y": 86.36,
+    "z": 1.3,
+    "rotationDeg": 180,
+    "side": "top"
+   },
+   "allowed": [
+    "usb-cable-fp6"
+   ],
+   "heightMm": 2.6,
+   "boxes": [
+    {
+     "refdes": "J33",
+     "cx": 1.49,
+     "cy": 86.36,
+     "w": 5.6,
+     "h": 7.4,
+     "rotDeg": 0.0,
+     "zMin": 0.0,
+     "zMax": 2.6
+    }
+   ]
+  },
+  {
+   "type": "J16_USB",
+   "label": "J16 USB OTG (USB3340)",
+   "kind": "edge",
+   "refdes": [
+    "J16"
+   ],
+   "pinNets": {
+    "J16.1": "USB_5V",
+    "J16.2": "USB1_DM",
+    "J16.3": "USB1_DP",
+    "J16.4": "USB1_ID",
+    "J16.5": "USB_GND",
+    "J16.6": "N17344627",
+    "J16.7": "N17344627",
+    "J16.8": "N17344627",
+    "J16.9": "N17344627",
+    "J16.10": "N17344627",
+    "J16.11": "N17344627"
+   },
+   "attach": {
+    "x": 96.638,
+    "y": -1.468,
+    "z": 1.3,
+    "rotationDeg": 90,
+    "side": "top"
+   },
+   "allowed": [
+    "usb-host-cable"
+   ],
+   "heightMm": 2.6,
+   "boxes": [
+    {
+     "refdes": "J16",
+     "cx": 96.638,
+     "cy": 1.49,
+     "w": 5.6,
+     "h": 7.4,
+     "rotDeg": -90.0,
+     "zMin": 0.0,
+     "zMax": 2.6
+    }
+   ]
+  },
+  {
+   "type": "J23_FP",
+   "label": "J23 JTAG (external FlashPro)",
+   "kind": "header",
+   "refdes": [
+    "J23"
+   ],
+   "pinNets": {
+    "J23.1": "JTAG_TCK",
+    "J23.2": "GND",
+    "J23.3": "JTAG_TDO",
+    "J23.4": "Net_1234",
+    "J23.5": "JTAG_TMS",
+    "J23.6": "3P3V",
+    "J23.7": "Net_1233",
+    "J23.8": "JTAG_NTRST",
+    "J23.9": "JTAG_TDI",
+    "J23.10": "GND"
+   },
+   "attach": {
+    "x": 50.584,
+    "y": 99.848,
+    "z": 8.9,
+    "rotationDeg": 180,
+    "side": "top"
+   },
+   "allowed": [
+    "flashpro6"
+   ],
+   "heightMm": 8.9,
+   "boxes": [
+    {
+     "refdes": "J23",
+     "cx": 50.584,
+     "cy": 99.848,
+     "w": 20.32,
+     "h": 9.27,
+     "rotDeg": 180.0,
+     "zMin": 0.0,
+     "zMax": 8.9
+    }
+   ]
+  },
+  {
+   "type": "J44_J8_MIKROBUS",
+   "label": "J44 / J8 mikroBUS",
+   "kind": "header",
+   "refdes": [
+    "J44",
+    "J8"
+   ],
+   "pinNets": {
+    "J44.1": "MBUS_AN",
+    "J44.2": "MBUS_RST",
+    "J44.3": "MBUS_SPI_CS#",
+    "J44.4": "MBUS_SPI_CLK",
+    "J44.5": "MBUS_SPI_MISO",
+    "J44.6": "MBUS_SPI_MOSI",
+    "J44.7": "3P3V",
+    "J44.8": "GND",
+    "J8.1": "MBUS_PWM",
+    "J8.2": "MBUS_INT",
+    "J8.3": "MBUS_UART_RXD",
+    "J8.4": "MBUS_UART_TXD",
+    "J8.5": "MBUS_I2CSCL",
+    "J8.6": "MBUS_I2CSDA",
+    "J8.7": "5P0V",
+    "J8.8": "GND"
+   },
+   "attach": {
+    "x": 167.45,
+    "y": 77.978,
+    "z": 8.508,
+    "rotationDeg": 180,
+    "side": "top"
+   },
+   "allowed": [
+    "oled-w-click"
+   ],
+   "heightMm": 8.508,
+   "boxes": [
+    {
+     "refdes": "J44",
+     "cx": 167.45,
+     "cy": 66.548,
+     "w": 21.184,
+     "h": 2.54,
+     "rotDeg": 0.0,
+     "zMin": 0.0,
+     "zMax": 8.508
+    },
+    {
+     "refdes": "J8",
+     "cx": 167.45,
+     "cy": 89.408,
+     "w": 21.184,
+     "h": 2.54,
+     "rotDeg": 0.0,
+     "zMin": 0.0,
+     "zMax": 8.508
+    }
+   ]
+  },
+  {
+   "type": "J26_RPI",
+   "label": "J26 Raspberry Pi header",
+   "kind": "header",
+   "refdes": [
+    "J26"
+   ],
+   "pinNets": {
+    "J26.1": "RPI_3P3V",
+    "J26.2": "RPI_5V",
+    "J26.3": "RPI_GPIO2_SDA",
+    "J26.4": "RPI_5V",
+    "J26.5": "RPI_GPIO3_SCL",
+    "J26.6": "GND",
+    "J26.7": "RPI_GPIO4_GCLK",
+    "J26.8": "RPI_GPIO14_TXD0",
+    "J26.9": "GND",
+    "J26.10": "RPI_GPIO15_RXD0",
+    "J26.11": "RPI_GPIO17_GEN0",
+    "J26.12": "RPI_GPIO18_GEN1",
+    "J26.13": "RPI_GPIO27_GEN2",
+    "J26.14": "GND",
+    "J26.15": "RPI_GPIO22_GEN3",
+    "J26.16": "RPI_GPIO23_GEN4",
+    "J26.17": "RPI_3P3V",
+    "J26.18": "RPI_GPIO24_GEN5",
+    "J26.19": "RPI_GPIO10_SPI_MOSI",
+    "J26.20": "GND",
+    "J26.21": "RPI_GPIO9_SPI_MISO",
+    "J26.22": "RPI_GPIO25_GEN6",
+    "J26.23": "RPI_GPIO11_SPI_SCLK",
+    "J26.24": "RPI_GPIO8_SPI_CE0_N",
+    "J26.25": "GND",
+    "J26.26": "RPI_GPIO7_SPI_CE1_N",
+    "J26.27": "RPI_ID_SD",
+    "J26.28": "RPI_ID_SC",
+    "J26.29": "RPI_GPIO5",
+    "J26.30": "GND",
+    "J26.31": "RPI_GPIO6",
+    "J26.32": "RPI_GPIO12",
+    "J26.33": "RPI_GPIO13",
+    "J26.34": "GND",
+    "J26.35": "RPI_GPIO19",
+    "J26.36": "RPI_GPIO16",
+    "J26.37": "RPI_GPIO26",
+    "J26.38": "RPI_GPIO20",
+    "J26.39": "GND",
+    "J26.40": "RPI_GPIO21"
+   },
+   "attach": {
+    "x": 144.653,
+    "y": 6.35,
+    "z": 8.5,
+    "rotationDeg": 180,
+    "side": "top"
+   },
+   "allowed": [
+    "rpi-breakout",
+    "st7789-hat"
+   ],
+   "heightMm": 8.5,
+   "boxes": [
+    {
+     "refdes": "J26",
+     "cx": 144.653,
+     "cy": 6.35,
+     "w": 51.308,
+     "h": 5.08,
+     "rotDeg": 0.0,
+     "zMin": 0.0,
+     "zMax": 8.5
+    }
+   ]
+  },
+  {
+   "type": "J30_SD",
+   "label": "J30 SD card",
+   "kind": "edge",
+   "refdes": [
+    "J30"
+   ],
+   "pinNets": {
+    "J30.1": "SD_DAT3",
+    "J30.2": "SD_CMD",
+    "J30.3": "GND",
+    "J30.4": "3P3V",
+    "J30.5": "SD_CLK",
+    "J30.6": "GND",
+    "J30.7": "SD_DAT0",
+    "J30.8": "SD_DAT1",
+    "J30.9": "SD_DAT2",
+    "J30.CD": "SW_SD_CD#",
+    "J30.S1": "GND",
+    "J30.S2": "GND",
+    "J30.WP": "SW_SD_WP#"
+   },
+   "attach": {
+    "x": 72.32,
+    "y": -0.014,
+    "z": 1.504,
+    "rotationDeg": 90,
+    "side": "top"
+   },
+   "allowed": [
+    "sd-card"
+   ],
+   "heightMm": 3.008,
+   "boxes": [
+    {
+     "refdes": "J30",
+     "cx": 71.87,
+     "cy": 14.5,
+     "w": 28.9,
+     "h": 29.0,
+     "rotDeg": 180.0,
+     "zMin": 0.0,
+     "zMax": 3.008
+    }
+   ]
+  },
+  {
+   "type": "J1_RJ45",
+   "label": "J1 Ethernet (VSC8662 port)",
+   "kind": "edge",
+   "refdes": [
+    "J1"
+   ],
+   "pinNets": {
+    "J1.1": "N20982987",
+    "J1.2": "N20982973",
+    "J1.3": "N20982960",
+    "J1.4": "N20853985",
+    "J1.5": "N20982930",
+    "J1.6": "N20982934",
+    "J1.7": "N20853986",
+    "J1.8": "N20982942",
+    "J1.9": "Net_26",
+    "J1.10": "Net_27",
+    "J1.11": "Net_28",
+    "J1.12": "Net_29",
+    "J1.13": "SHLD_GND1",
+    "J1.14": "SHLD_GND1"
+   },
+   "attach": {
+    "x": 184.683,
+    "y": 50.8,
+    "z": 6.798,
+    "rotationDeg": 0,
+    "side": "top"
+   },
+   "allowed": [
+    "eth-peer"
+   ],
+   "heightMm": 13.595,
+   "boxes": [
+    {
+     "refdes": "J1",
+     "cx": 174.93,
+     "cy": 50.8,
+     "w": 16.65,
+     "h": 15.9,
+     "rotDeg": 90.0,
+     "zMin": 0.0,
+     "zMax": 13.595
+    }
+   ]
+  },
+  {
+   "type": "J2_RJ45",
+   "label": "J2 Ethernet (VSC8662 port)",
+   "kind": "edge",
+   "refdes": [
+    "J2"
+   ],
+   "pinNets": {
+    "J2.1": "N17527982",
+    "J2.2": "N17527978",
+    "J2.3": "N17527968",
+    "J2.4": "N17528055",
+    "J2.5": "N17527937",
+    "J2.6": "N17527941",
+    "J2.7": "N17528057",
+    "J2.8": "N17527947",
+    "J2.9": "Net_30",
+    "J2.10": "Net_31",
+    "J2.11": "Net_32",
+    "J2.12": "Net_33",
+    "J2.13": "SHLD_GND2",
+    "J2.14": "SHLD_GND2"
+   },
+   "attach": {
+    "x": 184.683,
+    "y": 25.4,
+    "z": 6.798,
+    "rotationDeg": 0,
+    "side": "top"
+   },
+   "allowed": [
+    "eth-peer"
+   ],
+   "heightMm": 13.595,
+   "boxes": [
+    {
+     "refdes": "J2",
+     "cx": 174.93,
+     "cy": 25.4,
+     "w": 16.65,
+     "h": 15.9,
+     "rotDeg": 90.0,
+     "zMin": 0.0,
+     "zMax": 13.595
+    }
+   ]
+  },
+  {
+   "type": "J6_PCIE",
+   "label": "J6 PCIe x16 slot (x4)",
+   "kind": "edge",
+   "refdes": [
+    "J6"
+   ],
+   "pinNets": {
+    "J6.A1": "PCIE_PRSNT#1",
+    "J6.A2": "12P0V_PCIEX16",
+    "J6.A3": "12P0V_PCIEX16",
+    "J6.A4": "GND",
+    "J6.A5": "Net_1180",
+    "J6.A6": "N30302873",
+    "J6.A7": "N30302889",
+    "J6.A8": "Net_1179",
+    "J6.A9": "3P3V_PCIEX16",
+    "J6.A10": "3P3V_PCIEX16",
+    "J6.A11": "N29900835",
+    "J6.A12": "GND",
+    "J6.A13": "PCIE_REFCLKP",
+    "J6.A14": "PCIE_REFCLKN",
+    "J6.A15": "GND",
+    "J6.A16": "PCIE_RX0_P",
+    "J6.A17": "PCIE_RX0_N",
+    "J6.A18": "GND",
+    "J6.A19": "N29898168",
+    "J6.A20": "GND",
+    "J6.A21": "PCIE_RX1_P",
+    "J6.A22": "PCIE_RX1_N",
+    "J6.A23": "GND",
+    "J6.A24": "GND",
+    "J6.A25": "PCIE_RX2_P",
+    "J6.A26": "PCIE_RX2_N",
+    "J6.A27": "GND",
+    "J6.A28": "GND",
+    "J6.A29": "PCIE_RX3_P",
+    "J6.A30": "PCIE_RX3_N",
+    "J6.A31": "GND",
+    "J6.A32": "N29898186",
+    "J6.A33": "N29898222",
+    "J6.A34": "GND",
+    "J6.A35": "Net_1211",
+    "J6.A36": "Net_1223",
+    "J6.A37": "GND",
+    "J6.A38": "GND",
+    "J6.A39": "Net_1210",
+    "J6.A40": "Net_1222",
+    "J6.A41": "GND",
+    "J6.A42": "GND",
+    "J6.A43": "Net_1209",
+    "J6.A44": "Net_1221",
+    "J6.A45": "GND",
+    "J6.A46": "GND",
+    "J6.A47": "Net_1208",
+    "J6.A48": "Net_1220",
+    "J6.A49": "GND",
+    "J6.A50": "N29898204",
+    "J6.A51": "GND",
+    "J6.A52": "Net_1207",
+    "J6.A53": "Net_1219",
+    "J6.A54": "GND",
+    "J6.A55": "GND",
+    "J6.A56": "Net_1206",
+    "J6.A57": "Net_1218",
+    "J6.A58": "GND",
+    "J6.A59": "GND",
+    "J6.A60": "Net_1217",
+    "J6.A61": "Net_1229",
+    "J6.A62": "GND",
+    "J6.A63": "GND",
+    "J6.A64": "Net_1216",
+    "J6.A65": "Net_1228",
+    "J6.A66": "GND",
+    "J6.A67": "GND",
+    "J6.A68": "Net_1215",
+    "J6.A69": "Net_1227",
+    "J6.A70": "GND",
+    "J6.A71": "GND",
+    "J6.A72": "Net_1214",
+    "J6.A73": "Net_1226",
+    "J6.A74": "GND",
+    "J6.A75": "GND",
+    "J6.A76": "Net_1213",
+    "J6.A77": "Net_1225",
+    "J6.A78": "GND",
+    "J6.A79": "GND",
+    "J6.A80": "Net_1212",
+    "J6.A81": "Net_1224",
+    "J6.A82": "GND",
+    "J6.B1": "12P0V_PCIEX16",
+    "J6.B2": "12P0V_PCIEX16",
+    "J6.B3": "12P0V_PCIEX16",
+    "J6.B4": "GND",
+    "J6.B5": "N30303807",
+    "J6.B6": "N30303814",
+    "J6.B7": "GND",
+    "J6.B8": "3P3V_PCIEX16",
+    "J6.B9": "Net_1181",
+    "J6.B10": "3P3V_AUX_PCIEX16",
+    "J6.B11": "N29905904",
+    "J6.B12": "N29898115",
+    "J6.B13": "GND",
+    "J6.B14": "PCIE_TX0_P",
+    "J6.B15": "PCIE_TX0_N",
+    "J6.B16": "GND",
+    "J6.B17": "N29899181",
+    "J6.B18": "GND",
+    "J6.B19": "PCIE_TX1_P",
+    "J6.B20": "PCIE_TX1_N",
+    "J6.B21": "GND",
+    "J6.B22": "GND",
+    "J6.B23": "PCIE_TX2_P",
+    "J6.B24": "PCIE_TX2_N",
+    "J6.B25": "GND",
+    "J6.B26": "GND",
+    "J6.B27": "PCIE_TX3_P",
+    "J6.B28": "PCIE_TX3_N",
+    "J6.B29": "GND",
+    "J6.B30": "N29898129",
+    "J6.B31": "N29899226",
+    "J6.B32": "GND",
+    "J6.B33": "Net_1187",
+    "J6.B34": "Net_1199",
+    "J6.B35": "GND",
+    "J6.B36": "GND",
+    "J6.B37": "Net_1186",
+    "J6.B38": "Net_1198",
+    "J6.B39": "GND",
+    "J6.B40": "GND",
+    "J6.B41": "Net_1185",
+    "J6.B42": "Net_1197",
+    "J6.B43": "GND",
+    "J6.B44": "GND",
+    "J6.B45": "Net_1184",
+    "J6.B46": "Net_1196",
+    "J6.B47": "GND",
+    "J6.B48": "N29899271",
+    "J6.B49": "GND",
+    "J6.B50": "Net_1183",
+    "J6.B51": "Net_1195",
+    "J6.B52": "GND",
+    "J6.B53": "GND",
+    "J6.B54": "Net_1182",
+    "J6.B55": "Net_1194",
+    "J6.B56": "GND",
+    "J6.B57": "GND",
+    "J6.B58": "Net_1193",
+    "J6.B59": "Net_1205",
+    "J6.B60": "GND",
+    "J6.B61": "GND",
+    "J6.B62": "Net_1192",
+    "J6.B63": "Net_1204",
+    "J6.B64": "GND",
+    "J6.B65": "GND",
+    "J6.B66": "Net_1191",
+    "J6.B67": "Net_1203",
+    "J6.B68": "GND",
+    "J6.B69": "GND",
+    "J6.B70": "Net_1190",
+    "J6.B71": "Net_1202",
+    "J6.B72": "GND",
+    "J6.B73": "GND",
+    "J6.B74": "Net_1189",
+    "J6.B75": "Net_1201",
+    "J6.B76": "GND",
+    "J6.B77": "GND",
+    "J6.B78": "Net_1188",
+    "J6.B79": "Net_1200",
+    "J6.B80": "GND",
+    "J6.B81": "N18610856",
+    "J6.B82": "N18611330"
+   },
+   "attach": {
+    "x": 97.085,
+    "y": 125.73,
+    "z": -0.8,
+    "rotationDeg": -90,
+    "side": "bottom"
+   },
+   "allowed": [
+    "nvme-card",
+    "pcie-display-card"
+   ],
+   "heightMm": 5.4,
+   "boxes": [
+    {
+     "refdes": "J6",
+     "cx": 97.085,
+     "cy": 127.58,
+     "w": 98.8,
+     "h": 16.3,
+     "rotDeg": 0.0,
+     "zMin": -7.0,
+     "zMax": -1.6
+    }
+   ]
+  },
+  {
+   "type": "J25_CAN",
+   "label": "J25 CAN 1 (CANH1/CANL1)",
+   "kind": "header",
+   "refdes": [
+    "J25"
+   ],
+   "pinNets": {
+    "J25.1": "CANH1",
+    "J25.2": "CANL1",
+    "J25.3": "GND"
+   },
+   "attach": {
+    "x": 130.302,
+    "y": 55.499,
+    "z": 8.5,
+    "rotationDeg": 0,
+    "side": "top"
+   },
+   "allowed": [
+    "can-cable"
+   ],
+   "heightMm": 8.5,
+   "boxes": [
+    {
+     "refdes": "J25",
+     "cx": 130.302,
+     "cy": 55.499,
+     "w": 2.54,
+     "h": 7.92,
+     "rotDeg": 90.0,
+     "zMin": 0.0,
+     "zMax": 8.5
+    }
+   ]
+  },
+  {
+   "type": "J27_CAN",
+   "label": "J27 CAN 2 (CANH2/CANL2)",
+   "kind": "header",
+   "refdes": [
+    "J27"
+   ],
+   "pinNets": {
+    "J27.1": "CANH2",
+    "J27.2": "CANL2",
+    "J27.3": "GND"
+   },
+   "attach": {
+    "x": 142.113,
+    "y": 55.499,
+    "z": 8.5,
+    "rotationDeg": 0,
+    "side": "top"
+   },
+   "allowed": [
+    "can-cable"
+   ],
+   "heightMm": 8.5,
+   "boxes": [
+    {
+     "refdes": "J27",
+     "cx": 142.113,
+     "cy": 55.499,
+     "w": 2.54,
+     "h": 7.92,
+     "rotDeg": 90.0,
+     "zMin": 0.0,
+     "zMax": 8.5
+    }
+   ]
+  },
+  {
+   "type": "PROBE",
+   "label": "Any pin or pad (logic analyser lead)",
+   "kind": "probe",
+   "refdes": [],
+   "pinNets": {},
+   "attach": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "rotationDeg": 0,
+    "side": "top"
+   },
+   "allowed": [
+    "la-pod"
+   ],
+   "heightMm": 0,
+   "boxes": []
+  }
+ ],
+ "powerInputs": [
+  {
+   "type": "J29_DC",
+   "label": "J29 12 V DC jack",
+   "kind": "edge",
+   "refdes": [
+    "J29"
+   ],
+   "pinNets": {
+    "J29.1": "12P0V_IN",
+    "J29.2": "GND",
+    "J29.3": "GND"
+   },
+   "attach": {
+    "x": -0.2,
+    "y": 37.338,
+    "z": 5.5,
+    "rotationDeg": 180,
+    "side": "top"
+   },
+   "allowed": [
+    "power-brick"
+   ],
+   "heightMm": 11.0,
+   "boxes": [
+    {
+     "refdes": "J29",
+     "cx": 7.2,
+     "cy": 37.338,
+     "w": 9.0,
+     "h": 14.4,
+     "rotDeg": -90.0,
+     "zMin": 0.0,
+     "zMax": 11.0
+    }
+   ],
+   "command": "power"
+  }
+ ]
+}

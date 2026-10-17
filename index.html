@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content="Interactive digital twin of the Microchip PolarFire SoC Icicle Kit." />
+    <link rel="icon" href="data:," />
+    <title>Icicle Twin</title>
+    <script>
+      // Paint the stored theme before the first frame (the top bar owns this key), so a reload in the
+      // light theme does not flash dark.
+      try {
+        if (localStorage.getItem('icicle-twin.theme') === 'light') {
+          document.documentElement.dataset.theme = 'light';
+        }
+      } catch (e) {
+        // Storage blocked: dark.
+      }
+      // "Real CPU (QEMU)" mode needs cross-origin isolation (SharedArrayBuffer). Only a browser that has
+      // chosen it loads the COOP/COEP service worker (src/qemu/isolation.ts); everyone else gets none.
+      // Relative URL: the worker's scope is the site's base path.
+      try {
+        if (localStorage.getItem('icicle-twin.qemu') === 'on') {
+          window.coi = { quiet: true };
+          var coi = document.createElement('script');
+          coi.src = 'coi-serviceworker.js';
+          document.head.appendChild(coi);
+        }
+      } catch (e) {
+        // Storage blocked: no QEMU mode.
+      }
+    </script>
+    <script type="module" crossorigin src="/icicle-twin-site/assets/index-DXUR0v1d.js"></script>
+    <link rel="modulepreload" crossorigin href="/icicle-twin-site/assets/three-DOg7Sj7_.js">
+    <link rel="stylesheet" crossorigin href="/icicle-twin-site/assets/index-DDgLqFRc.css">
+  </head>
+  <body data-mode="both">
+    <!-- The 3-D stage (WP-10). The chrome (WP-14) mounts above it from src/app. -->
+    <main class="tw-stage" id="stage">
+      <canvas id="stage-canvas" class="tw-stage-canvas" aria-label="3-D view of the Icicle Kit"></canvas>
+      <p id="stage-status" class="tw-stage-status" role="status" aria-live="polite">Loading…</p>
+    </main>
+  </body>
+</html>

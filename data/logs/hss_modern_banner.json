@@ -1,0 +1,164 @@
+{
+  "schema": "icicle-twin/banner@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "hss": {
+      "title": "Hart Software Services (HSS)",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md and per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services (shallow clone, git-ignored)"
+    },
+    "docs": {
+      "title": "PolarFire SoC documentation",
+      "repo": "https://github.com/polarfire-soc/polarfire-soc-documentation",
+      "commit": "f844a87d7849bd43335d147a3d9a6907b6f9da24",
+      "licence": "CC-BY-4.0",
+      "licence_note": "LICENSE.txt: licensed under CC BY 4.0",
+      "local": "reference/vendor/gh-polarfire-soc-documentation (shallow clone, git-ignored)"
+    }
+  },
+  "id": "hss_modern_banner",
+  "console": "MMUART0",
+  "format_source": {
+    "file": "application/hart0/hss_init.c",
+    "lines": [197, 222],
+    "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/application/hart0/hss_init.c#L197-L222",
+    "blob_sha1": "5d0d141ec734b29f0a88e971458be682dfedda0b",
+    "verbatim": [
+      "    mHSS_FANCY_PRINTF(LOG_STATUS,",
+      "        \"PolarFire(R) SoC Hart Software Services (HSS) - version %d.%d.%d-\" STR(VENDOR_STRING) \"\\n\"",
+      "        \"MPFS HAL version %d.%d.%d\"",
+      "#if !IS_ENABLED(CONFIG_SKIP_DDR)",
+      "        \" / DDR Driver version %s\"",
+      "#endif",
+      "#if IS_ENABLED(CONFIG_USE_IHC) || IS_ENABLED(CONFIG_USE_IHC_V2)",
+      "\t\" / Mi-V IHC version %d.%d.%d\"",
+      "#endif",
+      "        \" / BOARD=\" STR(BOARD)",
+      "        \"\\n\"",
+      "        \"(c) Copyright 2017-2025 Microchip FPGA Embedded Systems Solutions.\\n\\n\"",
+      "        \"incorporating OpenSBI - version %d.%d\\n\"",
+      "        \"(c) Copyright 2019-2022 Western Digital Corporation.\\n\\n\",",
+      "        HSS_VERSION_MAJOR, HSS_VERSION_MINOR, HSS_VERSION_PATCH,",
+      "        MPFS_HAL_VERSION_MAJOR, MPFS_HAL_VERSION_MINOR, MPFS_HAL_VERSION_PATCH",
+      "#if !IS_ENABLED(CONFIG_SKIP_DDR)",
+      "        , DDR_DRIVER_VERSION",
+      "#endif",
+      "#if IS_ENABLED(CONFIG_USE_IHC) || IS_ENABLED(CONFIG_USE_IHC_V2)",
+      "\t// add the comma separator here if adding IHC version information to prevent a",
+      "\t// compile error on the macro if CONFIG_USE_IHC is not enabled",
+      "\t, MIV_IHC_VERSION_MAJOR, MIV_IHC_VERSION_MINOR, MIV_IHC_VERSION_PATCH",
+      "#endif",
+      "        , OPENSBI_VERSION_MAJOR, OPENSBI_VERSION_MINOR",
+      "    );"
+    ]
+  },
+  "printed_as": "one mHSS_FANCY_PRINTF(LOG_STATUS, ...): '[sec.usec]' timestamp, then ' HSS_E51_Banner(): ' only when CONFIG_LOG_FUNCTION_NAMES=y, then the text below",
+  "template": [
+    "PolarFire(R) SoC Hart Software Services (HSS) - version {hss_version}-{vendor}",
+    "MPFS HAL version {hal_version} / DDR Driver version {ddr_driver} / Mi-V IHC version {ihc_version} / BOARD={board}",
+    "(c) Copyright 2017-2025 Microchip FPGA Embedded Systems Solutions.",
+    "",
+    "incorporating OpenSBI - version {opensbi_version}",
+    "(c) Copyright 2019-2022 Western Digital Corporation.",
+    ""
+  ],
+  "versions_at_commit": {
+    "HSS_VERSION_MAJOR": {"value": 0, "file": "include/hss_version.h"},
+    "HSS_VERSION_MINOR": {"value": 99, "file": "include/hss_version.h"},
+    "HSS_VERSION_PATCH": {"value": 53, "file": "include/hss_version.h"},
+    "MPFS_HAL_VERSION_MAJOR": {"value": 2, "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/mpfs_hal_version.h"},
+    "MPFS_HAL_VERSION_MINOR": {"value": 3, "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/mpfs_hal_version.h"},
+    "MPFS_HAL_VERSION_PATCH": {"value": 110, "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/mpfs_hal_version.h"},
+    "MIV_IHC_VERSION_MAJOR": {"value": 2, "file": "baremetal/drivers/fpga_ip/miv_ihc_v2/miv_ihc_version.h"},
+    "MIV_IHC_VERSION_MINOR": {"value": 0, "file": "baremetal/drivers/fpga_ip/miv_ihc_v2/miv_ihc_version.h"},
+    "MIV_IHC_VERSION_PATCH": {"value": 64, "file": "baremetal/drivers/fpga_ip/miv_ihc_v2/miv_ihc_version.h"},
+    "OPENSBI_VERSION_MAJOR": {"value": 1, "file": "thirdparty/opensbi/include/sbi/sbi_version.h"},
+    "OPENSBI_VERSION_MINOR": {"value": 2, "file": "thirdparty/opensbi/include/sbi/sbi_version.h"}
+  },
+  "def_config": {
+    "CONFIG_LOG_FUNCTION_NAMES": "not set",
+    "CONFIG_DEBUG_LOG_STATE_TRANSITIONS": "y",
+    "CONFIG_USE_IHC_V2": "y",
+    "CONFIG_SERVICE_TINYCLI_TIMEOUT": "1",
+    "CONFIG_SERVICE_MMC_BUS_VOLTAGE_1V8": "y",
+    "CONFIG_SERVICE_MMC_FABRIC_SD_EMMC_DEMUX_SELECT_ADDRESS": "0x4fffff00",
+    "CONFIG_SERVICE_BOOT_DDR_TARGET_ADDR": "0x103FC00000"
+  },
+  "differences_from_hss_json": [
+    "No 'Function(): ' prefix: def_config leaves CONFIG_LOG_FUNCTION_NAMES unset (the #552 build had it on).",
+    "State transitions print as '%s :: [%s] -> [%s]' (application/hart0/hss_state_machine.c L131) instead of 'name :: A -> B'.",
+    "globalInitFunctions (application/hart0/hss_registry.c) run IHC, IPI and PMP init before the banner; #552 prints them after the CLI.",
+    "def_config boots to CONFIG_SERVICE_BOOT_DDR_TARGET_ADDR=0x103FC00000; the #552 log copies the image to 0xa0000000."
+  ],
+  "real_sample_2022": {
+    "note": "Real capture, HSS 0.99.33-dev-build, BOARD=mpfs-icicle-s, Linux boot authentication how-to. Shows the modern banner layout without function names.",
+    "file": "how-to/linux-boot-authentication.md",
+    "url": "https://github.com/polarfire-soc/polarfire-soc-documentation/blob/f844a87d7849bd43335d147a3d9a6907b6f9da24/how-to/linux-boot-authentication.md#L518-L541",
+    "licence": "CC-BY-4.0",
+    "lines": [
+      {"src_line": 518, "text": "[6.264467] PolarFire(R) SoC Hart Software Services (HSS) - version 0.99.33-dev-build"},
+      {"src_line": 519, "text": "MPFS HAL version 2.0.101 / DDR Driver version 0.4.018 / Mi-V IHC version 0.1.1 / BOARD=mpfs-icicle-s"},
+      {"src_line": 520, "text": "(c) Copyright 2017-2022 Microchip FPGA Embedded Systems Solutions"},
+      {"src_line": 521, "text": ""},
+      {"src_line": 522, "text": "..."},
+      {"src_line": 523, "text": ""},
+      {"src_line": 524, "text": "Press a key to enter CLI, ESC to skip"},
+      {"src_line": 525, "text": "Timeout in 1 second"},
+      {"src_line": 526, "text": ".."},
+      {"src_line": 527, "text": "[7.589296] CLI boot interrupt timeout"},
+      {"src_line": 528, "text": "[7.594261] Initializing Mi-V IHC"},
+      {"src_line": 529, "text": "[7.598748] Initializing IPI Queues (6056 bytes @ 0xa037ce0)..."},
+      {"src_line": 530, "text": "[7.606100] Initializing PMPs"},
+      {"src_line": 531, "text": "[7.610206] Initializing Boot Image ..."},
+      {"src_line": 532, "text": "[7.615266] Trying to boot via MMC ..."},
+      {"src_line": 533, "text": "[7.620231] Preparing to copy from MMC to DDR ..."},
+      {"src_line": 534, "text": "[7.629007] Validated GPT Header ..."},
+      {"src_line": 535, "text": "[7.663805] Validated GPT Partition Entries ..."},
+      {"src_line": 536, "text": "[7.669967] Boot Partition found at index 1"},
+      {"src_line": 537, "text": "[7.675514] Attempting to read image header (1632 bytes) ..."},
+      {"src_line": 538, "text": "[7.685626] Copying 705024 bytes to 0xa0000000"},
+      {"src_line": 539, "text": "[7.720598] MMC: Boot Image registered ..."},
+      {"src_line": 540, "text": "[9.220997] ECDSA verification passed"},
+      {"src_line": 541, "text": "..."}
+    ]
+  },
+  "placeholder_details": {
+    "hss_version": {"c": "%d.%d.%d", "from": ["HSS_VERSION_MAJOR", "HSS_VERSION_MINOR", "HSS_VERSION_PATCH"], "source_value": "0.99.53"},
+    "vendor": {
+      "c": "STR(VENDOR_STRING)",
+      "from": "application/rules.mk: git describe --tags, else 'dev-build' (include/hss_version.h)",
+      "source_value": null
+    },
+    "hal_version": {"c": "%d.%d.%d", "from": ["MPFS_HAL_VERSION_MAJOR", "MPFS_HAL_VERSION_MINOR", "MPFS_HAL_VERSION_PATCH"], "source_value": "2.3.110"},
+    "ddr_driver": {"c": "%s", "from": "DDR_DRIVER_VERSION (mss_ddr.c DDR_DRIVER_VERSION_STRING); omitted when CONFIG_SKIP_DDR", "source_value": "0.4.035"},
+    "ihc_version": {
+      "c": "%d.%d.%d",
+      "from": "MIV_IHC_VERSION_* (miv_ihc_v2 because def_config has CONFIG_USE_IHC_V2=y); omitted without IHC",
+      "source_value": "2.0.64"
+    },
+    "board": {"c": "STR(BOARD)", "from": "build BOARD", "source_value": "mpfs-icicle-kit"},
+    "opensbi_version": {"c": "%d.%d", "from": ["OPENSBI_VERSION_MAJOR", "OPENSBI_VERSION_MINOR"], "source_value": "1.2"}
+  },
+  "format": "PolarFire(R) SoC Hart Software Services (HSS) - version {hss_version}-{vendor}\nMPFS HAL version {hal_version} / DDR Driver version {ddr_driver} / Mi-V IHC version {ihc_version} / BOARD={board}\n(c) Copyright 2017-2025 Microchip FPGA Embedded Systems Solutions.\n\nincorporating OpenSBI - version {opensbi_version}\n(c) Copyright 2019-2022 Western Digital Corporation.\n",
+  "placeholders": {
+    "hss_version": "%d.%d.%d",
+    "vendor": "STR(VENDOR_STRING)",
+    "hal_version": "%d.%d.%d",
+    "ddr_driver": "%s",
+    "ihc_version": "%d.%d.%d",
+    "board": "STR(BOARD)",
+    "opensbi_version": "%d.%d"
+  },
+  "source": {
+    "file": "application/hart0/hss_init.c",
+    "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/application/hart0/hss_init.c#L197-L222",
+    "where": "lines 197-222",
+    "licence": "MIT",
+    "repo": "https://github.com/polarfire-soc/hart-software-services",
+    "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87"
+  }
+}

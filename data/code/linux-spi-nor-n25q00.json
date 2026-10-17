@@ -1,0 +1,48 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "linux-spi-nor": {
+      "title": "Linux drivers/mtd/spi-nor/micron-st.c",
+      "repo": "https://github.com/torvalds/linux",
+      "commit": null,
+      "ref": "master, retrieved 2026-10-16 (file pinned by git blob sha1 below)",
+      "licence": "GPL-2.0",
+      "licence_note": "SPDX-License-Identifier: GPL-2.0",
+      "local": "reference/vendor/linux-spi-nor/micron-st.c"
+    }
+  },
+  "id": "linux-spi-nor-n25q00",
+  "firstLine": 421,
+  "title": "micron-st.c: the n25q00 entry that matches JEDEC ID 20 BA 21",
+  "lang": "c",
+  "repo": "https://github.com/torvalds/linux",
+  "commit": "master@2026-10-16 (blob c75b0a1cd567)",
+  "ref": "master, retrieved 2026-10-16 (file pinned by git blob sha1 below)",
+  "path": "drivers/mtd/spi-nor/micron-st.c",
+  "start_line": 421,
+  "end_line": 430,
+  "url": "https://github.com/torvalds/linux/blob/master/drivers/mtd/spi-nor/micron-st.c#L421-L430",
+  "blob_sha1": "c75b0a1cd5676161db5c719d2d1a9b3d75aed439",
+  "licence": "GPL-2.0",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": "Copyright (C) 2005, Intec Automation Inc",
+  "steps": ["flash.qspi-probe"],
+  "note": "128 MiB, 4 KiB sectors, quad read, flag status register, 4-bit block protect with TB. Several Micron 1 Gb parts share this ID.",
+  "highlights": [],
+  "lines": [
+    "\t}, {",
+    "\t\t.id = SNOR_ID(0x20, 0xba, 0x21),",
+    "\t\t.name = \"n25q00\",",
+    "\t\t.size = SZ_128M,",
+    "\t\t.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_4BIT_BP |",
+    "\t\t\t SPI_NOR_BP3_SR_BIT6,",
+    "\t\t.no_sfdp_flags = SECT_4K | SPI_NOR_QUAD_READ,",
+    "\t\t.mfr_flags = USE_FSR,",
+    "\t\t.fixups = &n25q00_fixups,",
+    "\t}, {"
+  ],
+  "notes": {"421": "128 MiB, 4 KiB sectors, quad read, flag status register, 4-bit block protect with TB. Several Micron 1 Gb parts share this ID."},
+  "line_numbers_note": "line numbers are those of the master copy retrieved 2026-10-16 (blob_sha1)"
+}

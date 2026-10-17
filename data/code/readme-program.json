@@ -1,0 +1,46 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "refdesign": {
+      "title": "Icicle Kit Reference Design (Libero Tcl, PDC, README)",
+      "repo": "https://github.com/polarfire-soc/icicle-kit-reference-design",
+      "commit": "9c34320f91e8e8a144c7d87bf299527fc5f02081",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md (Copyright 2019-2023 Microchip Corporation, SPDX MIT); the .tcl/.pdc files carry no header of their own",
+      "local": "reference/vendor/gh-icicle-kit-reference-design (shallow clone, git-ignored)"
+    }
+  },
+  "id": "readme-program",
+  "firstLine": 349,
+  "title": "Reference design README: programming and boot mode 1 in Libero",
+  "lang": "md",
+  "repo": "https://github.com/polarfire-soc/icicle-kit-reference-design",
+  "commit": "9c34320f91e8e8a144c7d87bf299527fc5f02081",
+  "ref": null,
+  "path": "README.md",
+  "start_line": 349,
+  "end_line": 358,
+  "url": "https://github.com/polarfire-soc/icicle-kit-reference-design/blob/9c34320f91e8e8a144c7d87bf299527fc5f02081/README.md#L349-L358",
+  "blob_sha1": "252e214ca638436bae566eabc7cc2fc9d40bfc9a",
+  "licence": "MIT",
+  "licence_basis": "LICENSE.md (Copyright 2019-2023 Microchip Corporation, SPDX MIT); the .tcl/.pdc files carry no header of their own",
+  "copyright": "Copyright 2019-2023 Microchip Corporation (repository LICENSE.md; the file has no header)",
+  "steps": ["program.libero-flow"],
+  "note": "Configure Design Initialization Data and Memories adds the HSS as the boot mode 1 eNVM client.",
+  "highlights": [],
+  "lines": [
+    "#### Boot mode 1: Libero SoC",
+    "",
+    "To set the PolarFire SoC boot mode to 1 and program and eNVM client in Libero:",
+    "",
+    "1. Run the Libero SoC design flow so that \"Generate FPGA Array Data\" has completed and open the \"Configure Design Initialization Data and Memories\" tool",
+    "2. Select the \"eNVM\" tab",
+    "3. Select the \"Add ...\" option and select \"Add Boot Mode 1\" client",
+    "4. Navigate to the binary file to be used as a client and select ok",
+    "5. Save and add the client",
+    "6. Run the remainder of the Libero SoC design flow and program the device"
+  ],
+  "notes": {"349": "Configure Design Initialization Data and Memories adds the HSS as the boot mode 1 eNVM client."}
+}

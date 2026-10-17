@@ -1,0 +1,339 @@
+{
+ "schema": "icicle-twin/board.meta@1",
+ "generatedAt": "2026-10-17T08:31:16Z",
+ "generator": "tools/board/parse_kicad.py 1.0",
+ "approximate": false,
+ "kicadVersion": "10.0 (file format 20260206)",
+ "sources": [
+  {
+   "path": "reference/vendor/microchip-board-files/icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd",
+   "sha256": "6359e97fde3bd793ff1fc3e4513eeef2da9b4843c28405843b6a5068d6c5b659",
+   "bytes": 17396472,
+   "role": "brd"
+  },
+  {
+   "path": "build/kicad/icicle.kicad_pcb",
+   "sha256": "91f21ecb797254c695c3d54eb9f3a673dbab1e9b4154ddaae45105c5b1363757",
+   "bytes": 47354252,
+   "role": "kicad_pcb"
+  },
+  {
+   "path": "build/kicad/icicle-pos.csv",
+   "sha256": "f8798a18ffd5b89ce3162676cf5ba1dc8b28493395e9bb65b93b6744b211faa2",
+   "bytes": 63785,
+   "role": "pos"
+  },
+  {
+   "path": "build/kicad/icicle.ipc",
+   "sha256": "cb7d9c6eb10450fab267d5b515335d1884ccc77b87593ae26b3c598e46d41c1d",
+   "bytes": 640926,
+   "role": "ipc"
+  },
+  {
+   "path": "reference/derived/bom_rev1p0_by_refdes.csv",
+   "sha256": "6f0c599da09876d1228aac9c40b7e8f7e5b4d65286e01e5172cc38ee2a0791e6",
+   "bytes": 114713,
+   "role": "bom"
+  },
+  {
+   "path": "reference/vendor/silkscreen/silk_top.json",
+   "sha256": "d277d1358f71cb10e9fed2fbb2abed6c5029992bc7d790d992540dad96fce95c",
+   "bytes": 557910,
+   "role": "silkTop"
+  },
+  {
+   "path": "reference/vendor/silkscreen/silk_bottom.json",
+   "sha256": "e0cd307940130925a180b3aa43fcd927a2a1285c9bb254085c3034e6bf1eaacc",
+   "bytes": 1295949,
+   "role": "silkBottom"
+  },
+  {
+   "path": "reference/ICICLE_KIT_Schematics.pdf",
+   "sha256": "d32a86d30f21caa23b2d9fd4a9ecc7bf4fb0e271b490bfb1b2f1f7d3bdf0e18c",
+   "bytes": 1024543,
+   "role": "schematic"
+  },
+  {
+   "path": "reference/derived/refdesign_es_2026.04_io_pins.json",
+   "sha256": "ff1d2d37498a8f07f8b0b087c754276a47e6387c59bc8db1e588a4cd2a1045e8",
+   "bytes": 10989,
+   "role": "ioPins"
+  }
+ ],
+ "kicadToBoard": [
+  1,
+  0,
+  0,
+  1,
+  4.191,
+  121.539
+ ],
+ "stackup": {
+  "thicknessMm": 1.6,
+  "source": "even spread (the import carries no stackup)",
+  "copper": [
+   {
+    "id": "TOP",
+    "zMm": 0.0
+   },
+   {
+    "id": "L2_GND1",
+    "zMm": -0.1778
+   },
+   {
+    "id": "L3_SIG1",
+    "zMm": -0.3556
+   },
+   {
+    "id": "L4_GND2",
+    "zMm": -0.5333
+   },
+   {
+    "id": "L5_PWR1",
+    "zMm": -0.7111
+   },
+   {
+    "id": "L6_PWR2",
+    "zMm": -0.8889
+   },
+   {
+    "id": "L7_GND3",
+    "zMm": -1.0667
+   },
+   {
+    "id": "L8_SIG2",
+    "zMm": -1.2444
+   },
+   {
+    "id": "L9_GND4",
+    "zMm": -1.4222
+   },
+   {
+    "id": "BOTTOM",
+    "zMm": -1.6
+   }
+  ]
+ },
+ "counts": {
+  "footprints": 1275,
+  "footprintsWithRef": 1258,
+  "pads": 4733,
+  "tracks": 13769,
+  "arcs": 120,
+  "vias": 3812,
+  "zones": 452,
+  "zonesTotal": 579,
+  "zonesCopper": 434,
+  "keepouts": 145,
+  "copperShapes": 9,
+  "dupOutlineZonesDropped": 9,
+  "nets": 1237,
+  "unnamedNets": 772,
+  "drills": 4021,
+  "holes": 20,
+  "zoneFillPoints": 851868
+ },
+ "frame": {
+  "origin": "board top-left corner seen from the top",
+  "x": "right",
+  "y": "down",
+  "units": "mm",
+  "width": 182.88,
+  "height": 125.73,
+  "fromMech": "x_b = x_mech + 4.191; y_b = 121.539 - y_mech",
+  "rotation": "degrees, positive = counter-clockwise as seen from the top (KiCad convention)"
+ },
+ "layerStats": [
+  {
+   "id": "TOP",
+   "tracks": 4565,
+   "arcs": 71,
+   "pads": 3174,
+   "zones": 192,
+   "zonePoints": 5812,
+   "bytes": 279979
+  },
+  {
+   "id": "L2_GND1",
+   "tracks": 0,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 3,
+   "zonePoints": 114784,
+   "bytes": 780312
+  },
+  {
+   "id": "L3_SIG1",
+   "tracks": 2601,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 34,
+   "zonePoints": 60265,
+   "bytes": 481042
+  },
+  {
+   "id": "L4_GND2",
+   "tracks": 0,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 3,
+   "zonePoints": 113755,
+   "bytes": 773534
+  },
+  {
+   "id": "L5_PWR1",
+   "tracks": 0,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 12,
+   "zonePoints": 131519,
+   "bytes": 893354
+  },
+  {
+   "id": "L6_PWR2",
+   "tracks": 0,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 10,
+   "zonePoints": 137171,
+   "bytes": 930773
+  },
+  {
+   "id": "L7_GND3",
+   "tracks": 0,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 3,
+   "zonePoints": 113756,
+   "bytes": 773542
+  },
+  {
+   "id": "L8_SIG2",
+   "tracks": 3003,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 25,
+   "zonePoints": 50230,
+   "bytes": 420376
+  },
+  {
+   "id": "L9_GND4",
+   "tracks": 0,
+   "arcs": 0,
+   "pads": 189,
+   "zones": 3,
+   "zonePoints": 113755,
+   "bytes": 773534
+  },
+  {
+   "id": "BOTTOM",
+   "tracks": 3600,
+   "arcs": 49,
+   "pads": 1728,
+   "zones": 167,
+   "zonePoints": 10821,
+   "bytes": 317755
+  }
+ ],
+ "posCheck": {
+  "matched": 1258,
+  "posRows": 1275,
+  "maxErrorMm": 6.7e-05,
+  "worst": "R303"
+ },
+ "importFixes": [
+  {
+   "fix": "straddle pad row moved to the opposite outer layer",
+   "pads": [
+    "J6.B1",
+    "J6.B2",
+    "J6.B3",
+    "J6.B4",
+    "J6.B5",
+    "J6.B6",
+    "J6.B7",
+    "J6.B8",
+    "J6.B9",
+    "J6.B10",
+    "J6.B11",
+    "J6.B12",
+    "J6.B13",
+    "J6.B14",
+    "J6.B15",
+    "J6.B16",
+    "J6.B17",
+    "J6.B18",
+    "J6.B19",
+    "J6.B20",
+    "J6.B21",
+    "J6.B22",
+    "J6.B23",
+    "J6.B24",
+    "J6.B25",
+    "J6.B26",
+    "J6.B27",
+    "J6.B28",
+    "J6.B29",
+    "J6.B30",
+    "J6.B31",
+    "J6.B32",
+    "J6.B33",
+    "J6.B34",
+    "J6.B35",
+    "J6.B36",
+    "J6.B37",
+    "J6.B38",
+    "J6.B39",
+    "J6.B40",
+    "J6.B41",
+    "J6.B42",
+    "J6.B43",
+    "J6.B44",
+    "J6.B45",
+    "J6.B46",
+    "J6.B47",
+    "J6.B48",
+    "J6.B49",
+    "J6.B50",
+    "J6.B51",
+    "J6.B52",
+    "J6.B53",
+    "J6.B54",
+    "J6.B55",
+    "J6.B56",
+    "J6.B57",
+    "J6.B58",
+    "J6.B59",
+    "J6.B60",
+    "J6.B61",
+    "J6.B62",
+    "J6.B63",
+    "J6.B64",
+    "J6.B65",
+    "J6.B66",
+    "J6.B67",
+    "J6.B68",
+    "J6.B69",
+    "J6.B70",
+    "J6.B71",
+    "J6.B72",
+    "J6.B73",
+    "J6.B74",
+    "J6.B75",
+    "J6.B76",
+    "J6.B77",
+    "J6.B78",
+    "J6.B79",
+    "J6.B80",
+    "J6.B81",
+    "J6.B82"
+   ]
+  }
+ ],
+ "simplifyUm": 0.0,
+ "notes": [
+  "Footprint Edge.Cuts items of J6 repeat the board outline and are not used.",
+  "Graphic lines on inner copper (1.27 mm, 10 per inner plane layer) are Allegro plane-void drawings, not copper; they are not exported.",
+  "Net-less zone outlines that repeat a copper gr_poly are dropped (the gr_poly is exported as a zone with shape: true)."
+ ]
+}

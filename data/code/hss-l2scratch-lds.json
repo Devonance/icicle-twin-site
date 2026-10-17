@@ -1,0 +1,56 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "hss": {
+      "title": "Hart Software Services (HSS)",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md and per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services (shallow clone, git-ignored)"
+    }
+  },
+  "id": "hss-l2scratch-lds",
+  "firstLine": 92,
+  "title": "hss-l2scratch.lds: memory regions the HSS links against",
+  "lang": "ld",
+  "repo": "https://github.com/polarfire-soc/hart-software-services",
+  "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+  "ref": null,
+  "path": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+  "start_line": 92,
+  "end_line": 109,
+  "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/boards/mpfs-icicle-kit/hss-l2scratch.lds#L92-L109",
+  "blob_sha1": "b8b9074e9ef33783f629df1b20a801f41e63d3a1",
+  "licence": "MIT",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": "Copyright 2019-2025 Microchip Corporation",
+  "steps": ["boot.e51-envm", "boot.l2-scratch", "boot.ddr-segments"],
+  "note": "eNVM from 0x2022_0100 (128 KiB - 256 B), DTIM 7 KiB + 1 KiB switch code, the five ITIMs, LIM, Zero Device (L2 scratchpad), and the DDR windows: 32 MiB at 0x8000_0000, 1888 MiB at 0x10_0000_0000, 2048 MiB non-cached at 0x14_0000_0000.",
+  "highlights": [],
+  "lines": [
+    "MEMORY",
+    "{",
+    "    envm (rx)          : ORIGIN = 0x20220100, LENGTH = (128k-256)",
+    "",
+    "    dtim (rwx)         : ORIGIN = 0x01000000, LENGTH = 7k /* DTIM */",
+    "    switch_code (rx)   : ORIGIN = 0x01001c00, LENGTH = 1k /* This 1K of DTIM is used to run code",
+    "                                                           * when switching the envm clock */",
+    "    e51_itim (rwx)     : ORIGIN = 0x01800000, LENGTH = 28k",
+    "    u54_1_itim (rwx)   : ORIGIN = 0x01808000, LENGTH = 28k",
+    "    u54_2_itim (rwx)   : ORIGIN = 0x01810000, LENGTH = 28k",
+    "    u54_3_itim (rwx)   : ORIGIN = 0x01818000, LENGTH = 28k",
+    "    u54_4_itim (rwx)   : ORIGIN = 0x01820000, LENGTH = 28k",
+    "    l2lim (rwx)        : ORIGIN = 0x08000000, LENGTH = 512k",
+    "    l2zerodevice (rwx) : ORIGIN = 0x0A000000, LENGTH = 512k",
+    "    ddr (rwx)          : ORIGIN = 0x80000000, LENGTH = 32m",
+    "    ddrhi (rwx)        : ORIGIN = 0x1000000000, LENGTH = 1888m",
+    "    ncddrhi (rwx)      : ORIGIN = 0x1400000000, LENGTH = 2048m",
+    "}"
+  ],
+  "notes": {
+    "92": "eNVM from 0x2022_0100 (128 KiB - 256 B), DTIM 7 KiB + 1 KiB switch code, the five ITIMs, LIM, Zero Device (L2 scratchpad), and the DDR windows: 32 MiB at 0x8000_0000, 1888 MiB at 0x10_0000_0000, 2048 MiB non-cached at 0x14_0000_0000."
+  }
+}

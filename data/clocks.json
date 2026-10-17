@@ -1,0 +1,197 @@
+{
+  "schema": "icicle-twin/clocks@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "ug": {
+      "title": "PolarFire SoC Icicle Kit User Guide DS60001679E (06/2026)",
+      "url": "https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es",
+      "licence": "Microchip copyright",
+      "licence_note": "Facts only (tables of jumpers, rails, probe points, test points)",
+      "local": "reference/userguide/Icicle_Kit_User_Guide_vB.pdf"
+    },
+    "ipc": {
+      "title": "IPC-D-356 netlist exported by kicad-cli 10.0.6 from the KiCad import of icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd",
+      "licence": "derived from Microchip board files",
+      "licence_note": "Net names per pad; derived data, see docs/PLAN.md section 3.5. Net names are truncated to their last 14 characters and refdes to 6 by the IPC-D-356 format",
+      "local": "build/kicad/icicle.ipc (git-ignored)"
+    },
+    "linux-dts": {
+      "title": "Linux arch/riscv/boot/dts/microchip (mpfs.dtsi, mpfs-icicle-kit*.dts*)",
+      "repo": "https://github.com/torvalds/linux",
+      "commit": null,
+      "ref": "master, retrieved 2026-10-16 (files pinned by git blob sha1 below)",
+      "licence": "GPL-2.0 OR MIT",
+      "licence_note": "per-file SPDX-License-Identifier: (GPL-2.0 OR MIT)",
+      "local": "reference/vendor/linux-dts"
+    }
+  },
+  "id": "clocks",
+  "count": 7,
+  "clocks": [
+    {
+      "refdes": "X2",
+      "role": "MSS reference clock (REFCLK), LVDS",
+      "mpn": "DSC1123BL5-125.0000",
+      "bom_description": "MEMS OSC XO 125.0000MHZ LVDS SMD",
+      "frequency_hz": 125000000.0,
+      "do_not_load": false,
+      "pin_nets": {"1": "N19433490", "2": "NET_166", "3": "GND", "4": "N19433483", "5": "N19433481", "6": "3P3V"},
+      "destinations": [
+        {"from_pin": "4", "net": "MSS_REFCLK_IN_P", "to": "U1.L7", "via": "R136"},
+        {"from_pin": "5", "net": "MSS_REFCLK_IN_N", "to": "U1.L8", "via": "R138"}
+      ],
+      "part": "DSC1123BL5-125.0000",
+      "hz": 125000000.0,
+      "kind": "lvds",
+      "rail": "3P3V",
+      "nets": ["MSS_REFCLK_IN_N", "MSS_REFCLK_IN_P"],
+      "destination": "U1.L7, U1.L8"
+    },
+    {
+      "refdes": "X4",
+      "role": "VSC8662 reference clock",
+      "mpn": "DSC1001DL5-125.0000",
+      "bom_description": "MEMS OSC XO 125.0000MHZ CMOS SMD",
+      "frequency_hz": 125000000.0,
+      "do_not_load": false,
+      "pin_nets": {"1": "N18647152", "2": "GND", "3": "VSC8662_REFCLK", "4": "3P3V"},
+      "destinations": [{"from_pin": "3", "net": "N18647139", "to": "U4.D1", "via": "R395"}],
+      "part": "DSC1001DL5-125.0000",
+      "hz": 125000000.0,
+      "kind": "cmos",
+      "rail": "3P3V",
+      "nets": ["N18647139", "VSC8662_REFCLK"],
+      "destination": "U4.D1"
+    },
+    {
+      "refdes": "X5",
+      "role": "fabric 50 MHz reference (REF_CLK_50MHz, ball W12)",
+      "mpn": "DSC1001DL5-050.0000",
+      "bom_description": "MEMS OSC XO 50.0000MHZ CMOS SMD",
+      "frequency_hz": 50000000.0,
+      "do_not_load": false,
+      "pin_nets": {"1": "NET_1236", "2": "GND", "3": "N19892997", "4": "1P8V"},
+      "destinations": [{"from_pin": "3", "net": "50MHZ_B0_1P8V", "to": "U1.W12", "via": "R496"}],
+      "part": "DSC1001DL5-050.0000",
+      "hz": 50000000.0,
+      "kind": "cmos",
+      "rail": "1P8V",
+      "nets": ["50MHZ_B0_1P8V"],
+      "destination": "U1.W12"
+    },
+    {
+      "refdes": "U32",
+      "role": "PCIe reference clock (dual LVDS)",
+      "mpn": "DSC2033FI2-F0044",
+      "bom_description": "Low-Jitter Configurable Dual LVDS Oscillator",
+      "frequency_hz": null,
+      "do_not_load": false,
+      "pin_nets": {
+        "1": "N20119369",
+        "2": "NET_1231",
+        "3": "NET_1230",
+        "4": "GND",
+        "5": "FSEL0",
+        "6": "FSEL1",
+        "7": "FSEL2",
+        "8": "XCVR_0A_REFCLK_P",
+        "9": "XCVR_0A_REFCLK_N",
+        "10": "PCIE_REFCLKN",
+        "11": "PCIE_REFCLKP",
+        "12": "3P3V",
+        "13": "3P3V",
+        "14": "NET_1232",
+        "15": "GND"
+      },
+      "destinations": [
+        {"from_pin": "10", "net": "PCIE_REFCLKN", "to": "J6.A14", "via": null},
+        {"from_pin": "11", "net": "PCIE_REFCLKP", "to": "J6.A13", "via": null},
+        {"from_pin": "8", "net": "N17954404", "to": "U1.L19", "via": "R114"},
+        {"from_pin": "9", "net": "N17954410", "to": "U1.L20", "via": "R115"}
+      ],
+      "part": "DSC2033FI2-F0044",
+      "hz_basis": "UG 3.4.2 (100 MHz); the BOM line has no frequency",
+      "hz": 100000000.0,
+      "kind": "lvds",
+      "rail": "3P3V",
+      "nets": ["FSEL0", "FSEL1", "FSEL2", "N17954404", "N17954410", "PCIE_REFCLKN", "PCIE_REFCLKP", "XCVR_0A_REFCLK_N", "XCVR_0A_REFCLK_P"],
+      "destination": "J6.A13, J6.A14, U1.L19, U1.L20"
+    },
+    {
+      "refdes": "Y4",
+      "role": "USB3340 (U33) crystal",
+      "mpn": "VXM7-9029-26M0000000",
+      "bom_description": "CRYSTAL 26.0000MHZ 20PF SMD",
+      "frequency_hz": 26000000.0,
+      "do_not_load": false,
+      "pin_nets": {"1": "USB1_REFCLK", "2": "GND", "3": "N26874845", "4": "GND"},
+      "destinations": [
+        {"from_pin": "1", "net": "USB1_REFCLK", "to": "U33.26", "via": null},
+        {"from_pin": "3", "net": "USB1_XO", "to": "U33.25", "via": "R155"},
+        {"from_pin": "3", "net": "USB1_REFCLK", "to": "U33.26", "via": "R154"}
+      ],
+      "part": "VXM7-9029-26M0000000",
+      "hz": 26000000.0,
+      "kind": "crystal",
+      "nets": ["USB1_REFCLK", "USB1_XO"],
+      "destination": "U33.25, U33.26"
+    },
+    {
+      "refdes": "Y5",
+      "role": "USB3320 (U24, embedded FlashPro6) crystal",
+      "mpn": "VXM7-9029-26M0000000",
+      "bom_description": "CRYSTAL 26.0000MHZ 20PF SMD",
+      "frequency_hz": 26000000.0,
+      "do_not_load": false,
+      "pin_nets": {"1": "REFCLK", "2": "GND", "3": "N18666020", "4": "GND"},
+      "destinations": [
+        {"from_pin": "1", "net": "REFCLK", "to": "U24.26", "via": null},
+        {"from_pin": "3", "net": "REFCLK", "to": "U24.26", "via": "R434"},
+        {"from_pin": "3", "net": "XO", "to": "U24.25", "via": "R435"}
+      ],
+      "part": "VXM7-9029-26M0000000",
+      "hz": 26000000.0,
+      "kind": "crystal",
+      "nets": ["REFCLK", "XO"],
+      "destination": "U24.25, U24.26"
+    },
+    {
+      "refdes": "Y3",
+      "role": "32.768 kHz (do not load)",
+      "mpn": "VMK3-9005-32K7680000",
+      "bom_description": "CRYSTAL 32.768KHZ 12.5PF SMD",
+      "frequency_hz": 32768.0,
+      "do_not_load": true,
+      "pin_nets": {"1": "N18881561", "2": "N18881555"},
+      "destinations": [
+        {"from_pin": "1", "net": "N18881561", "to": "U26.R16", "via": null},
+        {"from_pin": "2", "net": "N18881555", "to": "U26.R15", "via": null}
+      ],
+      "part": "VMK3-9005-32K7680000",
+      "hz": 32768.0,
+      "kind": "crystal",
+      "nets": ["N18881555", "N18881561"],
+      "destination": "U26.R15, U26.R16",
+      "note": "do not load (BOM)"
+    }
+  ],
+  "dts": {
+    "refclk_hz": 125000000,
+    "refclk_ccc_hz": 50000000,
+    "scbclk_hz": 80000000,
+    "source": "https://github.com/torvalds/linux/blob/master/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi#L221-L227"
+  },
+  "ug": {
+    "X5": "50 MHz, +-10 ppm, single-ended, ball W12, pin HSIO92PB0/CLKIN_N_2/CCC_NW_CLKIN_N_2/CCC_NW_PLL1_OUT0 (UG 3.13)",
+    "X2": "125 MHz LVDS, input to the MSS reference clock (UG Table 1-3)",
+    "U32": "100 MHz reference clock to the PCIe connector (UG 3.4.2)",
+    "Y4": "26 MHz crystal for the USB3340 (UG 3.5.3)"
+  },
+  "mss_rtc_hz": 1000000,
+  "notes": [
+    "destinations follow a clock net through at most one series R/L/C to an IC or connector pin",
+    "U32 frequency comes from the UG (100 MHz); its BOM line only gives the part number"
+  ],
+  "netlist": {"file": "build/kicad/icicle.ipc", "blob_sha1": "f40f06e8864b4d472299b3546023263ab927eb8d", "full_net_names": true}
+}

@@ -1,0 +1,502 @@
+{
+  "schema": "icicle-twin/log@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "uboot-doc": {
+      "title": "U-Boot doc/board/microchip/mpfs_icicle.rst at v2022.01",
+      "repo": "https://github.com/u-boot/u-boot",
+      "commit": null,
+      "ref": "tag v2022.01",
+      "url": "https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst",
+      "licence": "GPL-2.0+",
+      "licence_note": ".. SPDX-License-Identifier: GPL-2.0+",
+      "local": "reference/vendor/web-bootlogs/u-boot_v2022.01_mpfs_icicle.rst"
+    }
+  },
+  "id": "uboot",
+  "console": "MMUART1",
+  "cp2108_interface": 1,
+  "baud": 115200,
+  "source": {
+    "file": "reference/vendor/web-bootlogs/u-boot_v2022.01_mpfs_icicle.rst",
+    "url": "https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst",
+    "where": "lines 471-556",
+    "licence": "GPL-2.0+",
+    "id": "uboot-doc",
+    "blob_sha1": "a4b10c6bd74260e12029f4c117a5fb1897a03f4f",
+    "transform": "the 3-space reStructuredText code-block indent is removed; tabs and everything else are kept",
+    "lines": [471, 556],
+    "section": "Sample boot log from MPFS Icicle Kit (line 466)"
+  },
+  "timebase": {"unit": null, "note": "U-Boot prints no timestamps; the simulator spaces lines by UART time and the modelled work"},
+  "facts": {
+    "fit_image_addr": "0x88300000",
+    "kernel_load": "0x80200000",
+    "fdt_load": "0x82200000",
+    "fdt_relocated": "0x8fffa000",
+    "kernel_size_bytes": 3574555,
+    "fdt_size_bytes": 9760,
+    "emmc": {
+      "manufacturer_id": "45",
+      "oem": "100",
+      "name": "DG400",
+      "capacity": "7.3 GiB",
+      "bus_width": "4-bit",
+      "bus_speed_hz": 52000000,
+      "mmc_version": "5.1"
+    }
+  },
+  "lines": [
+    {
+      "kind": "line",
+      "id": "uboot.471",
+      "src_line": 471,
+      "text": "U-Boot 2021.01-00314-g7303332537-dirty (Jan 14 2021 - 10:09:43 +0530)",
+      "event": "uboot.banner",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.472", "src_line": 472, "text": "", "event": "uboot.banner", "hw": true},
+    {"kind": "line", "id": "uboot.473", "src_line": 473, "text": "CPU:   rv64imafdc", "event": "uboot.cpu", "hw": true},
+    {"kind": "line", "id": "uboot.474", "src_line": 474, "text": "Model: Microchip MPFS Icicle Kit", "event": "uboot.model", "hw": true},
+    {"kind": "line", "id": "uboot.475", "src_line": 475, "text": "DRAM:  1 GiB", "event": "ddr.size.report", "hw": true},
+    {"kind": "line", "id": "uboot.476", "src_line": 476, "text": "MMC:   sdhc@20008000: 0", "event": "mmc.host.probe", "hw": true},
+    {"kind": "line", "id": "uboot.477", "src_line": 477, "text": "In:    serial@20100000", "event": "mmuart1.console", "hw": true},
+    {"kind": "line", "id": "uboot.478", "src_line": 478, "text": "Out:   serial@20100000", "event": "mmuart1.console", "hw": true},
+    {"kind": "line", "id": "uboot.479", "src_line": 479, "text": "Err:   serial@20100000", "event": "mmuart1.console", "hw": true},
+    {"kind": "line", "id": "uboot.480", "src_line": 480, "text": "Net:   eth0: ethernet@20112000", "event": "gem1.probe", "hw": true},
+    {"kind": "line", "id": "uboot.481", "src_line": 481, "text": "Hit any key to stop autoboot:  0", "event": "uboot.autoboot", "hw": false},
+    {"kind": "line", "id": "uboot.482", "src_line": 482, "text": "", "event": "uboot.autoboot", "hw": false},
+    {
+      "kind": "line",
+      "id": "uboot.483",
+      "src_line": 483,
+      "text": "RISC-V # mmc info",
+      "event": "uboot.cmd",
+      "hw": false,
+      "prompt": "RISC-V # ",
+      "input": "mmc info"
+    },
+    {
+      "kind": "line",
+      "id": "uboot.484",
+      "src_line": 484,
+      "text": "Device: sdhc@20008000",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Device", "value": "sdhc@20008000"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.485",
+      "src_line": 485,
+      "text": "Manufacturer ID: 45",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Manufacturer ID", "value": "45"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.486",
+      "src_line": 486,
+      "text": "OEM: 100",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "OEM", "value": "100"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.487",
+      "src_line": 487,
+      "text": "Name: DG400",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Name", "value": "DG400"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.488",
+      "src_line": 488,
+      "text": "Bus Speed: 52000000",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Bus Speed", "value": "52000000"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.489",
+      "src_line": 489,
+      "text": "Mode: MMC High Speed (52MHz)",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Mode", "value": "MMC High Speed (52MHz)"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.490",
+      "src_line": 490,
+      "text": "Rd Block Len: 512",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Rd Block Len", "value": "512"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.491",
+      "src_line": 491,
+      "text": "MMC version 5.1",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "MMC version", "value": "5.1"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.492",
+      "src_line": 492,
+      "text": "High Capacity: Yes",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "High Capacity", "value": "Yes"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.493",
+      "src_line": 493,
+      "text": "Capacity: 7.3 GiB",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Capacity", "value": "7.3 GiB"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.494",
+      "src_line": 494,
+      "text": "Bus Width: 4-bit",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Bus Width", "value": "4-bit"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.495",
+      "src_line": 495,
+      "text": "Erase Group Size: 512 KiB",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Erase Group Size", "value": "512 KiB"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.496",
+      "src_line": 496,
+      "text": "HC WP Group Size: 8 MiB",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "HC WP Group Size", "value": "8 MiB"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.497",
+      "src_line": 497,
+      "text": "User Capacity: 7.3 GiB WRREL",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "User Capacity", "value": "7.3 GiB WRREL"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.498",
+      "src_line": 498,
+      "text": "Boot Capacity: 4 MiB ENH",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "Boot Capacity", "value": "4 MiB ENH"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.499",
+      "src_line": 499,
+      "text": "RPMB Capacity: 4 MiB ENH",
+      "event": "mmc.info",
+      "hw": true,
+      "args": {"field": "RPMB Capacity", "value": "4 MiB ENH"}
+    },
+    {"kind": "line", "id": "uboot.500", "src_line": 500, "text": "", "event": "mmc.info", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.501",
+      "src_line": 501,
+      "text": "RISC-V # mmc part",
+      "event": "uboot.cmd",
+      "hw": false,
+      "prompt": "RISC-V # ",
+      "input": "mmc part"
+    },
+    {
+      "kind": "line",
+      "id": "uboot.502",
+      "src_line": 502,
+      "text": "Partition Map for MMC device 0  --   Partition Type: EFI",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.503", "src_line": 503, "text": "", "event": "mmc.part", "hw": true},
+    {"kind": "line", "id": "uboot.504", "src_line": 504, "text": "Part\tStart LBA\tEnd LBA\t\tName", "event": "mmc.part", "hw": true},
+    {"kind": "line", "id": "uboot.505", "src_line": 505, "text": "\t\tAttributes", "event": "mmc.part", "hw": true},
+    {"kind": "line", "id": "uboot.506", "src_line": 506, "text": "\t\tType GUID", "event": "mmc.part", "hw": true},
+    {"kind": "line", "id": "uboot.507", "src_line": 507, "text": "\t\tPartition GUID", "event": "mmc.part", "hw": true},
+    {"kind": "line", "id": "uboot.508", "src_line": 508, "text": "\t1\t0x00002000\t0x0000b031\t\"boot\"", "event": "mmc.part", "hw": true},
+    {"kind": "line", "id": "uboot.509", "src_line": 509, "text": "\t\tattrs:\t0x0000000000000004", "event": "mmc.part", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.510",
+      "src_line": 510,
+      "text": "\t\ttype:\tebd0a0a2-b9e5-4433-87c0-68b6b72699c7",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.511",
+      "src_line": 511,
+      "text": "\t\tguid:\t99ff6a94-f2e7-44dd-a7df-f3a2da106ef9",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.512",
+      "src_line": 512,
+      "text": "\t2\t0x0000b032\t0x0000f031\t\"primary\"",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.513", "src_line": 513, "text": "\t\tattrs:\t0x0000000000000000", "event": "mmc.part", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.514",
+      "src_line": 514,
+      "text": "\t\ttype:\t21686148-6449-6e6f-744e-656564454649",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.515",
+      "src_line": 515,
+      "text": "\t\tguid:\t12006052-e64b-4423-beb0-b956ea00f1ba",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.516", "src_line": 516, "text": "\t3\t0x00010000\t0x00226b9f\t\"root\"", "event": "mmc.part", "hw": true},
+    {"kind": "line", "id": "uboot.517", "src_line": 517, "text": "\t\tattrs:\t0x0000000000000000", "event": "mmc.part", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.518",
+      "src_line": 518,
+      "text": "\t\ttype:\t0fc63daf-8483-4772-8e79-3d69d8477de4",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.519",
+      "src_line": 519,
+      "text": "\t\tguid:\tdd2c5619-2272-4c3c-8dc2-e21942e17ce6",
+      "event": "mmc.part",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.520", "src_line": 520, "text": "", "event": "mmc.part", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.521",
+      "src_line": 521,
+      "text": "RISC-V # load mmc 0 ${ramdisk_addr_r} fitimage",
+      "event": "uboot.cmd",
+      "hw": false,
+      "prompt": "RISC-V # ",
+      "input": "load mmc 0 ${ramdisk_addr_r} fitimage",
+      "args": {"triggers": "mmc.read.fit", "dest": "0x88300000", "dest_basis": "${ramdisk_addr_r}; the next lines load the FIT image from 88300000"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.522",
+      "src_line": 522,
+      "text": "RISC-V # bootm ${ramdisk_addr_r}",
+      "event": "uboot.cmd",
+      "hw": false,
+      "prompt": "RISC-V # ",
+      "input": "bootm ${ramdisk_addr_r}",
+      "args": {"triggers": "fit.kernel"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.523",
+      "src_line": 523,
+      "text": "## Loading kernel from FIT Image at 88300000 ...",
+      "event": "fit.kernel",
+      "hw": true,
+      "args": {"addr": "0x88300000"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.524",
+      "src_line": 524,
+      "text": "Using 'conf@microchip_icicle-kit-es-a000-microchip.dtb' configuration",
+      "event": "fit.kernel",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.525", "src_line": 525, "text": "Trying 'kernel@1' kernel subimage", "event": "fit.kernel", "hw": true},
+    {"kind": "line", "id": "uboot.526", "src_line": 526, "text": "  Description:  Linux kernel", "event": "fit.kernel", "hw": true},
+    {"kind": "line", "id": "uboot.527", "src_line": 527, "text": "  Type:         Kernel Image", "event": "fit.kernel", "hw": true},
+    {"kind": "line", "id": "uboot.528", "src_line": 528, "text": "  Compression:  gzip compressed", "event": "fit.kernel", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.529",
+      "src_line": 529,
+      "text": "  Data Start:   0x883000fc",
+      "event": "fit.kernel",
+      "hw": true,
+      "args": {"addr": "0x883000fc"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.530",
+      "src_line": 530,
+      "text": "  Data Size:    3574555 Bytes = 3.4 MiB",
+      "event": "fit.kernel",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.531", "src_line": 531, "text": "  Architecture: RISC-V", "event": "fit.kernel", "hw": true},
+    {"kind": "line", "id": "uboot.532", "src_line": 532, "text": "  OS:           Linux", "event": "fit.kernel", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.533",
+      "src_line": 533,
+      "text": "  Load Address: 0x80200000",
+      "event": "fit.kernel",
+      "hw": true,
+      "args": {"addr": "0x80200000"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.534",
+      "src_line": 534,
+      "text": "  Entry Point:  0x80200000",
+      "event": "fit.kernel",
+      "hw": true,
+      "args": {"addr": "0x80200000"}
+    },
+    {"kind": "line", "id": "uboot.535", "src_line": 535, "text": "  Hash algo:    sha256", "event": "fit.kernel", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.536",
+      "src_line": 536,
+      "text": "  Hash value:   21f18d72cf2f0a7192220abb577ad25c77c26960052d779aa02bf55dbf0a6403",
+      "event": "fit.kernel",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.537",
+      "src_line": 537,
+      "text": "Verifying Hash Integrity ... sha256+ OK",
+      "event": "fit.kernel",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.538",
+      "src_line": 538,
+      "text": "## Loading fdt from FIT Image at 88300000 ...",
+      "event": "fit.fdt",
+      "hw": true,
+      "args": {"addr": "0x88300000"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.539",
+      "src_line": 539,
+      "text": "Using 'conf@microchip_icicle-kit-es-a000-microchip.dtb' configuration",
+      "event": "fit.fdt",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.540",
+      "src_line": 540,
+      "text": "Trying 'fdt@microchip_icicle-kit-es-a000-microchip.dtb' fdt subimage",
+      "event": "fit.fdt",
+      "hw": true
+    },
+    {
+      "kind": "line",
+      "id": "uboot.541",
+      "src_line": 541,
+      "text": "  Description:  Flattened Device Tree blob",
+      "event": "fit.fdt",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.542", "src_line": 542, "text": "  Type:         Flat Device Tree", "event": "fit.fdt", "hw": true},
+    {"kind": "line", "id": "uboot.543", "src_line": 543, "text": "  Compression:  uncompressed", "event": "fit.fdt", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.544",
+      "src_line": 544,
+      "text": "  Data Start:   0x88668d44",
+      "event": "fit.fdt",
+      "hw": true,
+      "args": {"addr": "0x88668d44"}
+    },
+    {"kind": "line", "id": "uboot.545", "src_line": 545, "text": "  Data Size:    9760 Bytes = 9.5 KiB", "event": "fit.fdt", "hw": true},
+    {"kind": "line", "id": "uboot.546", "src_line": 546, "text": "  Architecture: RISC-V", "event": "fit.fdt", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.547",
+      "src_line": 547,
+      "text": "  Load Address: 0x82200000",
+      "event": "fit.fdt",
+      "hw": true,
+      "args": {"addr": "0x82200000"}
+    },
+    {"kind": "line", "id": "uboot.548", "src_line": 548, "text": "  Hash algo:    sha256", "event": "fit.fdt", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.549",
+      "src_line": 549,
+      "text": "  Hash value:   5c3a9f30d41b6b8e53b47916e1f339b3a4d454006554d1f7e1f552ed62409f4b",
+      "event": "fit.fdt",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.550", "src_line": 550, "text": "Verifying Hash Integrity ... sha256+ OK", "event": "fit.fdt", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.551",
+      "src_line": 551,
+      "text": "Loading fdt from 0x88668d48 to 0x82200000",
+      "event": "fdt.copy",
+      "hw": true,
+      "args": {"addr": "0x88668d48 0x82200000"}
+    },
+    {
+      "kind": "line",
+      "id": "uboot.552",
+      "src_line": 552,
+      "text": "Booting using the fdt blob at 0x82200000",
+      "event": "fdt.select",
+      "hw": true,
+      "args": {"addr": "0x82200000"}
+    },
+    {"kind": "line", "id": "uboot.553", "src_line": 553, "text": "Uncompressing Kernel Image", "event": "kernel.decompress", "hw": true},
+    {
+      "kind": "line",
+      "id": "uboot.554",
+      "src_line": 554,
+      "text": "Loading Device Tree to 000000008fffa000, end 000000008ffff61f ... OK",
+      "event": "fdt.relocate",
+      "hw": true
+    },
+    {"kind": "line", "id": "uboot.555", "src_line": 555, "text": "", "event": "fdt.relocate", "hw": true},
+    {"kind": "line", "id": "uboot.556", "src_line": 556, "text": "Starting kernel ...", "event": "kernel.start", "hw": true}
+  ]
+}

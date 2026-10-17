@@ -1,0 +1,341 @@
+{
+  "schema": "icicle-twin/interrupts@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "refdesign": {
+      "title": "Icicle Kit Reference Design (Libero Tcl, PDC, README)",
+      "repo": "https://github.com/polarfire-soc/icicle-kit-reference-design",
+      "commit": "9c34320f91e8e8a144c7d87bf299527fc5f02081",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md (Copyright 2019-2023 Microchip Corporation, SPDX MIT); the .tcl/.pdc files carry no header of their own",
+      "local": "reference/vendor/gh-icicle-kit-reference-design (shallow clone, git-ignored)"
+    },
+    "linux-dts": {
+      "title": "Linux arch/riscv/boot/dts/microchip (mpfs.dtsi, mpfs-icicle-kit*.dts*)",
+      "repo": "https://github.com/torvalds/linux",
+      "commit": null,
+      "ref": "master, retrieved 2026-10-16 (files pinned by git blob sha1 below)",
+      "licence": "GPL-2.0 OR MIT",
+      "licence_note": "per-file SPDX-License-Identifier: (GPL-2.0 OR MIT)",
+      "local": "reference/vendor/linux-dts"
+    },
+    "ipc": {
+      "title": "IPC-D-356 netlist exported by kicad-cli 10.0.6 from the KiCad import of icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd",
+      "licence": "derived from Microchip board files",
+      "licence_note": "Net names per pad; derived data, see docs/PLAN.md section 3.5. Net names are truncated to their last 14 characters and refdes to 6 by the IPC-D-356 format",
+      "local": "build/kicad/icicle.ipc (git-ignored)"
+    }
+  },
+  "id": "interrupts",
+  "readme": "https://github.com/polarfire-soc/icicle-kit-reference-design/blob/9c34320f91e8e8a144c7d87bf299527fc5f02081/README.md#L202-L219",
+  "f2m_to_plic_offset": 118,
+  "f2m_to_plic_note": "PLIC = F2M + 118, consistent in every dts node that gives both (PCIe F2M[1]=119, CoreI2C F2M[4]=122, IHC F2M[59..62]=177..180)",
+  "count": {"f2m": 16, "gpio2": 2, "mss_peripherals": 21},
+  "f2m": [
+    {
+      "f2m": 0,
+      "source": "MSS_GPIO_2_28 OR SW1",
+      "readme_line": 202,
+      "plic": 118,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 1,
+      "source": "PF_PCIE",
+      "readme_line": 203,
+      "plic": 119,
+      "plic_basis": "mpfs-icicle-kit-fabric.dtsi L49 pcie@3000000000",
+      "verification": "two-source"
+    },
+    {
+      "f2m": 2,
+      "source": "DMA_CONTROLLER",
+      "readme_line": 204,
+      "plic": 120,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 3,
+      "source": "mBUS_INT",
+      "readme_line": 205,
+      "plic": 121,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 4,
+      "source": "CoreI2C_INT[0]",
+      "readme_line": 206,
+      "plic": 122,
+      "plic_basis": "mpfs-icicle-kit-fabric.dtsi L17 i2c@40000200",
+      "verification": "two-source"
+    },
+    {
+      "f2m": 5,
+      "source": "RPi_ID_I2C[0]",
+      "readme_line": 207,
+      "plic": 123,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 6,
+      "source": "CoreUARTapb_RXRDY",
+      "readme_line": 208,
+      "plic": 124,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 7,
+      "source": "CoreUARTapb_TXRDY",
+      "readme_line": 209,
+      "plic": 125,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 8,
+      "source": "CoreUARTapb_PARITY_ERR",
+      "readme_line": 210,
+      "plic": 126,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 9,
+      "source": "CoreUARTapb_OVERFLOW",
+      "readme_line": 211,
+      "plic": 127,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 10,
+      "source": "CoreUARTapb_FRAMING_ERR",
+      "readme_line": 212,
+      "plic": 128,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 63,
+      "source": "MIV_IHC:E51_IRQ",
+      "readme_line": 213,
+      "plic": 181,
+      "plic_basis": "inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it",
+      "verification": "inferred"
+    },
+    {
+      "f2m": 62,
+      "source": "MIV_IHC:U54_1_IRQ",
+      "readme_line": 214,
+      "plic": 180,
+      "plic_basis": "mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4)",
+      "verification": "two-source"
+    },
+    {
+      "f2m": 61,
+      "source": "MIV_IHC:U54_2_IRQ",
+      "readme_line": 215,
+      "plic": 179,
+      "plic_basis": "mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4)",
+      "verification": "two-source"
+    },
+    {
+      "f2m": 60,
+      "source": "MIV_IHC:U54_3_IRQ",
+      "readme_line": 216,
+      "plic": 178,
+      "plic_basis": "mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4)",
+      "verification": "two-source"
+    },
+    {
+      "f2m": 59,
+      "source": "MIV_IHC:U54_4_IRQ",
+      "readme_line": 217,
+      "plic": 177,
+      "plic_basis": "mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4)",
+      "verification": "two-source"
+    }
+  ],
+  "gpio2": [
+    {
+      "gpio2_int": 30,
+      "source": "MSS_GPIO_2_26 OR SW2",
+      "readme_line": 218,
+      "plic": 53,
+      "plic_basis": "mpfs-icicle-kit-common.dtsi irqmux interrupt-map: GPIO2 lines 64..95 -> PLIC 53"
+    },
+    {
+      "gpio2_int": 31,
+      "source": "MSS_GPIO_2_27 OR SW3",
+      "readme_line": 219,
+      "plic": 53,
+      "plic_basis": "mpfs-icicle-kit-common.dtsi irqmux interrupt-map: GPIO2 lines 64..95 -> PLIC 53"
+    }
+  ],
+  "buttons": [
+    {"refdes": "SW1", "ball": "V19", "net": "SWITCH1", "irq": "MSS_INT_F2M[0]", "ored_with": "GPIO2 bit 28"},
+    {"refdes": "SW2", "ball": "U18", "net": "SWITCH2", "irq": "MSS_GPIO_2_INT[30]", "ored_with": "GPIO2 bit 26"},
+    {"refdes": "SW3", "ball": "W19", "net": "SWITCH3", "irq": "MSS_GPIO_2_INT[31]", "ored_with": "GPIO2 bit 27"}
+  ],
+  "sw4": {"ball": "W18", "net": "SWITCH4", "target": "MSS_reset_counter 0x4000_0500 (with J19)", "pdc": "pull-up, Schmitt trigger"},
+  "mss_peripherals": [
+    {"node": "cctrllr", "unit": "2010000", "plic": [1, 3, 4, 2], "line": 209},
+    {"node": "pdma", "unit": "3000000", "plic": [5, 7, 9, 11], "line": 245},
+    {"node": "mmuart0", "unit": "20000000", "plic": [90], "line": 321},
+    {"node": "mmuart1", "unit": "20100000", "plic": [91], "line": 333},
+    {"node": "mmuart2", "unit": "20102000", "plic": [92], "line": 345},
+    {"node": "mmuart3", "unit": "20104000", "plic": [93], "line": 357},
+    {"node": "mmuart4", "unit": "20106000", "plic": [94], "line": 369},
+    {"node": "mmc", "unit": "20008000", "plic": [88], "line": 382},
+    {"node": "spi0", "unit": "20108000", "plic": [54], "line": 392},
+    {"node": "spi1", "unit": "20109000", "plic": [55], "line": 403},
+    {"node": "qspi", "unit": "21000000", "plic": [85], "line": 414},
+    {"node": "i2c0", "unit": "2010a000", "plic": [58], "line": 425},
+    {"node": "i2c1", "unit": "2010b000", "plic": [61], "line": 437},
+    {"node": "can0", "unit": "2010c000", "plic": [56], "line": 449},
+    {"node": "can1", "unit": "2010d000", "plic": [57], "line": 459},
+    {"node": "mac0", "unit": "20110000", "plic": [64, 65, 66, 67, 68, 69], "line": 469},
+    {"node": "mac1", "unit": "20112000", "plic": [70, 71, 72, 73, 74, 75], "line": 483},
+    {"node": "rtc", "unit": "20124000", "plic": [80, 81], "line": 554},
+    {"node": "usb", "unit": "20201000", "plic": [86, 87], "line": 564},
+    {"node": "mbox", "unit": "37020800", "plic": [96], "line": 579},
+    {"node": "syscontroller_qspi", "unit": "37020100", "plic": [110], "line": 588}
+  ],
+  "mss_peripherals_source": "mpfs.dtsi interrupts of PLIC-parented nodes at the soc level",
+  "gpio_irqmux": "GPIO0 0..13 -> PLIC 13..26, GPIO1 32..55 -> PLIC 27..50, GPIO2 64..95 -> PLIC 53 (shared), mpfs-icicle-kit-common.dtsi &irqmux",
+  "interrupts": [
+    {
+      "id": "F2M_0",
+      "number": 0,
+      "source": "MSS_GPIO_2_28 OR SW1",
+      "target": "PLIC 118",
+      "note": "MSS_INT_F2M[0] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_1",
+      "number": 1,
+      "source": "PF_PCIE",
+      "target": "PLIC 119",
+      "note": "MSS_INT_F2M[1] (two-source: mpfs-icicle-kit-fabric.dtsi L49 pcie@3000000000)"
+    },
+    {
+      "id": "F2M_2",
+      "number": 2,
+      "source": "DMA_CONTROLLER",
+      "target": "PLIC 120",
+      "note": "MSS_INT_F2M[2] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_3",
+      "number": 3,
+      "source": "mBUS_INT",
+      "target": "PLIC 121",
+      "note": "MSS_INT_F2M[3] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_4",
+      "number": 4,
+      "source": "CoreI2C_INT[0]",
+      "target": "PLIC 122",
+      "note": "MSS_INT_F2M[4] (two-source: mpfs-icicle-kit-fabric.dtsi L17 i2c@40000200)"
+    },
+    {
+      "id": "F2M_5",
+      "number": 5,
+      "source": "RPi_ID_I2C[0]",
+      "target": "PLIC 123",
+      "note": "MSS_INT_F2M[5] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_6",
+      "number": 6,
+      "source": "CoreUARTapb_RXRDY",
+      "target": "PLIC 124",
+      "note": "MSS_INT_F2M[6] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_7",
+      "number": 7,
+      "source": "CoreUARTapb_TXRDY",
+      "target": "PLIC 125",
+      "note": "MSS_INT_F2M[7] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_8",
+      "number": 8,
+      "source": "CoreUARTapb_PARITY_ERR",
+      "target": "PLIC 126",
+      "note": "MSS_INT_F2M[8] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_9",
+      "number": 9,
+      "source": "CoreUARTapb_OVERFLOW",
+      "target": "PLIC 127",
+      "note": "MSS_INT_F2M[9] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_10",
+      "number": 10,
+      "source": "CoreUARTapb_FRAMING_ERR",
+      "target": "PLIC 128",
+      "note": "MSS_INT_F2M[10] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_63",
+      "number": 63,
+      "source": "MIV_IHC:E51_IRQ",
+      "target": "PLIC 181",
+      "note": "MSS_INT_F2M[63] (inferred: inferred: F2M[n] -> PLIC n+118, from the dts nodes that state it)"
+    },
+    {
+      "id": "F2M_62",
+      "number": 62,
+      "source": "MIV_IHC:U54_1_IRQ",
+      "target": "PLIC 180",
+      "note": "MSS_INT_F2M[62] (two-source: mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4))"
+    },
+    {
+      "id": "F2M_61",
+      "number": 61,
+      "source": "MIV_IHC:U54_2_IRQ",
+      "target": "PLIC 179",
+      "note": "MSS_INT_F2M[61] (two-source: mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4))"
+    },
+    {
+      "id": "F2M_60",
+      "number": 60,
+      "source": "MIV_IHC:U54_3_IRQ",
+      "target": "PLIC 178",
+      "note": "MSS_INT_F2M[60] (two-source: mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4))"
+    },
+    {
+      "id": "F2M_59",
+      "number": 59,
+      "source": "MIV_IHC:U54_4_IRQ",
+      "target": "PLIC 177",
+      "note": "MSS_INT_F2M[59] (two-source: mpfs-icicle-kit-fabric.dtsi L38 mailbox@50000000 (hart-1..hart-4))"
+    },
+    {
+      "id": "GPIO2_INT_30",
+      "number": 30,
+      "source": "MSS_GPIO_2_26 OR SW2",
+      "target": "PLIC 53",
+      "note": "mpfs-icicle-kit-common.dtsi irqmux interrupt-map: GPIO2 lines 64..95 -> PLIC 53"
+    },
+    {
+      "id": "GPIO2_INT_31",
+      "number": 31,
+      "source": "MSS_GPIO_2_27 OR SW3",
+      "target": "PLIC 53",
+      "note": "mpfs-icicle-kit-common.dtsi irqmux interrupt-map: GPIO2 lines 64..95 -> PLIC 53"
+    }
+  ],
+  "netlist": {"file": "build/kicad/icicle.ipc", "blob_sha1": "f40f06e8864b4d472299b3546023263ab927eb8d", "full_net_names": true}
+}

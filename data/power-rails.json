@@ -1,0 +1,360 @@
+{
+  "schema": "icicle-twin/power-rails@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "ug": {
+      "title": "PolarFire SoC Icicle Kit User Guide DS60001679E (06/2026)",
+      "url": "https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es",
+      "licence": "Microchip copyright",
+      "licence_note": "Facts only (tables of jumpers, rails, probe points, test points)",
+      "local": "reference/userguide/Icicle_Kit_User_Guide_vB.pdf"
+    },
+    "ipc": {
+      "title": "IPC-D-356 netlist exported by kicad-cli 10.0.6 from the KiCad import of icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd",
+      "licence": "derived from Microchip board files",
+      "licence_note": "Net names per pad; derived data, see docs/PLAN.md section 3.5. Net names are truncated to their last 14 characters and refdes to 6 by the IPC-D-356 format",
+      "local": "build/kicad/icicle.ipc (git-ignored)"
+    },
+    "schematic": {
+      "title": "ICICLE Kit Rev 1.0 schematic (DVP-102-000536-001, 29 sheets)",
+      "url": "https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/BoardDesignFiles/MPFS-ICICLE-KIT-ES_Schematics.zip",
+      "licence": "Microchip copyright",
+      "licence_note": "Facts only (net names)",
+      "local": "reference/ICICLE_KIT_Schematics.pdf"
+    }
+  },
+  "id": "power-rails",
+  "ug_probe_table": {"source": "ug", "doc": "DS60001679E", "page": 7, "item": "Table 1-4 Power Measurements"},
+  "ug_regulator_table": {"source": "ug", "doc": "DS60001679E", "page": 11, "item": "Table 2-5 Power Regulators"},
+  "count": 12,
+  "rails": [
+    {
+      "rail": "12P0V",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [
+        {"refdes": "U53", "mpn": "MIC26950YJL-TR", "other_rails_on_pins": []},
+        {"refdes": "U58", "mpn": "MIC26950YJL-TR", "other_rails_on_pins": []}
+      ],
+      "probe_ug": {"rail": "12P0V", "probe": "C476", "tolerance": "±5%", "nominal": "12V", "row": 1},
+      "regulator": "U52",
+      "part": "IRF9317TRPBF",
+      "input": "12P0V_IN",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C476",
+      "nominalV": 12.0,
+      "tolerancePct": 5.0,
+      "led": "DS14"
+    },
+    {
+      "rail": "5P0V",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [
+        {"refdes": "U54", "mpn": "MIC22705YML-TR", "other_rails_on_pins": []},
+        {"refdes": "U56", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["1P1V_LPDDR4"]},
+        {"refdes": "U57", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["1P2V_PHY_VSC_FP6"]},
+        {"refdes": "U59", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["1P8V"]},
+        {"refdes": "U71", "mpn": "MIC69502WR", "other_rails_on_pins": ["2P5V"]}
+      ],
+      "probe_ug": {"rail": "5P0V", "probe": "C482", "tolerance": "±5%", "nominal": "5V", "row": 2},
+      "regulator": "U53",
+      "part": "MIC26950YJL-TR",
+      "input": "12P0V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C482",
+      "nominalV": 5.0,
+      "tolerancePct": 5.0,
+      "led": "UNK5P0V"
+    },
+    {
+      "rail": "3P3V",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [
+        {"refdes": "U17", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["1P5V_DDR3"]},
+        {"refdes": "U21", "mpn": "MIC5166YML-TR", "other_rails_on_pins": ["0P75V_VTT_DDR3", "1P5V_DDR3"]},
+        {"refdes": "U61", "mpn": "MIC69502WR", "other_rails_on_pins": []}
+      ],
+      "probe_ug": {"rail": "3P3V", "probe": "C527", "tolerance": "±5%", "nominal": "3.3V", "row": 10},
+      "regulator": "U58",
+      "part": "MIC26950YJL-TR",
+      "input": "12P0V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C527",
+      "nominalV": 3.3,
+      "tolerancePct": 5.0,
+      "led": "UNK3P3V"
+    },
+    {
+      "rail": "2P5V",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [{"refdes": "U71", "mpn": "MIC69502WR", "other_rails_on_pins": ["5P0V"]}],
+      "probe_ug": {"rail": "2P5V", "probe": "C786", "tolerance": "±5%", "nominal": "2.5V", "row": 4},
+      "regulator": "U71",
+      "part": "MIC69502WR",
+      "input": "5P0V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C786",
+      "nominalV": 2.5,
+      "tolerancePct": 5.0,
+      "led": "UNK2P5V"
+    },
+    {
+      "rail": "1P8V",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [{"refdes": "U59", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["5P0V"]}],
+      "probe_ug": {"rail": "1P8V", "probe": "C542", "tolerance": "±5%", "nominal": "1.8V", "row": 3},
+      "regulator": "U59",
+      "part": "MIC23303YML-T5",
+      "input": "5P0V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C542",
+      "nominalV": 1.8,
+      "tolerancePct": 5.0,
+      "led": "UNK1P8V"
+    },
+    {
+      "rail": "1P5V_DDR3",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [
+        {"refdes": "U17", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["3P3V"]},
+        {"refdes": "U21", "mpn": "MIC5166YML-TR", "other_rails_on_pins": ["0P75V_VTT_DDR3", "3P3V"]}
+      ],
+      "probe_ug": {"rail": "1P5V_DDR3", "probe": "C602", "tolerance": "±5%", "nominal": "1.5V", "row": 5},
+      "regulator": "U17",
+      "part": "MIC23303YML-T5",
+      "input": "3P3V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C602",
+      "nominalV": 1.5,
+      "tolerancePct": 5.0
+    },
+    {
+      "rail": "0P75V_VTT_DDR3",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [{"refdes": "U21", "mpn": "MIC5166YML-TR", "other_rails_on_pins": ["1P5V_DDR3", "3P3V"]}],
+      "probe_ug": {"rail": "0P75V_VTT_DDR3", "probe": "C514", "tolerance": "±5%", "nominal": "0.75V", "row": 6},
+      "regulator": "U21",
+      "part": "MIC5166YML-TR",
+      "input": "3P3V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C514",
+      "nominalV": 0.75,
+      "tolerancePct": 5.0
+    },
+    {
+      "rail": "VDD",
+      "probe_on_rail_in_netlist": false,
+      "regulator_candidates": [],
+      "probe_ug": {"rail": "VDD", "probe": "C499", "tolerance": "±3%", "nominal": "1V", "row": 7},
+      "regulator": "U54",
+      "part": "MIC22705YML-TR",
+      "input": "5P0V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor (via VDD_REG, the PAC1934 shunt node); input = the highest rail on its pins",
+      "probe": "C499",
+      "nominalV": 1.0,
+      "tolerancePct": 3.0,
+      "led": "VDD"
+    },
+    {
+      "rail": "1P1V_LPDDR4",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [{"refdes": "U56", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["5P0V"]}],
+      "probe_ug": {"rail": "1P1V_LPDDR4", "probe": "C574", "tolerance": "±5%", "nominal": "1.1V", "row": 8},
+      "regulator": "U56",
+      "part": "MIC23303YML-T5",
+      "input": "5P0V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C574",
+      "nominalV": 1.1,
+      "tolerancePct": 5.0,
+      "led": "UNK1P1V_LPDDR4"
+    },
+    {
+      "rail": "1P2V_PHY_VSC_FP6",
+      "probe_on_rail_in_netlist": true,
+      "regulator_candidates": [{"refdes": "U57", "mpn": "MIC23303YML-T5", "other_rails_on_pins": ["5P0V"]}],
+      "probe_ug": {"rail": "1P2V_PHY_VSC_FP6", "probe": "C587", "tolerance": "±5%", "nominal": "1.2V", "row": 9},
+      "regulator": "U57",
+      "part": "MIC23303YML-T5",
+      "input": "5P0V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor; input = the highest rail on its pins",
+      "probe": "C587",
+      "nominalV": 1.2,
+      "tolerancePct": 5.0
+    },
+    {
+      "rail": "VDDA",
+      "probe_on_rail_in_netlist": false,
+      "regulator_candidates": [],
+      "probe_ug": {"rail": "VDDA", "probe": "C556", "tolerance": "±3%", "nominal": "1.05V", "row": 11},
+      "regulator": "U61",
+      "part": "MIC69502WR",
+      "input": "3P3V",
+      "regulator_basis": "netlist: the part's pins reach this rail directly or through one inductor (via VDDA_REG, the PAC1934 shunt node); input = the highest rail on its pins",
+      "probe": "C556",
+      "nominalV": 1.05,
+      "tolerancePct": 3.0,
+      "led": "VDDA"
+    },
+    {
+      "rail": "VDDAUX4",
+      "probe_on_rail_in_netlist": null,
+      "regulator_candidates": [],
+      "probe_ug": null,
+      "regulator": null,
+      "regulator_basis": "no regulator: J35 connects VDDAUX4 to 3P3V (1-2) or 2P5V (2-3)",
+      "input": "2P5V",
+      "nominalV": 2.5,
+      "nominal_basis": "not in UG Table 1-4; value from the rail name",
+      "led": "VDDAUX4"
+    }
+  ],
+  "ug_regulators": [
+    {"rail": "5 V", "part": "MIC26950JL", "description": "IC REG BUCK ADJ", "current": "12 A"},
+    {"rail": "VDD (1 V)", "part": "MIC22705YML", "description": "IC REG BUCK ADJUSTABLE", "current": "7 A"},
+    {"rail": "VSC_PHY(1.2 V)", "part": "MIC23303YML-T5", "description": "IC REG BUCK ADJUSTABLE", "current": "3 A"},
+    {"rail": "1.1V_LPDDR4", "part": "MIC23303YML-T5", "description": "IC REG BUCK ADJUSTABLE", "current": "3 A"},
+    {"rail": "1P8V", "part": "MIC23303YML-T5", "description": "IC REG BUCK ADJUSTABLE", "current": "3 A"},
+    {"rail": "2P5V", "part": "MIC69502WR", "description": "IC REG LINEAR POS ADJ", "current": "5 A"},
+    {"rail": "3P3V", "part": "MIC26950JL", "description": "IC REG BUCK ADJ", "current": "12 A"},
+    {"rail": "VDDA", "part": "MIC69502WR", "description": "IC REG LINEAR POS ADJ", "current": "5 A"},
+    {"rail": "1P5V_DDR3", "part": "MIC23303YML-T5", "description": "IC REG BUCK ADJUSTABLE", "current": "3 A"},
+    {"rail": "VTT", "part": "MIC5166YML-TR", "description": "IC PWR SUP 3 A HS DDR TERM 10MLF", "current": "3 A"}
+  ],
+  "indicator_leds": [
+    {
+      "refdes": "DS14",
+      "anode": "N18990902",
+      "cathode": "GND",
+      "rail_trace": [{"side": "anode", "net": "12P0V", "via": "R278"}, {"side": "cathode", "net": "GND"}],
+      "bom": "LTST-C171TBKT"
+    },
+    {
+      "refdes": "DS2",
+      "anode": "N17356193",
+      "cathode": "GND",
+      "rail_trace": [{"side": "anode", "net": "N17356193", "driver": null}, {"side": "cathode", "net": "GND"}],
+      "bom": "LTST-C171KGKT"
+    },
+    {
+      "refdes": "UNK1P1V_LPDDR4",
+      "anode": "3P3V",
+      "cathode": "N17019353",
+      "rail_trace": [{"side": "anode", "net": "3P3V"}, {"side": "cathode", "net": "N17019353", "driver": "U49.5"}],
+      "bom": null
+    },
+    {
+      "refdes": "UNK1P8V",
+      "anode": "3P3V",
+      "cathode": "N21357350",
+      "rail_trace": [{"side": "anode", "net": "3P3V"}, {"side": "cathode", "net": "N21357350", "driver": "U49.3"}],
+      "bom": null
+    },
+    {
+      "refdes": "UNK2P5V",
+      "anode": "2P5V",
+      "cathode": "N19396840",
+      "rail_trace": [{"side": "anode", "net": "2P5V"}, {"side": "cathode", "net": "N19396840", "driver": null}],
+      "bom": null
+    },
+    {
+      "refdes": "UNK3P3V",
+      "anode": "N19393438",
+      "cathode": "GND",
+      "rail_trace": [{"side": "anode", "net": "3P3V", "via": "R320"}, {"side": "cathode", "net": "GND"}],
+      "bom": null
+    },
+    {
+      "refdes": "UNK5P0V",
+      "anode": "N104526",
+      "cathode": "GND",
+      "rail_trace": [{"side": "anode", "net": "5P0V", "via": "R287"}, {"side": "cathode", "net": "GND"}],
+      "bom": null
+    },
+    {
+      "refdes": "VDD",
+      "anode": "3P3V",
+      "cathode": "N17019245",
+      "rail_trace": [{"side": "anode", "net": "3P3V"}, {"side": "cathode", "net": "N17019245", "driver": "U49.1"}],
+      "bom": "LTST-C191KGKT"
+    },
+    {
+      "refdes": "VDDA",
+      "anode": "3P3V",
+      "cathode": "N21898411",
+      "rail_trace": [{"side": "anode", "net": "3P3V"}, {"side": "cathode", "net": "N21898411", "driver": "U49.7"}],
+      "bom": "LTST-C191KGKT"
+    },
+    {
+      "refdes": "VDDAUX4",
+      "anode": "VDDAUX4",
+      "cathode": "N19402146",
+      "rail_trace": [{"side": "anode", "net": "VDDAUX4"}, {"side": "cathode", "net": "N19402146", "driver": null}],
+      "bom": "LTST-C191KGKT"
+    }
+  ],
+  "indicator_note": "The UG names the power LEDs 12P0, 5P0, 2P5V, VDDAUX4, 3P3V, VDD, 1P8, 1P1V_LPDDR4, VDDA. In the layout they are refdes UNK1P1V_LPDDR4, UNK1P8V, UNK2P5V, UNK3P3V, UNK5P0V, VDD, VDDA, VDDAUX4; no 12P0 indicator refdes was found. LD1-LD12 are NOT power LEDs (see ld_leds).",
+  "ld_leds": [
+    {"refdes": "LD1", "anode": "N17522347", "cathode": "N17522351", "cathode_reaches": ["U4.G1"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {"refdes": "LD2", "anode": "N17522371", "cathode": "N17522375", "cathode_reaches": ["U4.H1"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {"refdes": "LD3", "anode": "N17522355", "cathode": "N17522359", "cathode_reaches": ["U4.G2"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {"refdes": "LD4", "anode": "N17522363", "cathode": "N17522367", "cathode_reaches": ["U4.H2"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {"refdes": "LD5", "anode": "N17523422", "cathode": "N17523426", "cathode_reaches": ["U4.G3"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {"refdes": "LD6", "anode": "N17523446", "cathode": "N17523450", "cathode_reaches": ["U4.H3"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {"refdes": "LD7", "anode": "N17523430", "cathode": "N17523434", "cathode_reaches": ["U4.G4"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {"refdes": "LD8", "anode": "N17523438", "cathode": "N17523442", "cathode_reaches": ["U4.H4"], "bom": "LED GREEN CLEAR 1206 SMD"},
+    {
+      "refdes": "LD9",
+      "anode": "N27427132",
+      "cathode": "CAN1_TXBUS",
+      "cathode_reaches": ["C100.1", "C102.1", "C104.1", "C106.1"],
+      "bom": "LED RED CLEAR SMD"
+    },
+    {
+      "refdes": "LD10",
+      "anode": "N27427185",
+      "cathode": "N18781736",
+      "cathode_reaches": ["R238.2", "U1.A3", "U47.4"],
+      "bom": "LED YELLOW CLEAR SMD"
+    },
+    {
+      "refdes": "LD11",
+      "anode": "N27428475",
+      "cathode": "CAN2_TXBUS",
+      "cathode_reaches": ["C100.1", "C102.1", "C104.1", "C106.1"],
+      "bom": "LED RED CLEAR SMD"
+    },
+    {
+      "refdes": "LD12",
+      "anode": "N27428528",
+      "cathode": "N17423542",
+      "cathode_reaches": ["R240.2", "U1.A16", "U48.4"],
+      "bom": "LED YELLOW CLEAR SMD"
+    }
+  ],
+  "ld_note": "LD1-LD8 (green 1206) have their cathodes on U4 VSC8662 pins (PHY LED outputs); LD9/LD11 (red) sit on CAN1_TXBUS/CAN2_TXBUS.",
+  "pac1934": {
+    "refdes": "U55",
+    "bus": "MSS I2C1",
+    "address": "0x10",
+    "channels": [{"ch": 1, "label": "VDDREG"}, {"ch": 2, "label": "VDDA25"}, {"ch": 3, "label": "VDD25"}, {"ch": 4, "label": "VDDA_REG"}],
+    "shunt_ohm": 0.01,
+    "source": "https://github.com/torvalds/linux/blob/master/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi#L86-L120"
+  },
+  "regulator_note": "regulator_candidates lists every BOM regulator with a pin on the rail net; other_rails_on_pins hints at its input. PG->EN wiring is WP-10's job (power-tree.json).",
+  "regulator_io": {
+    "U17": {"input": "3P3V", "outputs": ["1P5V_DDR3"], "mpn": "MIC23303YML-T5"},
+    "U21": {"input": "3P3V", "outputs": ["0P75V_VTT_DDR3", "1P5V_DDR3"], "mpn": "MIC5166YML-TR"},
+    "U52": {"input": "12P0V_IN", "outputs": ["12P0V"], "mpn": "IRF9317TRPBF"},
+    "U53": {"input": "12P0V", "outputs": ["5P0V"], "mpn": "MIC26950YJL-TR"},
+    "U54": {"input": "5P0V", "outputs": ["VDD_REG"], "mpn": "MIC22705YML-TR"},
+    "U56": {"input": "5P0V", "outputs": ["1P1V_LPDDR4"], "mpn": "MIC23303YML-T5"},
+    "U57": {"input": "5P0V", "outputs": ["1P2V_PHY_VSC_FP6"], "mpn": "MIC23303YML-T5"},
+    "U58": {"input": "12P0V", "outputs": ["3P3V"], "mpn": "MIC26950YJL-TR"},
+    "U59": {"input": "5P0V", "outputs": ["1P8V"], "mpn": "MIC23303YML-T5"},
+    "U61": {"input": "3P3V", "outputs": ["VDDA_REG"], "mpn": "MIC69502WR"},
+    "U71": {"input": "5P0V", "outputs": ["2P5V"], "mpn": "MIC69502WR"}
+  },
+  "regulator_io_note": "inferred from the netlist: rails on each regulator's pins (direct or through one inductor); input = highest voltage",
+  "netlist": {"file": "build/kicad/icicle.ipc", "blob_sha1": "f40f06e8864b4d472299b3546023263ab927eb8d", "full_net_names": true}
+}

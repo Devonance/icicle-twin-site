@@ -1,0 +1,1571 @@
+{
+  "schema": "icicle-twin/log@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "cnblogs": {
+      "title": "cnblogs suozhang 'Libero PolarFire soc DEVICE INFO LOG' (FlashPro Express 2025.2 log, MPFS250T)",
+      "url": "https://www.cnblogs.com/suozhang/p/19604397",
+      "licence": "none stated",
+      "licence_note": "Blog post (2026-02-11); the tool log is quoted as a factual record; the author's Chinese annotations are removed",
+      "local": "reference/vendor/flashpro-express-docs/cnblogs_suozhang_19604397.html"
+    },
+    "jobfile": {
+      "title": "FlashPro Express job BASE_DESIGN_ES_FD0AEBB95776A72.job (release v2026.04, MPFS_ICICLE_KIT_BASE_DESIGN_ES_2026_04.tar)",
+      "url": "https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2026.04",
+      "licence": "Microchip release asset",
+      "licence_note": "Only facts (header fields, flags, sizes, digests, pin list) are published; the encrypted bitstream (pgm.map) is never copied",
+      "local": "reference/vendor/gh-release-icicle-base-design-es-2026.04 (git-ignored)"
+    },
+    "fpe-ug": {
+      "title": "FlashPro Express User Guide DS50003089Q (Libero SoC v2025.1)",
+      "url": "http://coredocs.s3.amazonaws.com/Libero/2025_1/Tool/flashpro_express_ug.pdf",
+      "licence": "Microchip copyright",
+      "licence_note": "Facts only (action names and descriptions)",
+      "local": "reference/vendor/flashpro-express-docs/flashpro_express_ug_2025_1.pdf"
+    }
+  },
+  "id": "flashpro_device_info",
+  "console": "flashpro",
+  "source": {
+    "file": "reference/vendor/flashpro-express-docs/cnblogs_suozhang_19604397.html",
+    "url": "https://www.cnblogs.com/suozhang/p/19604397",
+    "where": "post body, DEVICE_INFO log",
+    "licence": "none stated (blog post; tool output quoted)",
+    "id": "cnblogs",
+    "blob_sha1": "7b99604c6c18f4940c1d7cc780fd16271a847d1e",
+    "src_line_base": "1-based index into the non-empty text lines of div#cnblogs_post_body",
+    "captured_on": "Libero/FlashPro Express 2025.2, FlashPro5, production MPFS250T (IDCODE 1f81a1cf), design 'system'"
+  },
+  "idcodes": {
+    "es": "0f81a1cf",
+    "production": "1f81a1cf",
+    "idmask": "0fffffff",
+    "note": "the Icicle Kit ES (MPFS-ICICLE-KIT-ES) has the ES die; the job file header gives 0f81a1cf"
+  },
+  "defaults": {
+    "programmer_id": "{programmer_id}",
+    "programmer": "FlashPro6",
+    "device": "MPFS250T_ES",
+    "idcode": "0f81a1cf",
+    "product": "MPFS250T_ES",
+    "design": "BASE_DESIGN_ES_FD0AEBB95776A72",
+    "checksum": "24e4",
+    "checksum_upper": "24E4",
+    "silsig": "1c1c1ee5",
+    "designver_hex": "65b8",
+    "tck_mhz": "4"
+  },
+  "placeholders_without_default": ["programmer_id", "project_path", "ppd_path", "finished", "elapsed"],
+  "fields": {
+    "text_source": "the real line with only the blog author's annotations removed",
+    "template": "text_source with job-file values replaced by {placeholders}",
+    "text": "template rendered with 'defaults' (placeholders without a default stay in braces for the simulator to fill)"
+  },
+  "program": {
+    "reconstructed": true,
+    "estimated_elapsed": "00:00:50",
+    "note": "No verbatim PROGRAM log for MPFS was found. Lines reuse the real DEVICE_INFO line formats; the component lines are reconstructed from the FlashPro Express UG and the job header. The UG warns that component digests printed while programming differ from digests read back from the device.",
+    "lines": [
+      {
+        "kind": "line",
+        "id": "fp.pg.001",
+        "template": "programmer '{programmer_id}' : Scan Chain...",
+        "text": "programmer '{programmer_id}' : Scan Chain...",
+        "event": "jtag.chain.scan",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.002",
+        "template": "programmer '{programmer_id}' : Check Chain...",
+        "text": "programmer '{programmer_id}' : Check Chain...",
+        "event": "jtag.chain.check",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.003",
+        "template": "programmer '{programmer_id}' : Scan and Check Chain PASSED.",
+        "text": "programmer '{programmer_id}' : Scan and Check Chain PASSED.",
+        "event": "jtag.chain.ok",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.004",
+        "template": "programmer '{programmer_id}' : device '{device}' : Executing action PROGRAM",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Executing action PROGRAM",
+        "event": "fp.action.start",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above, action name from the job header <action>PROGRAM"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.005",
+        "template": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = {tck_mhz} MHz",
+        "text": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = 4 MHz",
+        "event": "jtag.tck.set",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.006",
+        "template": "programmer '{programmer_id}' : device '{device}' : EXPORT IDCODE[32] = {idcode}",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT IDCODE[32] = 0f81a1cf",
+        "event": "jtag.idcode.read",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.007",
+        "template": "programmer '{programmer_id}' : device '{device}' : Programming FPGA Array (fabric) ...",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Programming FPGA Array (fabric) ...",
+        "event": "fp.program.fabric",
+        "reconstructed": true,
+        "basis": "reconstructed: job header program_fabric=true; FlashPro Express UG 5.9 PROGRAM description"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.008",
+        "template": "programmer '{programmer_id}' : device '{device}' : Programming sNVM ...",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Programming sNVM ...",
+        "event": "fp.program.snvm",
+        "reconstructed": true,
+        "basis": "reconstructed: job header program_snvm=true"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.009",
+        "template": "programmer '{programmer_id}' : device '{device}' : Programming eNVM ...",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Programming eNVM ...",
+        "event": "fp.program.envm",
+        "reconstructed": true,
+        "basis": "reconstructed: job header program_envm0=true"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.010",
+        "template": "programmer '{programmer_id}' : device '{device}' : EXPORT Fabric component bitstream digest[256] = b28c33df9121f7f0431a294f8099aa4d8544e187ce9cd8141d4e97c03ff42576",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT Fabric component bitstream digest[256] = b28c33df9121f7f0431a294f8099aa4d8544e187ce9cd8141d4e97c03ff42576",
+        "event": "fp.digest.fabric",
+        "reconstructed": true,
+        "basis": "reconstructed wording; value from _job.digest. UG 5.9: the PROGRAM log lists component digests"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.011",
+        "template": "programmer '{programmer_id}' : device '{device}' : EXPORT sNVM component bitstream digest[256] = c2ba8bf256d4ab47a91e8525eeb9a872920d3391ef1bbfb8ba412108246f72ad",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT sNVM component bitstream digest[256] = c2ba8bf256d4ab47a91e8525eeb9a872920d3391ef1bbfb8ba412108246f72ad",
+        "event": "fp.digest.snvm",
+        "reconstructed": true,
+        "basis": "as fp.pg.010"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.012",
+        "template": "programmer '{programmer_id}' : device '{device}' : EXPORT eNVM component bitstream digest[256] = 66d092b2cc8bd41cf71733c7096f94308024b00f3849cede24e3d4716da9898e",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT eNVM component bitstream digest[256] = 66d092b2cc8bd41cf71733c7096f94308024b00f3849cede24e3d4716da9898e",
+        "event": "fp.digest.envm",
+        "reconstructed": true,
+        "basis": "as fp.pg.010"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.013",
+        "template": "programmer '{programmer_id}' : device '{device}' : EXPORT Entire bitstream digest[256] = 4f96a776765b244d8432f7b9606c120fcd6b0daf143a7680c7b586815a8df739",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT Entire bitstream digest[256] = 4f96a776765b244d8432f7b9606c120fcd6b0daf143a7680c7b586815a8df739",
+        "event": "fp.digest.bitstream",
+        "reconstructed": true,
+        "basis": "reconstructed wording; value from _job.digest and header.xml bitstream_digest"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.014",
+        "template": "programmer '{programmer_id}' : Finished: {finished} (Elapsed time {elapsed})",
+        "text": "programmer '{programmer_id}' : Finished: {finished} (Elapsed time {elapsed})",
+        "event": "fp.action.finish",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.015",
+        "template": "programmer '{programmer_id}' : device '{device}' : Executing action PROGRAM PASSED.",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Executing action PROGRAM PASSED.",
+        "event": "fp.action.passed",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.016",
+        "template": "programmer '{programmer_id}' : Chain programming PASSED.",
+        "text": "programmer '{programmer_id}' : Chain programming PASSED.",
+        "event": "fp.chain.passed",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.pg.017",
+        "template": "Chain Programming Finished: {finished} (Elapsed time {elapsed})",
+        "text": "Chain Programming Finished: {finished} (Elapsed time {elapsed})",
+        "event": "fp.chain.finish",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      }
+    ]
+  },
+  "verify": {
+    "reconstructed": true,
+    "note": "As for PROGRAM. VERIFY checks fabric and eNVM (header.xml verify_fabric=1, verify_envm0=1).",
+    "lines": [
+      {
+        "kind": "line",
+        "id": "fp.vf.001",
+        "template": "programmer '{programmer_id}' : Scan Chain...",
+        "text": "programmer '{programmer_id}' : Scan Chain...",
+        "event": "jtag.chain.scan",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.002",
+        "template": "programmer '{programmer_id}' : Check Chain...",
+        "text": "programmer '{programmer_id}' : Check Chain...",
+        "event": "jtag.chain.check",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.003",
+        "template": "programmer '{programmer_id}' : Scan and Check Chain PASSED.",
+        "text": "programmer '{programmer_id}' : Scan and Check Chain PASSED.",
+        "event": "jtag.chain.ok",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.004",
+        "template": "programmer '{programmer_id}' : device '{device}' : Executing action VERIFY",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Executing action VERIFY",
+        "event": "fp.action.start",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.005",
+        "template": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = {tck_mhz} MHz",
+        "text": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = 4 MHz",
+        "event": "jtag.tck.set",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.006",
+        "template": "programmer '{programmer_id}' : device '{device}' : EXPORT IDCODE[32] = {idcode}",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT IDCODE[32] = 0f81a1cf",
+        "event": "jtag.idcode.read",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.007",
+        "template": "programmer '{programmer_id}' : device '{device}' : Verifying FPGA Array (fabric) ...",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Verifying FPGA Array (fabric) ...",
+        "event": "fp.verify.fabric",
+        "reconstructed": true,
+        "basis": "reconstructed: job header verify_fabric=1"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.008",
+        "template": "programmer '{programmer_id}' : device '{device}' : Verifying eNVM ...",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Verifying eNVM ...",
+        "event": "fp.verify.envm",
+        "reconstructed": true,
+        "basis": "reconstructed: job header verify_envm0=1"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.009",
+        "template": "programmer '{programmer_id}' : Finished: {finished} (Elapsed time {elapsed})",
+        "text": "programmer '{programmer_id}' : Finished: {finished} (Elapsed time {elapsed})",
+        "event": "fp.action.finish",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.010",
+        "template": "programmer '{programmer_id}' : device '{device}' : Executing action VERIFY PASSED.",
+        "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Executing action VERIFY PASSED.",
+        "event": "fp.action.passed",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.011",
+        "template": "programmer '{programmer_id}' : Chain programming PASSED.",
+        "text": "programmer '{programmer_id}' : Chain programming PASSED.",
+        "event": "fp.chain.passed",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      },
+      {
+        "kind": "line",
+        "id": "fp.vf.012",
+        "template": "Chain Programming Finished: {finished} (Elapsed time {elapsed})",
+        "text": "Chain Programming Finished: {finished} (Elapsed time {elapsed})",
+        "event": "fp.chain.finish",
+        "reconstructed": true,
+        "basis": "line format copied from the real DEVICE_INFO log above"
+      }
+    ]
+  },
+  "actions": ["DEVICE_INFO", "ENC_DATA_AUTHENTICATION", "ERASE", "PROGRAM", "READ_IDCODE", "VERIFY", "VERIFY_DIGEST"],
+  "action_states": ["IDLE", "DISABLED", "PASSED", "FAILED"],
+  "lines": [
+    {
+      "kind": "line",
+      "id": "fp.di.001",
+      "src_line": 1,
+      "text_source": "Software Version: 2025.2.0.14",
+      "template": "Software Version: 2025.2.0.14",
+      "text": "Software Version: 2025.2.0.14",
+      "event": "fp.log.connect",
+      "phase": "connect",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.002",
+      "src_line": 2,
+      "text_source": "Programmer 'S200AN6ZQU' : JTAG TCK / SPI SCK frequency = 1 MHz",
+      "template": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = 1 MHz",
+      "text": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = 1 MHz",
+      "event": "fp.log.connect",
+      "phase": "connect",
+      "verbatim": false,
+      "substitutions": [{"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.003",
+      "src_line": 3,
+      "text_source": "programmer 'S200AN6ZQU' : FlashPro5",
+      "template": "programmer '{programmer_id}' : {programmer}",
+      "text": "programmer '{programmer_id}' : FlashPro6",
+      "event": "fp.log.connect",
+      "phase": "connect",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "programmer", "basis": "Icicle Kit uses the embedded FlashPro6 (U26) or an external FlashPro6"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.004",
+      "src_line": 4,
+      "text_source": "Opened 'C:\\Users\\zydz\\Desktop\\polarfire_code\\icicle\\designer\\system\\system_fp\\system.pro'",
+      "template": "Opened '{project_path}'",
+      "text": "Opened '{project_path}'",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": false,
+      "substitutions": [{"field": "project_path", "basis": "the blogger's path"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.005",
+      "src_line": 5,
+      "text_source": "The 'open_project' command succeeded.",
+      "template": "The 'open_project' command succeeded.",
+      "text": "The 'open_project' command succeeded.",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.006",
+      "src_line": 6,
+      "text_source": "Info: Programming is already enabled for device 'MPFS250T'.",
+      "template": "Info: Programming is already enabled for device '{device}'.",
+      "text": "Info: Programming is already enabled for device 'MPFS250T_ES'.",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": false,
+      "substitutions": [{"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.007",
+      "src_line": 7,
+      "text_source": "The 'enable_device' command succeeded.",
+      "template": "The 'enable_device' command succeeded.",
+      "text": "The 'enable_device' command succeeded.",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.008",
+      "src_line": 8,
+      "text_source": "PPD file 'C:/Users/zydz/Desktop/polarfire_code/icicle/designer/system/system.ppd' has been loaded successfully.",
+      "template": "PPD file '{ppd_path}' has been loaded successfully.",
+      "text": "PPD file '{ppd_path}' has been loaded successfully.",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": false,
+      "substitutions": [{"field": "ppd_path", "basis": "the blogger's path"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.009",
+      "src_line": 9,
+      "text_source": "DESIGN : system; CHECKSUM : C675; PDB_VERSION : 1.0",
+      "template": "DESIGN : {design}; CHECKSUM : {checksum_upper}; PDB_VERSION : 1.0",
+      "text": "DESIGN : BASE_DESIGN_ES_FD0AEBB95776A72; CHECKSUM : 24E4; PDB_VERSION : 1.0",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": false,
+      "substitutions": [{"field": "checksum", "basis": "job header.xml chksum 24E4"}, {"field": "design", "basis": "job header.xml design"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.010",
+      "src_line": 10,
+      "text_source": "The 'set_programming_file' command succeeded.",
+      "template": "The 'set_programming_file' command succeeded.",
+      "text": "The 'set_programming_file' command succeeded.",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.011",
+      "src_line": 11,
+      "text_source": "The 'set_programming_action' command succeeded.",
+      "template": "The 'set_programming_action' command succeeded.",
+      "text": "The 'set_programming_action' command succeeded.",
+      "event": "fp.log.load_job",
+      "phase": "load_job",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.012",
+      "src_line": 12,
+      "text_source": "programmer 'S200AN6ZQU' : Scan Chain...",
+      "template": "programmer '{programmer_id}' : Scan Chain...",
+      "text": "programmer '{programmer_id}' : Scan Chain...",
+      "event": "fp.log.scan_chain",
+      "phase": "scan_chain",
+      "verbatim": false,
+      "substitutions": [{"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.013",
+      "src_line": 13,
+      "text_source": "Programmer 'S200AN6ZQU' : JTAG TCK / SPI SCK frequency = 1 MHz",
+      "template": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = 1 MHz",
+      "text": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = 1 MHz",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [{"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.014",
+      "src_line": 14,
+      "text_source": "programmer 'S200AN6ZQU' : Check Chain...",
+      "template": "programmer '{programmer_id}' : Check Chain...",
+      "text": "programmer '{programmer_id}' : Check Chain...",
+      "event": "fp.log.scan_chain",
+      "phase": "scan_chain",
+      "verbatim": false,
+      "substitutions": [{"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.015",
+      "src_line": 15,
+      "text_source": "programmer 'S200AN6ZQU' : Scan and Check Chain PASSED.",
+      "template": "programmer '{programmer_id}' : Scan and Check Chain PASSED.",
+      "text": "programmer '{programmer_id}' : Scan and Check Chain PASSED.",
+      "event": "jtag.chain.ok",
+      "phase": "scan_chain",
+      "verbatim": false,
+      "substitutions": [{"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.016",
+      "src_line": 16,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Executing action DEVICE_INFO",
+      "template": "programmer '{programmer_id}' : device '{device}' : Executing action DEVICE_INFO",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Executing action DEVICE_INFO",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.017",
+      "src_line": 17,
+      "text_source": "Programmer 'S200AN6ZQU' : JTAG TCK / SPI SCK frequency = 4 MHz",
+      "template": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = {tck_mhz} MHz",
+      "text": "Programmer '{programmer_id}' : JTAG TCK / SPI SCK frequency = 4 MHz",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "tck_mhz", "basis": "job .pro FlashPro6 TCK 4000000"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.018",
+      "src_line": 18,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT Algo_version[16] = 0002",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT Algo_version[16] = 0002",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT Algo_version[16] = 0002",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.019",
+      "src_line": 19,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT IDCODE[32] = 1f81a1cf",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT IDCODE[32] = {idcode}",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT IDCODE[32] = 0f81a1cf",
+      "event": "jtag.idcode.read",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"},
+        {"field": "idcode", "basis": "job header.xml Device_Info idcode=0f81a1cf (ES die); 1f81a1cf is production"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.020",
+      "src_line": 20,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Family: PolarFireSoC",
+      "template": "programmer '{programmer_id}' : device '{device}' : Family: PolarFireSoC",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Family: PolarFireSoC",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.021",
+      "src_line": 21,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Product: MPFS250TS",
+      "template": "programmer '{programmer_id}' : device '{device}' : Product: {product}",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Product: MPFS250T_ES",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"},
+        {"field": "product", "basis": "job header.xml extDie MPFS250T_ES; exact ES wording not captured (inferred)"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.022",
+      "src_line": 22,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Die Revision: 1",
+      "template": "programmer '{programmer_id}' : device '{device}' : Die Revision: 1",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Die Revision: 1",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.023",
+      "src_line": 23,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Die Firmware Version: 135.6",
+      "template": "programmer '{programmer_id}' : device '{device}' : Die Firmware Version: 135.6",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Die Firmware Version: 135.6",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.024",
+      "src_line": 24,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UDV[32] = 05c78706",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UDV[32] = 05c78706",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UDV[32] = 05c78706",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.025",
+      "src_line": 25,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT SILSIG[32] = 12345678",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT SILSIG[32] = {silsig}",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT SILSIG[32] = 1c1c1ee5",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"},
+        {"field": "silsig", "basis": "job header.xml silsig 1c1c1ee5"}
+      ],
+      "flags": ["annotation_removed"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.026",
+      "src_line": 26,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : FPGA Array is programmed and enabled.",
+      "template": "programmer '{programmer_id}' : device '{device}' : FPGA Array is programmed and enabled.",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : FPGA Array is programmed and enabled.",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.027",
+      "src_line": 27,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Design Name: system",
+      "template": "programmer '{programmer_id}' : device '{device}' : Design Name: {design}",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Design Name: BASE_DESIGN_ES_FD0AEBB95776A72",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"},
+        {"field": "design", "basis": "job header.xml design; Tcl top_level_name (MPFS_ICICLE_KIT_REFERENCE_DESIGN.tcl L149)"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.028",
+      "src_line": 28,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT CHECKSUM[16] = c675",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT CHECKSUM[16] = {checksum}",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT CHECKSUM[16] = 24e4",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"},
+        {"field": "checksum", "basis": "job header.xml chksum 24E4"}
+      ],
+      "flags": ["annotation_removed"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.029",
+      "src_line": 29,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT READ_DESIGN_INFO: [288] = 0000a5a50000000000000000000000000000000000000000000000006d6574737973c675",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT READ_DESIGN_INFO: [288] = 0000a5a50000000000000000000000000000000000000000000000006d6574737973c675",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT READ_DESIGN_INFO: [288] = 0000a5a50000000000000000000000000000000000000000000000006d6574737973c675",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.030",
+      "src_line": 30,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT DESIGNVER[16] = a5a5",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT DESIGNVER[16] = {designver_hex}",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT DESIGNVER[16] = 65b8",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"},
+        {"field": "design_version", "basis": "job header.xml design_version 26040 = 0x65b8"}
+      ],
+      "flags": ["annotation_removed"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.031",
+      "src_line": 31,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT BACKLEVEL[16] = 0000",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT BACKLEVEL[16] = 0000",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT BACKLEVEL[16] = 0000",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.032",
+      "src_line": 32,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Reading digests for all the segments from the device...",
+      "template": "programmer '{programmer_id}' : device '{device}' : Reading digests for all the segments from the device...",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Reading digests for all the segments from the device...",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.033",
+      "src_line": 33,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT CHECK FABRIC digest[256] = f46472d59ad6de5676d1a7209fc30d3c40cca9d1e911d5f7536070660ee8234f",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT CHECK FABRIC digest[256] = f46472d59ad6de5676d1a7209fc30d3c40cca9d1e911d5f7536070660ee8234f",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT CHECK FABRIC digest[256] = f46472d59ad6de5676d1a7209fc30d3c40cca9d1e911d5f7536070660ee8234f",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.034",
+      "src_line": 34,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT CC digest[256] = 74bf3b5333d1b8fe16e122373a92bd1edfbd0e0e53cc9af23da790dc98b3d4b7",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT CC digest[256] = 74bf3b5333d1b8fe16e122373a92bd1edfbd0e0e53cc9af23da790dc98b3d4b7",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT CC digest[256] = 74bf3b5333d1b8fe16e122373a92bd1edfbd0e0e53cc9af23da790dc98b3d4b7",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.035",
+      "src_line": 35,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT SNVM digest[256] = dd3bbe20f4e618925211377e7b04d16a7884b9322767cf301117774df0f37045",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT SNVM digest[256] = dd3bbe20f4e618925211377e7b04d16a7884b9322767cf301117774df0f37045",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT SNVM digest[256] = dd3bbe20f4e618925211377e7b04d16a7884b9322767cf301117774df0f37045",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.036",
+      "src_line": 36,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UL digest[256] = 50c11730db7a6ce3ca82e6016510ab99c27d2a09456c670649d2f5e2f6b04b0a",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UL digest[256] = 50c11730db7a6ce3ca82e6016510ab99c27d2a09456c670649d2f5e2f6b04b0a",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UL digest[256] = 50c11730db7a6ce3ca82e6016510ab99c27d2a09456c670649d2f5e2f6b04b0a",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.037",
+      "src_line": 37,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST0 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST0 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST0 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.038",
+      "src_line": 38,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST1 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST1 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST1 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.039",
+      "src_line": 39,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST2 digest[256] = d45264ac8021c51b0e1a01764b865b74ccf1bec3d20c40078063d19891aba92e",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST2 digest[256] = d45264ac8021c51b0e1a01764b865b74ccf1bec3d20c40078063d19891aba92e",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST2 digest[256] = d45264ac8021c51b0e1a01764b865b74ccf1bec3d20c40078063d19891aba92e",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.040",
+      "src_line": 40,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST3 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST3 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST3 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.041",
+      "src_line": 41,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST4 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST4 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST4 digest[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.042",
+      "src_line": 42,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST5 digest[256] = d45264ac8021c51b0e1a01764b865b74ccf1bec3d20c40078063d19891aba92e",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST5 digest[256] = d45264ac8021c51b0e1a01764b865b74ccf1bec3d20c40078063d19891aba92e",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST5 digest[256] = d45264ac8021c51b0e1a01764b865b74ccf1bec3d20c40078063d19891aba92e",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.043",
+      "src_line": 43,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST6 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST6 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST6 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.044",
+      "src_line": 44,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UPERM digest[256] = 49a5818c4fff9561dff202eddf5d7b9dca9189afe8e0c6eb76de64f6726abb93",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UPERM digest[256] = 49a5818c4fff9561dff202eddf5d7b9dca9189afe8e0c6eb76de64f6726abb93",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UPERM digest[256] = 49a5818c4fff9561dff202eddf5d7b9dca9189afe8e0c6eb76de64f6726abb93",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.045",
+      "src_line": 45,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT SYS digest[256] = 1d8a73d4776327a155754631d632c3e9ea77fbbeeccbade183cc6d6886f4b229",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT SYS digest[256] = 1d8a73d4776327a155754631d632c3e9ea77fbbeeccbade183cc6d6886f4b229",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT SYS digest[256] = 1d8a73d4776327a155754631d632c3e9ea77fbbeeccbade183cc6d6886f4b229",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.046",
+      "src_line": 46,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST7 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST7 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST7 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.047",
+      "src_line": 47,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT ENVM digest[256] = 4ad38f9c8520dc409a4cf96bef5c674be3449fe34b233c6060198e0e7794a0cb",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT ENVM digest[256] = 4ad38f9c8520dc409a4cf96bef5c674be3449fe34b233c6060198e0e7794a0cb",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT ENVM digest[256] = 4ad38f9c8520dc409a4cf96bef5c674be3449fe34b233c6060198e0e7794a0cb",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.048",
+      "src_line": 48,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST8 digest[256] = 87eb736677196efe6270b2d09e04009e441ca3aed1077578afc813caa5ffc787",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST8 digest[256] = 87eb736677196efe6270b2d09e04009e441ca3aed1077578afc813caa5ffc787",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST8 digest[256] = 87eb736677196efe6270b2d09e04009e441ca3aed1077578afc813caa5ffc787",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.049",
+      "src_line": 49,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST9 digest[256] = 24e58e26abd4a4ca46516d4614f6f4dddb7e9a4fed9e8439e1d7e5b0b56caa17",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST9 digest[256] = 24e58e26abd4a4ca46516d4614f6f4dddb7e9a4fed9e8439e1d7e5b0b56caa17",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST9 digest[256] = 24e58e26abd4a4ca46516d4614f6f4dddb7e9a4fed9e8439e1d7e5b0b56caa17",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.050",
+      "src_line": 50,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT UKDIGEST10 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT UKDIGEST10 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT UKDIGEST10 digest[256] = 4bfb5927a93198eae8f0d920233d00439b9709d36eef982730206ad142fda5f5",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.051",
+      "src_line": 51,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Please refer to System Services User Guide for more details about different digests.",
+      "template": "programmer '{programmer_id}' : device '{device}' : Please refer to System Services User Guide for more details about different digests.",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Please refer to System Services User Guide for more details about different digests.",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.052",
+      "src_line": 52,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : ---------------------------------------",
+      "template": "programmer '{programmer_id}' : device '{device}' : ---------------------------------------",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : ---------------------------------------",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.053",
+      "src_line": 53,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT DEBUG_INFO[784] = 000000000000000000000003017e00003fff100001000000000000000000000000000000001500000444000000ca000003000000000000000000ffcffd012dea02010000000000000000000019cc02e806f809bc09b809c30024001f002790000000",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT DEBUG_INFO[784] = 000000000000000000000003017e00003fff100001000000000000000000000000000000001500000444000000ca000003000000000000000000ffcffd012dea02010000000000000000000019cc02e806f809bc09b809c30024001f002790000000",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT DEBUG_INFO[784] = 000000000000000000000003017e00003fff100001000000000000000000000000000000001500000444000000ca000003000000000000000000ffcffd012dea02010000000000000000000019cc02e806f809bc09b809c30024001f002790000000",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.054",
+      "src_line": 54,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : System controller suspend mode is disabled",
+      "template": "programmer '{programmer_id}' : device '{device}' : System controller suspend mode is disabled",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : System controller suspend mode is disabled",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.055",
+      "src_line": 55,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : CYCLE COUNT: 21",
+      "template": "programmer '{programmer_id}' : device '{device}' : CYCLE COUNT: 21",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : CYCLE COUNT: 21",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["annotation_removed", "es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.056",
+      "src_line": 56,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Programming Mode: JTAG",
+      "template": "programmer '{programmer_id}' : device '{device}' : Programming Mode: JTAG",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Programming Mode: JTAG",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.057",
+      "src_line": 57,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Algorithm Version: 1",
+      "template": "programmer '{programmer_id}' : device '{device}' : Algorithm Version: 1",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Algorithm Version: 1",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.058",
+      "src_line": 58,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Programmer: FlashPro5",
+      "template": "programmer '{programmer_id}' : device '{device}' : Programmer: {programmer}",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Programmer: FlashPro6",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "programmer", "basis": "Icicle Kit uses the embedded FlashPro6 (U26) or an external FlashPro6"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.059",
+      "src_line": 59,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Software Version: 2025.2",
+      "template": "programmer '{programmer_id}' : device '{device}' : Software Version: 2025.2",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Software Version: 2025.2",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.060",
+      "src_line": 60,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Programming Software: FlashPro Express",
+      "template": "programmer '{programmer_id}' : device '{device}' : Programming Software: FlashPro Express",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Programming Software: FlashPro Express",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.061",
+      "src_line": 61,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Programming File Type: PPD",
+      "template": "programmer '{programmer_id}' : device '{device}' : Programming File Type: PPD",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Programming File Type: PPD",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["annotation_removed"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.062",
+      "src_line": 62,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : ===================================================================================",
+      "template": "programmer '{programmer_id}' : device '{device}' : ===================================================================================",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : ===================================================================================",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.063",
+      "src_line": 63,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT DSN[128] = 9ede6ec2ed712294fafcf10d9f70e190",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT DSN[128] = 9ede6ec2ed712294fafcf10d9f70e190",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT DSN[128] = 9ede6ec2ed712294fafcf10d9f70e190",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.064",
+      "src_line": 64,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : ===================================================================================",
+      "template": "programmer '{programmer_id}' : device '{device}' : ===================================================================================",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : ===================================================================================",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.065",
+      "src_line": 65,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : --- Security locks and configuration settings ---",
+      "template": "programmer '{programmer_id}' : device '{device}' : --- Security locks and configuration settings ---",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : --- Security locks and configuration settings ---",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.066",
+      "src_line": 66,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT QUERY_SECURITY[264] = 00ffffffffffffffffffffffffffffffff00000001000000000000000000000000",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT QUERY_SECURITY[264] = 00ffffffffffffffffffffffffffffffff00000001000000000000000000000000",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT QUERY_SECURITY[264] = 00ffffffffffffffffffffffffffffffff00000001000000000000000000000000",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.067",
+      "src_line": 67,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Microsemi factory test mode access is allowed.",
+      "template": "programmer '{programmer_id}' : device '{device}' : Microsemi factory test mode access is allowed.",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Microsemi factory test mode access is allowed.",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.068",
+      "src_line": 68,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT Factory Integrity Bits[256] = 4be48dc078655d410fcdce9bf440e55e2fab9525a27eb8f1e4b1db5c9d0caff6",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT Factory Integrity Bits[256] = 4be48dc078655d410fcdce9bf440e55e2fab9525a27eb8f1e4b1db5c9d0caff6",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT Factory Integrity Bits[256] = 4be48dc078655d410fcdce9bf440e55e2fab9525a27eb8f1e4b1db5c9d0caff6",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.069",
+      "src_line": 69,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT Device Integrity Bits[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT Device Integrity Bits[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT Device Integrity Bits[256] = 0000000000000000000000000000000000000000000000000000000000000000",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.070",
+      "src_line": 70,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Device Integrity Status : FAIL",
+      "template": "programmer '{programmer_id}' : device '{device}' : Device Integrity Status : FAIL",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Device Integrity Status : FAIL",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.071",
+      "src_line": 71,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Please refer to Device Integrity Protection section of the PolarFire Family FPGA Security User Guide.",
+      "template": "programmer '{programmer_id}' : device '{device}' : Please refer to Device Integrity Protection section of the PolarFire Family FPGA Security User Guide.",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Please refer to Device Integrity Protection section of the PolarFire Family FPGA Security User Guide.",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.072",
+      "src_line": 72,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : ===================================================================================",
+      "template": "programmer '{programmer_id}' : device '{device}' : ===================================================================================",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : ===================================================================================",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.073",
+      "src_line": 73,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : EXPORT DSN[128] = 9ede6ec2ed712294fafcf10d9f70e190",
+      "template": "programmer '{programmer_id}' : device '{device}' : EXPORT DSN[128] = 9ede6ec2ed712294fafcf10d9f70e190",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : EXPORT DSN[128] = 9ede6ec2ed712294fafcf10d9f70e190",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ],
+      "flags": ["es_value_unknown"]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.074",
+      "src_line": 74,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : ===================================================================================",
+      "template": "programmer '{programmer_id}' : device '{device}' : ===================================================================================",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : ===================================================================================",
+      "event": "fp.log.device_info",
+      "phase": "device_info",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.075",
+      "src_line": 75,
+      "text_source": "programmer 'S200AN6ZQU' : Finished: Wed Feb 11 14:40:15 2026 (Elapsed time 00:00:01)",
+      "template": "programmer '{programmer_id}' : Finished: {finished} (Elapsed time {elapsed})",
+      "text": "programmer '{programmer_id}' : Finished: {finished} (Elapsed time {elapsed})",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "finished", "basis": "wall-clock time of the run"},
+        {"field": "elapsed", "basis": "run duration"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.076",
+      "src_line": 76,
+      "text_source": "programmer 'S200AN6ZQU' : device 'MPFS250T' : Executing action DEVICE_INFO PASSED.",
+      "template": "programmer '{programmer_id}' : device '{device}' : Executing action DEVICE_INFO PASSED.",
+      "text": "programmer '{programmer_id}' : device 'MPFS250T_ES' : Executing action DEVICE_INFO PASSED.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": false,
+      "substitutions": [
+        {"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"},
+        {"field": "device", "basis": "job file <deviceName>MPFS250T_ES</deviceName>"}
+      ]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.077",
+      "src_line": 77,
+      "text_source": "programmer 'S200AN6ZQU' : Chain programming PASSED.",
+      "template": "programmer '{programmer_id}' : Chain programming PASSED.",
+      "text": "programmer '{programmer_id}' : Chain programming PASSED.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": false,
+      "substitutions": [{"field": "programmer_id", "basis": "the blogger's FlashPro5 serial; the twin shows its own programmer id"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.078",
+      "src_line": 78,
+      "text_source": "Chain Programming Finished: Wed Feb 11 14:40:15 2026 (Elapsed time 00:00:01)",
+      "template": "Chain Programming Finished: {finished} (Elapsed time {elapsed})",
+      "text": "Chain Programming Finished: {finished} (Elapsed time {elapsed})",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": false,
+      "substitutions": [{"field": "finished", "basis": "wall-clock time of the run"}, {"field": "elapsed", "basis": "run duration"}]
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.080",
+      "src_line": 80,
+      "text_source": "The 'run_selected_actions' command succeeded.",
+      "template": "The 'run_selected_actions' command succeeded.",
+      "text": "The 'run_selected_actions' command succeeded.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.081",
+      "src_line": 81,
+      "text_source": "Project saved.",
+      "template": "Project saved.",
+      "text": "Project saved.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.082",
+      "src_line": 82,
+      "text_source": "The 'save_project' command succeeded.",
+      "template": "The 'save_project' command succeeded.",
+      "text": "The 'save_project' command succeeded.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.083",
+      "src_line": 83,
+      "text_source": "Project closed.",
+      "template": "Project closed.",
+      "text": "Project closed.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.084",
+      "src_line": 84,
+      "text_source": "The 'close_project' command succeeded.",
+      "template": "The 'close_project' command succeeded.",
+      "text": "The 'close_project' command succeeded.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": true
+    },
+    {
+      "kind": "line",
+      "id": "fp.di.085",
+      "src_line": 85,
+      "text_source": "The Execute Script command succeeded.",
+      "template": "The Execute Script command succeeded.",
+      "text": "The Execute Script command succeeded.",
+      "event": "fp.log.finish",
+      "phase": "finish",
+      "verbatim": true
+    }
+  ]
+}

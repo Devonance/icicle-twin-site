@@ -1,0 +1,73 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "hss": {
+      "title": "Hart Software Services (HSS)",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md and per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services (shallow clone, git-ignored)"
+    }
+  },
+  "id": "hss-global-init",
+  "firstLine": 281,
+  "title": "globalInitFunctions: the order the E51 runs its init steps",
+  "lang": "c",
+  "repo": "https://github.com/polarfire-soc/hart-software-services",
+  "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+  "ref": null,
+  "path": "application/hart0/hss_registry.c",
+  "start_line": 281,
+  "end_line": 308,
+  "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/application/hart0/hss_registry.c#L281-L308",
+  "blob_sha1": "7d278ce200d1eee2e980d7ef6a9276849c39b0f4",
+  "licence": "MIT",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": "Copyright 2019-2025 Microchip FPGA Embedded Systems Solutions",
+  "steps": ["boot.init-table", "boot.banner", "boot.ddr-segments", "boot.late-init"],
+  "note": "Current HSS order. The 2021 log in logs/hss.json prints IHC, IPI and PMP init after the CLI, so the older build ordered these differently.",
+  "highlights": [
+    {"label": "banner", "lines": [296, 296]},
+    {"label": "DDR segment print", "lines": [298, 299]},
+    {"label": "late init", "lines": [307, 307]}
+  ],
+  "lines": [
+    "const struct InitFunction /*@null@*/ globalInitFunctions[] = {",
+    "    // Name                            FunctionPointer                Halt   Restart",
+    "#if IS_ENABLED(CONFIG_SERVICE_BOOT)",
+    "#if IS_ENABLED(CONFIG_USE_IHC) || IS_ENABLED(CONFIG_USE_IHC_V2)",
+    "    { \"HSS_IHCInit\",                   HSS_IHCInit,                   false, false },",
+    "#endif",
+    "#endif",
+    "    { \"IPI_QueuesInit\",                IPI_QueuesInit,                false, false },",
+    "#if IS_ENABLED(CONFIG_USE_LOGO)",
+    "    { \"HSS_LogoInit\",                  HSS_LogoInit,                  false, false },",
+    "#endif",
+    "#if IS_ENABLED(CONFIG_SERVICE_BOOT)",
+    "    { \"HSS_PMP_Init\",                  HSS_PMP_Init,                  false, false },",
+    "#endif",
+    "    { \"HSS_BoardInit\",                 HSS_BoardInit ,                false, false },",
+    "    { \"HSS_E51_Banner\",                HSS_E51_Banner,                false, false },",
+    "    { \"Device_Serial_Number_Init\",     Device_Serial_Number_Init,     false, false },",
+    "    { \"HSS_DDRPrintSegConfig\",         HSS_DDRPrintSegConfig,         false, false },",
+    "    { \"HSS_DDRPrintL2CacheWaysConfig\", HSS_DDRPrintL2CacheWaysConfig, false, false },",
+    "#if IS_ENABLED(CONFIG_DEBUG_RESET_REASON)",
+    "    { \"HSS_ResetReasonInit\",           HSS_ResetReasonInit,           false, false },",
+    "#endif",
+    "#if !IS_ENABLED(CONFIG_SERVICE_SPI)",
+    "    // getting design version currently breaks SPI boot",
+    "    { \"Design_Version_Info_Init\",      Design_Version_Info_Init,      false, false },",
+    "#endif",
+    "    { \"HSS_BoardLateInit\",             HSS_BoardLateInit,             false, false },",
+    "};"
+  ],
+  "notes": {
+    "281": "Current HSS order. The 2021 log in logs/hss.json prints IHC, IPI and PMP init after the CLI, so the older build ordered these differently.",
+    "296": "banner",
+    "298": "DDR segment print",
+    "307": "late init"
+  }
+}

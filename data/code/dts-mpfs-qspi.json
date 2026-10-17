@@ -1,0 +1,48 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "linux-dts": {
+      "title": "Linux arch/riscv/boot/dts/microchip (mpfs.dtsi, mpfs-icicle-kit*.dts*)",
+      "repo": "https://github.com/torvalds/linux",
+      "commit": null,
+      "ref": "master, retrieved 2026-10-16 (files pinned by git blob sha1 below)",
+      "licence": "GPL-2.0 OR MIT",
+      "licence_note": "per-file SPDX-License-Identifier: (GPL-2.0 OR MIT)",
+      "local": "reference/vendor/linux-dts"
+    }
+  },
+  "id": "dts-mpfs-qspi",
+  "firstLine": 414,
+  "title": "mpfs.dtsi: MSS QSPI at 0x2100_0000",
+  "lang": "dts",
+  "repo": "https://github.com/torvalds/linux",
+  "commit": "master@2026-10-16 (blob 85d8df6437f2)",
+  "ref": "master, retrieved 2026-10-16 (files pinned by git blob sha1 below)",
+  "path": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+  "start_line": 414,
+  "end_line": 423,
+  "url": "https://github.com/torvalds/linux/blob/master/arch/riscv/boot/dts/microchip/mpfs.dtsi#L414-L423",
+  "blob_sha1": "85d8df6437f23e70d212255d46717df07b18f97b",
+  "licence": "GPL-2.0 OR MIT",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": "Copyright (c) 2020-2021 Microchip Technology Inc",
+  "steps": ["flash.qspi-probe"],
+  "note": null,
+  "highlights": [],
+  "lines": [
+    "\t\tqspi: spi@21000000 {",
+    "\t\t\tcompatible = \"microchip,mpfs-qspi\", \"microchip,coreqspi-rtl-v2\";",
+    "\t\t\t#address-cells = <1>;",
+    "\t\t\t#size-cells = <0>;",
+    "\t\t\treg = <0x0 0x21000000 0x0 0x1000>;",
+    "\t\t\tinterrupt-parent = <&plic>;",
+    "\t\t\tinterrupts = <85>;",
+    "\t\t\tclocks = <&clkcfg CLK_QSPI>;",
+    "\t\t\tstatus = \"disabled\";",
+    "\t\t};"
+  ],
+  "notes": {},
+  "line_numbers_note": "line numbers are those of the master copy retrieved 2026-10-16 (blob_sha1)"
+}

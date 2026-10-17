@@ -1,0 +1,47 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "linux-dts": {
+      "title": "Linux arch/riscv/boot/dts/microchip (mpfs.dtsi, mpfs-icicle-kit*.dts*)",
+      "repo": "https://github.com/torvalds/linux",
+      "commit": null,
+      "ref": "master, retrieved 2026-10-16 (files pinned by git blob sha1 below)",
+      "licence": "GPL-2.0 OR MIT",
+      "licence_note": "per-file SPDX-License-Identifier: (GPL-2.0 OR MIT)",
+      "local": "reference/vendor/linux-dts"
+    }
+  },
+  "id": "dts-mpfs-mmc",
+  "firstLine": 382,
+  "title": "mpfs.dtsi: Cadence SD4HC at 0x2000_8000",
+  "lang": "dts",
+  "repo": "https://github.com/torvalds/linux",
+  "commit": "master@2026-10-16 (blob 85d8df6437f2)",
+  "ref": "master, retrieved 2026-10-16 (files pinned by git blob sha1 below)",
+  "path": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+  "start_line": 382,
+  "end_line": 390,
+  "url": "https://github.com/torvalds/linux/blob/master/arch/riscv/boot/dts/microchip/mpfs.dtsi#L382-L390",
+  "blob_sha1": "85d8df6437f23e70d212255d46717df07b18f97b",
+  "licence": "GPL-2.0 OR MIT",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": "Copyright (c) 2020-2021 Microchip Technology Inc",
+  "steps": ["boot.mmc-select", "boot.linux-mmc"],
+  "note": null,
+  "highlights": [],
+  "lines": [
+    "\t\tmmc: mmc@20008000 {",
+    "\t\t\tcompatible = \"microchip,mpfs-sd4hc\", \"cdns,sd4hc\";",
+    "\t\t\treg = <0x0 0x20008000 0x0 0x1000>;",
+    "\t\t\tinterrupt-parent = <&plic>;",
+    "\t\t\tinterrupts = <88>;",
+    "\t\t\tclocks = <&clkcfg CLK_MMC>;",
+    "\t\t\tmax-frequency = <200000000>;",
+    "\t\t\tstatus = \"disabled\";",
+    "\t\t};"
+  ],
+  "notes": {},
+  "line_numbers_note": "line numbers are those of the master copy retrieved 2026-10-16 (blob_sha1)"
+}

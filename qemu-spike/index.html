@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QEMU Icicle spike</title>
+    <!--
+      Icicle Twin QEMU spike (issue #153). A standalone page, not linked from the app.
+      Real QEMU (ktock/qemu-wasm, QEMU 8.2 + Wasm TCG backend) running the microchip-icicle-kit machine
+      as WebAssembly, booting Linux on a U54 hart. See docs/QEMU_SPIKE.md.
+      coi-serviceworker (MIT) must load first: GitHub Pages cannot send COOP/COEP headers, and
+      SharedArrayBuffer (QEMU's threads) needs cross-origin isolation. Its scope is this folder only.
+    -->
+    <script src="coi-serviceworker.js"></script>
+    <link rel="stylesheet" href="vendor/xterm.css" />
+    <style>
+      :root {
+        --bg: #101418;
+        --panel: #182028;
+        --text: #d8e0e8;
+        --muted: #8a98a8;
+        --ok: #5fd38d;
+        --warn: #f0c060;
+        --bad: #ff6b6b;
+        --led-red: #ff3b30;
+        --led-amber: #ffb000;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 14px/1.4 system-ui, sans-serif;
+      }
+      header {
+        padding: 10px 16px;
+        display: flex;
+        gap: 16px;
+        align-items: baseline;
+        flex-wrap: wrap;
+      }
+      h1 {
+        font-size: 16px;
+        margin: 0;
+      }
+      #status {
+        color: var(--muted);
+      }
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 12px;
+        padding: 0 16px 16px;
+      }
+      @media (max-width: 860px) {
+        main {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      #terminal {
+        background: #000;
+        padding: 6px;
+        border-radius: 6px;
+        height: calc(100vh - 70px);
+        min-height: 360px;
+      }
+      aside {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      section {
+        background: var(--panel);
+        border-radius: 6px;
+        padding: 10px 12px;
+      }
+      h2 {
+        font-size: 13px;
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-variant-numeric: tabular-nums;
+      }
+      td {
+        padding: 2px 0;
+      }
+      td:last-child {
+        text-align: right;
+      }
+      .leds {
+        display: flex;
+        gap: 14px;
+      }
+      .led {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .led i {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #333;
+        border: 1px solid #555;
+      }
+      .led.on.red i {
+        background: var(--led-red);
+        box-shadow: 0 0 12px var(--led-red);
+      }
+      .led.on.amber i {
+        background: var(--led-amber);
+        box-shadow: 0 0 12px var(--led-amber);
+      }
+      code {
+        font-size: 12px;
+      }
+      .ok {
+        color: var(--ok);
+      }
+      .warn {
+        color: var(--warn);
+      }
+      .bad {
+        color: var(--bad);
+      }
+      p {
+        margin: 6px 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>QEMU <code>microchip-icicle-kit</code> in the browser (spike)</h1>
+      <span id="status">loading…</span>
+    </header>
+    <main>
+      <div id="terminal"></div>
+      <aside>
+        <section>
+          <h2>Boot timings (ms since page load)</h2>
+          <table id="timings"></table>
+        </section>
+        <section>
+          <h2>User LEDs (GPIO2 bits 16..19)</h2>
+          <div class="leds">
+            <div class="led red" data-bit="16"><i></i>LED1</div>
+            <div class="led red" data-bit="17"><i></i>LED2</div>
+            <div class="led amber" data-bit="18"><i></i>LED3</div>
+            <div class="led amber" data-bit="19"><i></i>LED4</div>
+          </div>
+          <p>GPIO_OUT <code id="gpio-out">-</code>, writes <code id="gpio-seq">0</code></p>
+          <p>Try <code>echo 1 &gt; /sys/class/leds/led1/brightness</code></p>
+        </section>
+        <section>
+          <h2>Page</h2>
+          <table id="env"></table>
+        </section>
+      </aside>
+    </main>
+    <script src="vendor/xterm.js"></script>
+    <script type="module" src="spike.js"></script>
+  </body>
+</html>

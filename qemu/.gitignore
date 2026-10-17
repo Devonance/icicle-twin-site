@@ -1,0 +1,3 @@
+# Built by tools/qemu (stage.sh, package-sources.sh); published by tools/deploy/publish-local.sh.
+bin/
+source/

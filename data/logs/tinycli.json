@@ -1,0 +1,558 @@
+{
+  "schema": "icicle-twin/tinycli@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "hss": {
+      "title": "Hart Software Services (HSS)",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md and per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services (shallow clone, git-ignored)"
+    },
+    "discussion552": {
+      "title": "GitHub discussion polarfire-soc #552 'Boot fails.' (HSS console capture)",
+      "url": "https://github.com/orgs/polarfire-soc/discussions/552",
+      "licence": "none stated",
+      "licence_note": "User-posted console output, quoted verbatim as a factual record of what the board printed; no licence is stated on the post",
+      "local": "reference/vendor/web-bootlogs/discussion552.json (GitHub GraphQL dump)"
+    }
+  },
+  "id": "tinycli",
+  "console": "MMUART0",
+  "source": {
+    "file": "services/tinycli/tinycli_api.c",
+    "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_api.c",
+    "where": "toplevelCmds and sub-command tables",
+    "licence": "MIT",
+    "blob_sha1": "506d4f1563226eb10d3bcbf5f870e8aa96ad98ea",
+    "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87"
+  },
+  "line_header": {
+    "text": ">> ",
+    "source": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_service.c#L123"
+  },
+  "preboot": {
+    "verbatim_from_hss_json": ["Press a key to enter CLI, ESC to skip", "Timeout in 1 second", ".."],
+    "on_timeout": "CLI boot interrupt timeout",
+    "on_key": "Type HELP for list of commands",
+    "timeout_s": 1,
+    "source": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_service.c#L136-L150",
+    "timeout_format": {
+      "text": "Timeout in %u second%s",
+      "source": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/modules/misc/hss_progress.c#L65"
+    },
+    "help_format": {
+      "text": "%s: %s",
+      "note": "HELP prints one line per top-level command: name, colon, help string",
+      "source": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_api.c#L477"
+    }
+  },
+  "def_config": "boards/mpfs-icicle-kit/def_config at the same commit; enabled_in_def_config is null when a guard flag is not in def_config",
+  "tables": {
+    "monitorCmds": {
+      "lines": [232, 238],
+      "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_api.c#L232-L238",
+      "table_guard": "IS_ENABLED(CONFIG_SERVICE_TINYCLI_MONITOR)",
+      "commands": [
+        {
+          "enum": "CMD_DBG_MONITOR_CREATE",
+          "name": "CREATE",
+          "help": "<interval> 0x<start_addr> 0x<length>",
+          "handler": "tinyCLI_MonitorCreate_",
+          "src_line": 233,
+          "guard": null,
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_DBG_MONITOR_DESTROY",
+          "name": "DESTROY",
+          "help": "<index> ",
+          "handler": "tinyCLI_MonitorDestroy_",
+          "src_line": 234,
+          "guard": null,
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_DBG_MONITOR_ENABLE",
+          "name": "ENABLE",
+          "help": "<index> ",
+          "handler": "tinyCLI_MonitorEnable_",
+          "src_line": 235,
+          "guard": null,
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_DBG_MONITOR_DISABLE",
+          "name": "DISABLE",
+          "help": "<index> ",
+          "handler": "tinyCLI_MonitorDisable_",
+          "src_line": 236,
+          "guard": null,
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_DBG_MONITOR_LIST",
+          "name": "LIST",
+          "help": "",
+          "handler": "tinyCLI_MonitorList_",
+          "src_line": 237,
+          "guard": null,
+          "enabled_in_def_config": false
+        }
+      ]
+    },
+    "debugCmds": {
+      "lines": [241, 267],
+      "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_api.c#L241-L267",
+      "table_guard": null,
+      "commands": [
+        {
+          "enum": "CMD_DBG_BEU",
+          "name": "BEU",
+          "help": "debug Bus Error Unit monitor",
+          "handler": "tinyCLI_BEU_",
+          "src_line": 243,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_BEU)",
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_HEALTHMON",
+          "name": "HEALTHMON",
+          "help": "debug health monitor",
+          "handler": "tinyCLI_HEALTHMON_",
+          "src_line": 246,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_HEALTHMON)",
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_SM",
+          "name": "SM",
+          "help": "debug state machines",
+          "handler": "tinyCLI_DumpStateMachines_",
+          "src_line": 248,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_IPI",
+          "name": "IPI",
+          "help": "debug HSS IPI Queues",
+          "handler": "tinyCLI_IPIDumpStats_",
+          "src_line": 249,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_CRC32",
+          "name": "CRC32",
+          "help": "calculate CRC32 over memory region",
+          "handler": "tinyCLI_CRC32_",
+          "src_line": 250,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_HEXDUMP",
+          "name": "HEXDUMP",
+          "help": "display memory as hex dump",
+          "handler": "tinyCLI_HexDump_",
+          "src_line": 251,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_MONITOR",
+          "name": "MONITOR",
+          "help": "monitor memory locations periodically",
+          "handler": "tinyCLI_Monitor_",
+          "src_line": 253,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_TINYCLI_MONITOR)",
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_DBG_OPENSBI",
+          "name": "OPENSBI",
+          "help": "debug OpenSBI state",
+          "handler": "tinyCLI_OpenSBI_",
+          "src_line": 255,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_SEG",
+          "name": "SEG",
+          "help": "display seg registers",
+          "handler": "tinyCLI_Seg_",
+          "src_line": 256,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_L2CACHE",
+          "name": "L2CACHE",
+          "help": "display l2cache settings",
+          "handler": "tinyCLI_L2Cache_",
+          "src_line": 257,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_PERFCTR",
+          "name": "PERFCTR",
+          "help": "display perf counters",
+          "handler": "tinyCLI_PerfCtrs_",
+          "src_line": 259,
+          "guard": "IS_ENABLED(CONFIG_DEBUG_PERF_CTRS)",
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DBG_PERFCTR",
+          "name": "PROFILE",
+          "help": "display profiling counters",
+          "handler": "tinyCLI_ProfileCtrs_",
+          "src_line": 262,
+          "guard": "IS_ENABLED(CONFIG_DEBUG_PROFILING_SUPPORT)",
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_DBG_WDOG",
+          "name": "WDOG",
+          "help": "display watchdog statistics",
+          "handler": "HSS_Wdog_DumpStats",
+          "src_line": 265,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_WDOG)",
+          "enabled_in_def_config": true
+        }
+      ]
+    },
+    "bootCmds": {
+      "lines": [270, 276],
+      "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_api.c#L270-L276",
+      "table_guard": "IS_ENABLED(CONFIG_SERVICE_BOOT)",
+      "commands": [
+        {
+          "enum": "CMD_BOOT_INFO",
+          "name": "INFO",
+          "help": "display info about currently registered boot image",
+          "handler": "tinyCLI_Boot_Info_",
+          "src_line": 271,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_BOOT_LIST",
+          "name": "LIST",
+          "help": "list boot partitions",
+          "handler": "tinyCLI_Boot_List_",
+          "src_line": 273,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_MMC)",
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_BOOT_SELECT",
+          "name": "SELECT",
+          "help": "select active boot partition",
+          "handler": "tinyCLI_Boot_Select_",
+          "src_line": 274,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_MMC)",
+          "enabled_in_def_config": true
+        }
+      ]
+    },
+    "qspiCmds": {
+      "lines": [280, 283],
+      "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_api.c#L280-L283",
+      "table_guard": "IS_ENABLED(CONFIG_SERVICE_QSPI)",
+      "commands": [
+        {
+          "enum": "CMD_QSPI_ERASE",
+          "name": "ERASE",
+          "help": "ERASE QSPI Flash",
+          "handler": "tinyCLI_QSPI_Erase_",
+          "src_line": 281,
+          "guard": null,
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_QSPI_SCAN",
+          "name": "SCAN",
+          "help": "Scan QSPI Flash for bad blocks",
+          "handler": "tinyCLI_QSPI_Scan_",
+          "src_line": 282,
+          "guard": null,
+          "enabled_in_def_config": false
+        }
+      ]
+    },
+    "toplevelCmds": {
+      "lines": [286, 318],
+      "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/services/tinycli/tinycli_api.c#L286-L318",
+      "table_guard": null,
+      "commands": [
+        {
+          "enum": "CMD_YMODEM",
+          "name": "YMODEM",
+          "help": "Run YMODEM utility to download an image to DDR.",
+          "handler": "tinyCLI_YModem_",
+          "src_line": 288,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_YMODEM)",
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_BOOT",
+          "name": "BOOT",
+          "help": "Quit TinyCLI and return to regular boot process.",
+          "handler": "tinyCLI_Boot_",
+          "src_line": 291,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_BOOT)",
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_RESET",
+          "name": "RESET",
+          "help": "Reset PolarFire SoC.",
+          "handler": "tinyCLI_Reset_",
+          "src_line": 293,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_HELP",
+          "name": "HELP",
+          "help": "Display command summary / command help information.",
+          "handler": "tinyCLI_PrintHelp_",
+          "src_line": 294,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_VERSION",
+          "name": "VERSION",
+          "help": "Display system version information.",
+          "handler": "tinyCLI_PrintVersion_",
+          "src_line": 295,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_UPTIME",
+          "name": "UPTIME",
+          "help": "Display uptime information.",
+          "handler": "tinyCLI_PrintUptime_",
+          "src_line": 296,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_DEBUG",
+          "name": "DEBUG",
+          "help": "Display debug information.",
+          "handler": "tinyCLI_Debug_",
+          "src_line": 297,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_MEMTEST",
+          "name": "MEMTEST",
+          "help": "Full DDR memory test.",
+          "handler": "tinyCLI_MemTest_",
+          "src_line": 299,
+          "guard": "IS_ENABLED(CONFIG_MEMTEST)",
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_QSPI",
+          "name": "QSPI",
+          "help": "Select boot via QSPI.",
+          "handler": "tinyCLI_QSPI_",
+          "src_line": 301,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_EMMC",
+          "name": "EMMC",
+          "help": "Select boot via eMMC.",
+          "handler": "tinyCLI_EMMC_",
+          "src_line": 302,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_MMC",
+          "name": "MMC",
+          "help": "Select boot via SDCARD/eMMC.",
+          "handler": "tinyCLI_MMC_",
+          "src_line": 303,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_SDCARD",
+          "name": "SDCARD",
+          "help": "Select boot via SDCARD.",
+          "handler": "tinyCLI_SDCARD_",
+          "src_line": 304,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_PAYLOAD",
+          "name": "PAYLOAD",
+          "help": "Select boot via payload.",
+          "handler": "tinyCLI_Payload_",
+          "src_line": 305,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_SPI",
+          "name": "SPI",
+          "help": "Select boot via SPI.",
+          "handler": "tinyCLI_SPI_",
+          "src_line": 306,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_SNVM",
+          "name": "SNVM",
+          "help": "Select boot via sNVM.",
+          "handler": "tinyCLI_SNVM_",
+          "src_line": 307,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_USBDMSC",
+          "name": "USBDMSC",
+          "help": "Export eMMC as USBD Mass Storage Class.",
+          "handler": "tinyCLI_USBDMSC_",
+          "src_line": 309,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_USBDMSC) && (IS_ENABLED(CONFIG_SERVICE_MMC) || IS_ENABLED(CONFIG_SERVICE_QSPI))",
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_RESUME",
+          "name": "RESUME",
+          "help": "Resume after suspending",
+          "handler": "tinyCLI_Resume_",
+          "src_line": 311,
+          "guard": null,
+          "enabled_in_def_config": true
+        },
+        {
+          "enum": "CMD_SCRUB",
+          "name": "SCRUB",
+          "help": "Dump Scrub service stats.",
+          "handler": "tinyCLI_Scrub_",
+          "src_line": 313,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_SCRUB)",
+          "enabled_in_def_config": false
+        },
+        {
+          "enum": "CMD_ECC",
+          "name": "ECC",
+          "help": "Dump ECC stats.",
+          "handler": "tinyCLI_ECC_",
+          "src_line": 316,
+          "guard": "IS_ENABLED(CONFIG_SERVICE_BEU)",
+          "enabled_in_def_config": true
+        }
+      ]
+    }
+  },
+  "toplevel": [
+    "YMODEM",
+    "BOOT",
+    "RESET",
+    "HELP",
+    "VERSION",
+    "UPTIME",
+    "DEBUG",
+    "MEMTEST",
+    "QSPI",
+    "EMMC",
+    "MMC",
+    "SDCARD",
+    "PAYLOAD",
+    "SPI",
+    "SNVM",
+    "USBDMSC",
+    "RESUME",
+    "SCRUB",
+    "ECC"
+  ],
+  "commands": [
+    {
+      "name": "BOOT",
+      "help": "Quit TinyCLI and return to regular boot process.",
+      "table": "toplevelCmds",
+      "src_line": 291,
+      "enabled_in_def_config": true
+    },
+    {"name": "RESET", "help": "Reset PolarFire SoC.", "table": "toplevelCmds", "src_line": 293, "enabled_in_def_config": true},
+    {
+      "name": "HELP",
+      "help": "Display command summary / command help information.",
+      "table": "toplevelCmds",
+      "src_line": 294,
+      "enabled_in_def_config": true
+    },
+    {
+      "name": "VERSION",
+      "help": "Display system version information.",
+      "table": "toplevelCmds",
+      "src_line": 295,
+      "enabled_in_def_config": true
+    },
+    {"name": "UPTIME", "help": "Display uptime information.", "table": "toplevelCmds", "src_line": 296, "enabled_in_def_config": true},
+    {"name": "DEBUG", "help": "Display debug information.", "table": "toplevelCmds", "src_line": 297, "enabled_in_def_config": true},
+    {"name": "MEMTEST", "help": "Full DDR memory test.", "table": "toplevelCmds", "src_line": 299, "enabled_in_def_config": true},
+    {"name": "QSPI", "help": "Select boot via QSPI.", "table": "toplevelCmds", "src_line": 301, "enabled_in_def_config": true},
+    {"name": "EMMC", "help": "Select boot via eMMC.", "table": "toplevelCmds", "src_line": 302, "enabled_in_def_config": true},
+    {"name": "MMC", "help": "Select boot via SDCARD/eMMC.", "table": "toplevelCmds", "src_line": 303, "enabled_in_def_config": true},
+    {"name": "SDCARD", "help": "Select boot via SDCARD.", "table": "toplevelCmds", "src_line": 304, "enabled_in_def_config": true},
+    {"name": "PAYLOAD", "help": "Select boot via payload.", "table": "toplevelCmds", "src_line": 305, "enabled_in_def_config": true},
+    {"name": "SPI", "help": "Select boot via SPI.", "table": "toplevelCmds", "src_line": 306, "enabled_in_def_config": true},
+    {"name": "SNVM", "help": "Select boot via sNVM.", "table": "toplevelCmds", "src_line": 307, "enabled_in_def_config": true},
+    {
+      "name": "USBDMSC",
+      "help": "Export eMMC as USBD Mass Storage Class.",
+      "table": "toplevelCmds",
+      "src_line": 309,
+      "enabled_in_def_config": true
+    },
+    {"name": "RESUME", "help": "Resume after suspending", "table": "toplevelCmds", "src_line": 311, "enabled_in_def_config": true},
+    {"name": "ECC", "help": "Dump ECC stats.", "table": "toplevelCmds", "src_line": 316, "enabled_in_def_config": true},
+    {"name": "DEBUG BEU", "help": "debug Bus Error Unit monitor", "table": "debugCmds", "src_line": 243, "enabled_in_def_config": true},
+    {"name": "DEBUG HEALTHMON", "help": "debug health monitor", "table": "debugCmds", "src_line": 246, "enabled_in_def_config": true},
+    {"name": "DEBUG SM", "help": "debug state machines", "table": "debugCmds", "src_line": 248, "enabled_in_def_config": true},
+    {"name": "DEBUG IPI", "help": "debug HSS IPI Queues", "table": "debugCmds", "src_line": 249, "enabled_in_def_config": true},
+    {
+      "name": "DEBUG CRC32",
+      "help": "calculate CRC32 over memory region",
+      "table": "debugCmds",
+      "src_line": 250,
+      "enabled_in_def_config": true
+    },
+    {"name": "DEBUG HEXDUMP", "help": "display memory as hex dump", "table": "debugCmds", "src_line": 251, "enabled_in_def_config": true},
+    {"name": "DEBUG OPENSBI", "help": "debug OpenSBI state", "table": "debugCmds", "src_line": 255, "enabled_in_def_config": true},
+    {"name": "DEBUG SEG", "help": "display seg registers", "table": "debugCmds", "src_line": 256, "enabled_in_def_config": true},
+    {"name": "DEBUG L2CACHE", "help": "display l2cache settings", "table": "debugCmds", "src_line": 257, "enabled_in_def_config": true},
+    {"name": "DEBUG PERFCTR", "help": "display perf counters", "table": "debugCmds", "src_line": 259, "enabled_in_def_config": true},
+    {"name": "DEBUG WDOG", "help": "display watchdog statistics", "table": "debugCmds", "src_line": 265, "enabled_in_def_config": true},
+    {
+      "name": "BOOT INFO",
+      "help": "display info about currently registered boot image",
+      "table": "bootCmds",
+      "src_line": 271,
+      "enabled_in_def_config": true
+    },
+    {"name": "BOOT LIST", "help": "list boot partitions", "table": "bootCmds", "src_line": 273, "enabled_in_def_config": true},
+    {"name": "BOOT SELECT", "help": "select active boot partition", "table": "bootCmds", "src_line": 274, "enabled_in_def_config": true}
+  ]
+}

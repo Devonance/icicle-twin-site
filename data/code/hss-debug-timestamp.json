@@ -1,0 +1,42 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "hss": {
+      "title": "Hart Software Services (HSS)",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md and per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services (shallow clone, git-ignored)"
+    }
+  },
+  "id": "hss-debug-timestamp",
+  "firstLine": 22,
+  "title": "HSS_Debug_Timestamp(): why '[6.18393]' means 6.018393 s",
+  "lang": "c",
+  "repo": "https://github.com/polarfire-soc/hart-software-services",
+  "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+  "ref": null,
+  "path": "modules/debug/hss_debug.c",
+  "start_line": 22,
+  "end_line": 27,
+  "url": "https://github.com/polarfire-soc/hart-software-services/blob/19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87/modules/debug/hss_debug.c#L22-L27",
+  "blob_sha1": "484bc8c067b850b27e1ea58f7b1035f87b478fcb",
+  "licence": "MIT",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": "Copyright 2019-2025 Microchip FPGA Embedded Systems Solutions",
+  "steps": ["boot.banner"],
+  "note": "The fraction is printed with %05: microseconds below 100000 lose their leading zero.",
+  "highlights": [],
+  "lines": [
+    "void HSS_Debug_Timestamp(void)",
+    "{",
+    "    HSS_Debug_Highlight(HSS_DEBUG_LOG_TIMESTAMP);",
+    "    (void)sbi_printf(\"[%\" PRIu64, HSS_GetTime() / ONE_SEC);",
+    "    (void)sbi_printf(\".%05\" PRIu64 \"]\", HSS_GetTime() % ONE_SEC);",
+    "}"
+  ],
+  "notes": {"22": "The fraction is printed with %05: microseconds below 100000 lose their leading zero."}
+}

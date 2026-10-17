@@ -1,0 +1,1 @@
+import{p as t}from"./display-BDRL-42M.js";import{a as n}from"./view-CRvKw5NH.js";import"./three-DOg7Sj7_.js";import"./index-DXUR0v1d.js";import"./materials-CTvrjr8c.js";const w={id:"pcie-display",mount({host:p}){n();const o=p?t.attach(p):()=>{};if(typeof window<"u"){const i=window;i.__twinDisplay=t,i.__twin&&(i.__twin.display=t)}return o}};export{w as displayPlugin};

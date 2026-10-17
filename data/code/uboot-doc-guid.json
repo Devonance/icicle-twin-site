@@ -1,0 +1,44 @@
+{
+  "schema": "icicle-twin/code-excerpt@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "uboot-doc": {
+      "title": "U-Boot doc/board/microchip/mpfs_icicle.rst at v2022.01",
+      "repo": "https://github.com/u-boot/u-boot",
+      "commit": null,
+      "ref": "tag v2022.01",
+      "url": "https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst",
+      "licence": "GPL-2.0+",
+      "licence_note": ".. SPDX-License-Identifier: GPL-2.0+",
+      "local": "reference/vendor/web-bootlogs/u-boot_v2022.01_mpfs_icicle.rst"
+    }
+  },
+  "id": "uboot-doc-guid",
+  "firstLine": 459,
+  "title": "U-Boot doc: the HSS payload partition GUID",
+  "lang": "rst",
+  "repo": "https://github.com/u-boot/u-boot",
+  "commit": "v2022.01",
+  "ref": "tag v2022.01",
+  "path": "doc/board/microchip/mpfs_icicle.rst",
+  "start_line": 459,
+  "end_line": 464,
+  "url": "https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst#L459-L464",
+  "blob_sha1": "a4b10c6bd74260e12029f4c117a5fb1897a03f4f",
+  "licence": "GPL-2.0+",
+  "licence_basis": "SPDX-License-Identifier in the file",
+  "copyright": null,
+  "steps": ["boot.gpt", "boot.uboot-mmc"],
+  "note": null,
+  "highlights": [],
+  "lines": [
+    "GUID type",
+    "~~~~~~~~~",
+    "",
+    "The HSS always picks up the HSS payload from a GPT partition with",
+    "GIUD type \"21686148-6449-6E6F-744E-656564454649\" or sector '0' of the eMMC if no",
+    "GPT partition."
+  ],
+  "notes": {}
+}

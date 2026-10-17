@@ -1,0 +1,164 @@
+{
+  "schema": "icicle-twin/mikrobus@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "refdesign": {
+      "title": "Icicle Kit Reference Design (Libero Tcl, PDC, README)",
+      "repo": "https://github.com/polarfire-soc/icicle-kit-reference-design",
+      "commit": "9c34320f91e8e8a144c7d87bf299527fc5f02081",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md (Copyright 2019-2023 Microchip Corporation, SPDX MIT); the .tcl/.pdc files carry no header of their own",
+      "local": "reference/vendor/gh-icicle-kit-reference-design (shallow clone, git-ignored)"
+    },
+    "ipc": {
+      "title": "IPC-D-356 netlist exported by kicad-cli 10.0.6 from the KiCad import of icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd",
+      "licence": "derived from Microchip board files",
+      "licence_note": "Net names per pad; derived data, see docs/PLAN.md section 3.5. Net names are truncated to their last 14 characters and refdes to 6 by the IPC-D-356 format",
+      "local": "build/kicad/icicle.ipc (git-ignored)"
+    }
+  },
+  "id": "mikrobus",
+  "sockets": {"J44": "left row (AN, RST, CS, SCK, MISO, MOSI, 3V3, GND)", "J8": "right row (PWM, INT, RX, TX, SCL, SDA, 5V, GND)"},
+  "signal_names": "mikroBUS standard pin order; the board nets confirm the order on both sockets",
+  "count": 16,
+  "pins": [
+    {
+      "signal": "AN",
+      "net": "MBUS_AN",
+      "peripheral": "GPIO2 bit 20 (GPIO_2_M2F_20_AN)",
+      "ball": "D11",
+      "port": "GPIO_2_M2F_20_AN",
+      "pin_number": 1,
+      "socket": "J44",
+      "pin": "AN",
+      "mss": "GPIO2_20"
+    },
+    {
+      "signal": "RST",
+      "net": "MBUS_RST",
+      "peripheral": "GPIO2 bit 21 (GPIO_2_M2F_21_RST)",
+      "ball": "E10",
+      "port": "GPIO_2_M2F_21_RST",
+      "pin_number": 2,
+      "socket": "J44",
+      "pin": "RST",
+      "mss": "GPIO2_21"
+    },
+    {
+      "signal": "CS",
+      "net": "MBUS_SPI_CS#",
+      "peripheral": "MSS SPI1 (MSS I/O Bank 2)",
+      "ball": "E4",
+      "port": "SPI_1_SS0",
+      "pin_number": 3,
+      "socket": "J44",
+      "pin": "CS",
+      "mss": "SPI1_SS0"
+    },
+    {
+      "signal": "SCK",
+      "net": "MBUS_SPI_CLK",
+      "peripheral": "MSS SPI1",
+      "ball": "E5",
+      "port": "SPI_1_CLK",
+      "pin_number": 4,
+      "socket": "J44",
+      "pin": "SCK",
+      "mss": "SPI1_SCK"
+    },
+    {
+      "signal": "MISO",
+      "net": "MBUS_SPI_MISO",
+      "peripheral": "MSS SPI1",
+      "ball": "A2",
+      "port": "SPI_1_DI",
+      "pin_number": 5,
+      "socket": "J44",
+      "pin": "MISO",
+      "mss": "SPI1_SDI"
+    },
+    {
+      "signal": "MOSI",
+      "net": "MBUS_SPI_MOSI",
+      "peripheral": "MSS SPI1",
+      "ball": "B2",
+      "port": "SPI_1_DO",
+      "pin_number": 6,
+      "socket": "J44",
+      "pin": "MOSI",
+      "mss": "SPI1_SDO"
+    },
+    {"signal": "+3.3V", "net": "3P3V", "peripheral": null, "pin_number": 7, "socket": "J44", "pin": "3V3"},
+    {"signal": "GND", "net": "GND", "peripheral": null, "pin_number": 8, "socket": "J44", "pin": "GND"},
+    {
+      "signal": "PWM",
+      "net": "MBUS_PWM",
+      "peripheral": "fabric CorePWM 0x4000_0000",
+      "ball": "E11",
+      "port": "mBUS_PWM",
+      "pin_number": 1,
+      "socket": "J8",
+      "pin": "PWM"
+    },
+    {
+      "signal": "INT",
+      "net": "MBUS_INT",
+      "peripheral": "MSS_INT_F2M[3]",
+      "ball": "A20",
+      "port": "mBUS_INT",
+      "pin_number": 2,
+      "socket": "J8",
+      "pin": "INT",
+      "mss": "MSS_INT_F2M_3"
+    },
+    {
+      "signal": "RX",
+      "net": "MBUS_UART_RXD",
+      "peripheral": "MMUART4 RX (fabric)",
+      "ball": "A21",
+      "port": "mBUS_UART_RX",
+      "pin_number": 3,
+      "socket": "J8",
+      "pin": "RX",
+      "mss": "MMUART4_RX"
+    },
+    {
+      "signal": "TX",
+      "net": "MBUS_UART_TXD",
+      "peripheral": "MMUART4 TX (fabric)",
+      "ball": "B20",
+      "port": "mBUS_UART_TX",
+      "pin_number": 4,
+      "socket": "J8",
+      "pin": "TX",
+      "mss": "MMUART4_TX"
+    },
+    {
+      "signal": "SCL",
+      "net": "MBUS_I2CSCL",
+      "peripheral": "MSS I2C0 SCL (fabric)",
+      "ball": "F12",
+      "port": "mBUS_I2C_SCL",
+      "pin_number": 5,
+      "socket": "J8",
+      "pin": "SCL",
+      "mss": "I2C0_SCL"
+    },
+    {
+      "signal": "SDA",
+      "net": "MBUS_I2CSDA",
+      "peripheral": "MSS I2C0 SDA (fabric)",
+      "ball": "F13",
+      "port": "mBUS_I2C_SDA",
+      "pin_number": 6,
+      "socket": "J8",
+      "pin": "SDA",
+      "mss": "I2C0_SDA"
+    },
+    {"signal": "+5V", "net": "5P0V", "peripheral": null, "pin_number": 7, "socket": "J8", "pin": "5V"},
+    {"signal": "GND", "net": "GND", "peripheral": null, "pin_number": 8, "socket": "J8", "pin": "GND"}
+  ],
+  "refdes": ["J44", "J8"],
+  "netlist": {"file": "build/kicad/icicle.ipc", "blob_sha1": "f40f06e8864b4d472299b3546023263ab927eb8d", "full_net_names": true}
+}

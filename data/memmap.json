@@ -1,0 +1,2562 @@
+{
+  "schema": "icicle-twin/memmap@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "linux-dts": {
+      "title": "Linux arch/riscv/boot/dts/microchip (mpfs.dtsi, mpfs-icicle-kit*.dts*)",
+      "repo": "https://github.com/torvalds/linux",
+      "commit": null,
+      "ref": "master, retrieved 2026-10-16 (files pinned by git blob sha1 below)",
+      "licence": "GPL-2.0 OR MIT",
+      "licence_note": "per-file SPDX-License-Identifier: (GPL-2.0 OR MIT)",
+      "local": "reference/vendor/linux-dts"
+    },
+    "hss": {
+      "title": "Hart Software Services (HSS)",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md and per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services (shallow clone, git-ignored)"
+    },
+    "mpfs-hal": {
+      "title": "PolarFire SoC bare-metal library (MPFS HAL and MSS drivers), as vendored in the HSS tree",
+      "repo": "https://github.com/polarfire-soc/polarfire-soc-bare-metal-library",
+      "commit": null,
+      "ref": "copy under baremetal/ in HSS commit 19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "per-file SPDX-License-Identifier: MIT",
+      "local": "reference/vendor/gh-hart-software-services/baremetal (git-ignored)"
+    },
+    "mss-xml": {
+      "title": "Icicle MSS configurator output ICICLE_MSS_mss_cfg.xml (Libero 2024.2), as vendored in the HSS tree",
+      "repo": "https://github.com/polarfire-soc/hart-software-services",
+      "commit": "19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87",
+      "licence": "MIT",
+      "licence_note": "generated file in the HSS repository (LICENSE.md: MIT)",
+      "local": "reference/vendor/gh-hart-software-services/boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml"
+    },
+    "refdesign": {
+      "title": "Icicle Kit Reference Design (Libero Tcl, PDC, README)",
+      "repo": "https://github.com/polarfire-soc/icicle-kit-reference-design",
+      "commit": "9c34320f91e8e8a144c7d87bf299527fc5f02081",
+      "licence": "MIT",
+      "licence_note": "LICENSE.md (Copyright 2019-2023 Microchip Corporation, SPDX MIT); the .tcl/.pdc files carry no header of their own",
+      "local": "reference/vendor/gh-icicle-kit-reference-design (shallow clone, git-ignored)"
+    },
+    "docs": {
+      "title": "PolarFire SoC documentation",
+      "repo": "https://github.com/polarfire-soc/polarfire-soc-documentation",
+      "commit": "f844a87d7849bd43335d147a3d9a6907b6f9da24",
+      "licence": "CC-BY-4.0",
+      "licence_note": "LICENSE.txt: licensed under CC BY 4.0",
+      "local": "reference/vendor/gh-polarfire-soc-documentation (shallow clone, git-ignored)"
+    }
+  },
+  "id": "memmap",
+  "address_format": "hex strings with 0x and no separators; values above 2^53 do not occur but parse with BigInt for 38-bit maths",
+  "verification_values": {
+    "two-source": "two or more independent sources (different projects: Linux dts, HSS, MPFS HAL, MSS configurator XML, reference design, docs) give the same base",
+    "two-source-contained": "independent sources agree that the later ones lie inside the first one's range (e.g. a register inside a window)",
+    "two-file": "two or more files of the same project agree (weaker than two independent sources)",
+    "single-source": "only one source found; treat as unverified",
+    "conflict": "sources disagree; see notes"
+  },
+  "bus_values": {
+    "core": "core complex (hart-local, L2, PLIC, CLINT)",
+    "mss-apb": "MSS peripheral bus",
+    "mss-axi": "MSS AXI master/slave peripheral",
+    "mss-ahb": "eNVM AHB",
+    "scb": "system controller bus",
+    "fic0": "fabric interface FIC0 (AXI4)",
+    "fic1": "FIC1 (AXI4, PCIe)",
+    "fic3": "FIC3 (APB)",
+    "ddr": "DDR via the segment registers (SEG0/SEG1) to U2"
+  },
+  "bus_note": "bus is a classification for the simulator from the README FIC column, the DTS node and the HAL driver; the exact MSS interconnect is not in these sources",
+  "count": 76,
+  "regions": [
+    {
+      "id": "e51_dtim",
+      "name": "E51 DTIM",
+      "base": "0x1000000",
+      "size": "0x2000",
+      "kind": "ram",
+      "owner": "E51_DTIM",
+      "bus": "core",
+      "source": "hss include/mpfs_reg_map.h L36; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L96",
+      "category": "memory",
+      "end": "0x1001fff",
+      "size_verified": true,
+      "sim_unit": "soc.e51",
+      "refdes": ["U1"],
+      "verification": "two-file",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 36, "define": "E51_DTIM_BASE_ADDR", "base": "0x1000000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 96,
+          "region": "dtim",
+          "length": "7k",
+          "base": "0x1000000",
+          "size": "0x1c00"
+        }
+      ],
+      "size_basis": "hss-l2scratch.lds: dtim 7k + switch_code 1k (0x01001c00)",
+      "notes": ["HSS uses 7 KiB as data and the top 1 KiB for switch code"]
+    },
+    {
+      "id": "e51_itim",
+      "name": "E51 ITIM",
+      "base": "0x1800000",
+      "size": "0x7000",
+      "kind": "ram",
+      "owner": "E51_ITIM",
+      "bus": "core",
+      "source": "hss include/mpfs_reg_map.h L38; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L99",
+      "category": "memory",
+      "end": "0x1806fff",
+      "size_verified": true,
+      "sim_unit": "soc.e51",
+      "refdes": ["U1"],
+      "verification": "two-file",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 38, "define": "E51_ITIM_BASE_ADDR", "base": "0x1800000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 99,
+          "region": "e51_itim",
+          "length": "28k",
+          "base": "0x1800000",
+          "size": "0x7000"
+        }
+      ]
+    },
+    {
+      "id": "u54_1_itim",
+      "name": "U54_1 ITIM",
+      "base": "0x1808000",
+      "size": "0x7000",
+      "kind": "ram",
+      "owner": "U54_1_ITIM",
+      "bus": "core",
+      "source": "hss include/mpfs_reg_map.h L40; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L100",
+      "category": "memory",
+      "end": "0x180efff",
+      "size_verified": true,
+      "sim_unit": "soc.u54_1",
+      "refdes": ["U1"],
+      "verification": "two-file",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 40, "define": "U54_1_ITIM_BASE_ADDR", "base": "0x1808000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 100,
+          "region": "u54_1_itim",
+          "length": "28k",
+          "base": "0x1808000",
+          "size": "0x7000"
+        }
+      ]
+    },
+    {
+      "id": "u54_2_itim",
+      "name": "U54_2 ITIM",
+      "base": "0x1810000",
+      "size": "0x7000",
+      "kind": "ram",
+      "owner": "U54_2_ITIM",
+      "bus": "core",
+      "source": "hss include/mpfs_reg_map.h L42; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L101",
+      "category": "memory",
+      "end": "0x1816fff",
+      "size_verified": true,
+      "sim_unit": "soc.u54_2",
+      "refdes": ["U1"],
+      "verification": "two-file",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 42, "define": "U54_2_ITIM_BASE_ADDR", "base": "0x1810000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 101,
+          "region": "u54_2_itim",
+          "length": "28k",
+          "base": "0x1810000",
+          "size": "0x7000"
+        }
+      ]
+    },
+    {
+      "id": "u54_3_itim",
+      "name": "U54_3 ITIM",
+      "base": "0x1818000",
+      "size": "0x7000",
+      "kind": "ram",
+      "owner": "U54_3_ITIM",
+      "bus": "core",
+      "source": "hss include/mpfs_reg_map.h L44; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L102",
+      "category": "memory",
+      "end": "0x181efff",
+      "size_verified": true,
+      "sim_unit": "soc.u54_3",
+      "refdes": ["U1"],
+      "verification": "two-file",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 44, "define": "U54_3_ITIM_BASE_ADDR", "base": "0x1818000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 102,
+          "region": "u54_3_itim",
+          "length": "28k",
+          "base": "0x1818000",
+          "size": "0x7000"
+        }
+      ]
+    },
+    {
+      "id": "u54_4_itim",
+      "name": "U54_4 ITIM",
+      "base": "0x1820000",
+      "size": "0x7000",
+      "kind": "ram",
+      "owner": "U54_4_ITIM",
+      "bus": "core",
+      "source": "hss include/mpfs_reg_map.h L46; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L103",
+      "category": "memory",
+      "end": "0x1826fff",
+      "size_verified": true,
+      "sim_unit": "soc.u54_4",
+      "refdes": ["U1"],
+      "verification": "two-file",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 46, "define": "U54_4_ITIM_BASE_ADDR", "base": "0x1820000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 103,
+          "region": "u54_4_itim",
+          "length": "28k",
+          "base": "0x1820000",
+          "size": "0x7000"
+        }
+      ]
+    },
+    {
+      "id": "clint",
+      "name": "CLINT",
+      "base": "0x2000000",
+      "size": "0xc000",
+      "kind": "mmio",
+      "owner": "CLINT",
+      "bus": "core",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L223; hss include/mpfs_reg_map.h L48; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/encoding.h L186",
+      "category": "peripheral",
+      "end": "0x200bfff",
+      "size_verified": true,
+      "sim_unit": "soc.clint",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 223,
+          "node": "clint: clint@2000000",
+          "base": "0x2000000",
+          "size": "0xc000"
+        },
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 48, "define": "CLINT_BASE_ADDR", "base": "0x2000000"},
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/encoding.h",
+          "line": 186,
+          "define": "CLINT_BASE",
+          "base": "0x2000000"
+        }
+      ],
+      "notes": [
+        "MSIP per hart at +0x0/+0x4/+0x8/+0xC/+0x10, MTIME at +0xBFF8 (mpfs_reg_map.h)",
+        "mtime runs at 1 MHz (MSS_RTC_TOGGLE_CLK in the MSS XML)"
+      ]
+    },
+    {
+      "id": "l2_cache_ctrl",
+      "name": "L2 cache controller",
+      "base": "0x2010000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "L2_CACHE_CTRL",
+      "bus": "core",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L211; hss include/mpfs_reg_map.h L56; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_l2_cache.h L445",
+      "category": "peripheral",
+      "end": "0x2010fff",
+      "size_verified": true,
+      "sim_unit": "soc.l2",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 211,
+          "node": "cctrllr: cache-controller@2010000",
+          "base": "0x2010000",
+          "size": "0x1000"
+        },
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 56, "define": "L2_CACHE_CTRL_BASE_ADDR", "base": "0x2010000"},
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_l2_cache.h",
+          "line": 445,
+          "define": "CACHE_CTRL_BASE",
+          "base": "0x2010000"
+        }
+      ],
+      "notes": [
+        "WayEnable +0x008, WayMask0 +0x800 ... (mpfs_reg_map.h; its WAYMASK1 offset reads 0x008, see code/hss-reg-map.json)",
+        "16 ways of 128 KiB = 2 MiB of L2 (docs mpfs-memory-hierarchy.md)"
+      ]
+    },
+    {
+      "id": "wcb",
+      "name": "Write-combining buffer",
+      "base": "0x2020000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "WCB",
+      "bus": "core",
+      "source": "hss include/mpfs_reg_map.h L65",
+      "category": "peripheral",
+      "end": "0x2020fff",
+      "size_verified": false,
+      "sim_unit": "soc.l2",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [{"source": "hss", "file": "include/mpfs_reg_map.h", "line": 65, "define": "WCB_BASE_ADDR", "base": "0x2020000"}],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "pdma",
+      "name": "PDMA",
+      "base": "0x3000000",
+      "size": "0x8000",
+      "kind": "mmio",
+      "owner": "PDMA",
+      "bus": "core",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L247; hss include/mpfs_reg_map.h L67; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_pdma/mss_pdma.h L220",
+      "category": "peripheral",
+      "end": "0x3007fff",
+      "size_verified": true,
+      "sim_unit": "soc.pdma",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 247,
+          "node": "pdma: dma-controller@3000000",
+          "base": "0x3000000",
+          "size": "0x8000"
+        },
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 67, "define": "DMA_CTRL_BASE_ADDR", "base": "0x3000000"},
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_pdma/mss_pdma.h",
+          "line": 220,
+          "define": "PDMA_REG_BASE",
+          "base": "0x3000000"
+        }
+      ]
+    },
+    {
+      "id": "l2_lim",
+      "name": "L2 LIM",
+      "base": "0x8000000",
+      "size": "0x200000",
+      "kind": "ram",
+      "owner": "L2_LIM",
+      "bus": "core",
+      "source": "docs knowledge-base/mpfs-memory-hierarchy.md L191; hss include/mpfs_reg_map.h L69; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L104",
+      "category": "memory",
+      "end": "0x81fffff",
+      "size_verified": true,
+      "sim_unit": "soc.l2",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {"source": "docs", "file": "knowledge-base/mpfs-memory-hierarchy.md", "line": 191, "base": "0x8000000", "size": "0x200000"},
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 69, "define": "L2_LIM_BASE_ADDR", "base": "0x8000000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 104,
+          "region": "l2lim",
+          "length": "512k",
+          "base": "0x8000000",
+          "size": "0x80000"
+        }
+      ],
+      "notes": [
+        "1920 KiB at reset, shrinking by 128 KiB per way given to the cache",
+        "HSS links 512 KiB here; the #552 log shows 4 LIM ways (512 KiB)"
+      ]
+    },
+    {
+      "id": "l2_scratchpad",
+      "name": "L2 scratchpad (Zero Device)",
+      "base": "0xa000000",
+      "size": "0x2000000",
+      "kind": "ram",
+      "owner": "L2_SCRATCHPAD",
+      "bus": "core",
+      "source": "docs knowledge-base/mpfs-memory-hierarchy.md L193; hss include/mpfs_reg_map.h L71; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L105",
+      "category": "memory",
+      "end": "0xbffffff",
+      "size_verified": true,
+      "sim_unit": "soc.l2",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {"source": "docs", "file": "knowledge-base/mpfs-memory-hierarchy.md", "line": 193, "base": "0xa000000", "size": "0x2000000"},
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 71, "define": "L2_ZERODEV_BASE_ADDR", "base": "0xa000000"},
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 105,
+          "region": "l2zerodevice",
+          "length": "512k",
+          "base": "0xa000000",
+          "size": "0x80000"
+        }
+      ],
+      "notes": ["the HSS runs from here ('NOTICE: Running from L2 Scratchpad'); the #552 log shows 4 scratchpad ways (512 KiB)"]
+    },
+    {
+      "id": "plic",
+      "name": "PLIC",
+      "base": "0xc000000",
+      "size": "0x4000000",
+      "kind": "mmio",
+      "owner": "PLIC",
+      "bus": "core",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L233; hss include/mpfs_reg_map.h L74; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_plic.h L543",
+      "category": "peripheral",
+      "end": "0xfffffff",
+      "size_verified": true,
+      "sim_unit": "soc.plic",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 233,
+          "node": "plic: interrupt-controller@c000000",
+          "base": "0xc000000",
+          "size": "0x4000000"
+        },
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 74, "define": "PLIC_BASE_ADDR", "base": "0xc000000"},
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_plic.h",
+          "line": 543,
+          "define": "PLIC_BASE_ADDR",
+          "base": "0xc000000"
+        }
+      ],
+      "notes": ["riscv,ndev = 186 sources"]
+    },
+    {
+      "id": "mmuart0",
+      "name": "MMUART0",
+      "base": "0x20000000",
+      "size": "0x400",
+      "kind": "mmio",
+      "owner": "MMUART0",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L323; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c L22",
+      "category": "peripheral",
+      "end": "0x200003ff",
+      "size_verified": true,
+      "sim_unit": "soc.mmuart0",
+      "refdes": ["U1", "U14"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 323,
+          "node": "mmuart0: serial@20000000",
+          "base": "0x20000000",
+          "size": "0x400"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c",
+          "line": 22,
+          "define": "MSS_UART0_LO_BASE",
+          "base": "0x20000000"
+        }
+      ],
+      "notes": ["HSS console; reserved for the HSS in Linux (status disabled)"]
+    },
+    {
+      "id": "wdog0",
+      "name": "WDOG0 (E51)",
+      "base": "0x20001000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "WDOG0",
+      "bus": "mss-apb",
+      "source": "hss include/mpfs_reg_map.h L103",
+      "category": "peripheral",
+      "end": "0x20001fff",
+      "size_verified": false,
+      "sim_unit": "soc.wdog",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [{"source": "hss", "file": "include/mpfs_reg_map.h", "line": 103, "define": "WDOG0_LO_BASE_ADDR", "base": "0x20001000"}],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "mss_top_sysreg",
+      "name": "SYSREG (mss_top_sysreg)",
+      "base": "0x20002000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "MSS_TOP_SYSREG",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L256; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_sysreg.h L64",
+      "category": "peripheral",
+      "end": "0x20002fff",
+      "size_verified": true,
+      "sim_unit": "soc.sysreg",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 256,
+          "node": "mss_top_sysreg: syscon@20002000",
+          "base": "0x20002000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_sysreg.h",
+          "line": 64,
+          "define": "BASE32_ADDR_MSS_SYSREG",
+          "base": "0x20002000"
+        }
+      ],
+      "notes": ["Linux 5.6 (logs/linux.json) bound 'microchip-pfsoc-clkcfg' here at 20002000; current mpfs.dtsi puts clkcfg at 0x3E00_1000"]
+    },
+    {
+      "id": "sysreg_scb",
+      "name": "SYSREG SCB",
+      "base": "0x20003000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "SYSREG_SCB",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L286; hss include/mpfs_reg_map.h L77; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_regs.h L5542",
+      "category": "peripheral",
+      "end": "0x20003fff",
+      "size_verified": true,
+      "sim_unit": "soc.sysreg",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 286,
+          "node": "sysreg_scb: syscon@20003000",
+          "base": "0x20003000",
+          "size": "0x1000"
+        },
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 77, "define": "SYSREGSCB_BASE_ADDR", "base": "0x20003000"},
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_regs.h",
+          "line": 5542,
+          "define": "SYSREGSCB_BASE",
+          "base": "0x20003000"
+        }
+      ],
+      "notes": ["MSS_STATUS at +0x104 (mpfs_reg_map.h)"]
+    },
+    {
+      "id": "ddr_seg",
+      "name": "DDR segmentation blocks SEG0/SEG1",
+      "base": "0x20005d00",
+      "size": "0x200",
+      "kind": "mmio",
+      "owner": "SEG",
+      "bus": "mss-apb",
+      "source": "mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_seg.h L54",
+      "category": "peripheral",
+      "end": "0x20005eff",
+      "size_verified": true,
+      "sim_unit": "lpddr4",
+      "refdes": ["U1", "U2"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_seg.h",
+          "line": 54,
+          "define": "SEG",
+          "base": "0x20005d00"
+        }
+      ],
+      "size_basis": "two seg_t blocks of 64 words (mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/mss_seg.h L50); the HAL indexes SEG[0] and SEG[1] (nwc/mss_ddr.c setup_ddr_segments)",
+      "notes": [
+        "SEG0 at +0x000 (CFG0..1 implemented; CFG7 bit 0 = DDRC blocker off), SEG1 at +0x100 (CFG2..5 implemented)",
+        "the HAL writes them in setup_ddr_segments() (nwc/mss_ddr.c); each offset is a signed 15-bit count of 16 MiB",
+        "mss_seg.h groups them with the MPU blocks: mss_mpu.h MSS_MPU(master) = 0x20005000 + (master << 8), so SEG0/SEG1 are slots 13/14"
+      ]
+    },
+    {
+      "id": "cfm",
+      "name": "CFM",
+      "base": "0x20006000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CFM",
+      "bus": "mss-apb",
+      "source": "mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_cfm.h L36",
+      "category": "peripheral",
+      "end": "0x20006fff",
+      "size_verified": false,
+      "sim_unit": "soc.sysreg",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_cfm.h",
+          "line": 36,
+          "define": "CFM_REG_BASE",
+          "base": "0x20006000"
+        }
+      ],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "ddr_sgmii_phy_cfg",
+      "name": "CFG_DDR_SGMII_PHY",
+      "base": "0x20007000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "DDR_SGMII_PHY_CFG",
+      "bus": "mss-apb",
+      "source": "mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_regs.h L5539",
+      "category": "peripheral",
+      "end": "0x20007fff",
+      "size_verified": false,
+      "sim_unit": "soc.ddrc",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_regs.h",
+          "line": 5539,
+          "define": "CFG_DDR_SGMII_PHY_BASE",
+          "base": "0x20007000"
+        }
+      ],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "mmc",
+      "name": "SD/eMMC host (Cadence SD4HC)",
+      "base": "0x20008000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "MMC",
+      "bus": "mss-axi",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L384; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmc/mss_mmc_regs.h L99",
+      "category": "peripheral",
+      "end": "0x20008fff",
+      "size_verified": true,
+      "sim_unit": "soc.mmc",
+      "refdes": ["U1", "U29", "U44", "U45", "J30"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 384,
+          "node": "mmc: mmc@20008000",
+          "base": "0x20008000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmc/mss_mmc_regs.h",
+          "line": 99,
+          "define": "MMC_BASE",
+          "base": "0x20008000"
+        }
+      ]
+    },
+    {
+      "id": "mpu",
+      "name": "MPU block",
+      "base": "0x2000e000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "MPU",
+      "bus": "mss-apb",
+      "source": "hss include/mpfs_reg_map.h L90",
+      "category": "peripheral",
+      "end": "0x2000efff",
+      "size_verified": false,
+      "sim_unit": "soc.mpu",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [{"source": "hss", "file": "include/mpfs_reg_map.h", "line": 90, "define": "MPU_BASE_ADDR", "base": "0x2000e000"}],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size",
+      "notes": [
+        "FIC0 +0x0, FIC1 +0x100, FIC2 +0x200, CRYPTO +0x300, ETH0 +0x400, ETH1 +0x500, USB +0x600, MMC +0x700, SCB +0x800, SEG0 +0xD00, SEG1 +0xE00"
+      ]
+    },
+    {
+      "id": "ddrc",
+      "name": "DDR controller",
+      "base": "0x20080000",
+      "size": "0x3c0ac",
+      "kind": "mmio",
+      "owner": "DDRC",
+      "bus": "mss-axi",
+      "source": "hss include/mpfs_reg_map.h L80; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_regs.h L5540",
+      "category": "peripheral",
+      "end": "0x200bc0ab",
+      "size_verified": true,
+      "sim_unit": "soc.ddrc",
+      "refdes": ["U1", "U2"],
+      "verification": "two-source",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 80, "define": "MSS_DDRC_BASE_ADDR", "base": "0x20080000"},
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_regs.h",
+          "line": 5540,
+          "define": "DDRCFG_BASE",
+          "base": "0x20080000"
+        }
+      ],
+      "size_basis": "sizeof(DDR_CSR_APB_TypeDef) in mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_regs.h: csr_custom at 0x3c000 (L4384), its last member ends at +0xac (L4348)",
+      "notes": ["MC_BASE2 at +0x4000, MEM_TEST +0x4400, DFI +0x1_0000, AXI_IF +0x1_2C00, csr_custom +0x3_C000 (DDR_CSR_APB_TypeDef)"]
+    },
+    {
+      "id": "mmuart1",
+      "name": "MMUART1",
+      "base": "0x20100000",
+      "size": "0x400",
+      "kind": "mmio",
+      "owner": "MMUART1",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L335; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c L23",
+      "category": "peripheral",
+      "end": "0x201003ff",
+      "size_verified": true,
+      "sim_unit": "soc.mmuart1",
+      "refdes": ["U1", "U14"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 335,
+          "node": "mmuart1: serial@20100000",
+          "base": "0x20100000",
+          "size": "0x400"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c",
+          "line": 23,
+          "define": "MSS_UART1_LO_BASE",
+          "base": "0x20100000"
+        }
+      ]
+    },
+    {
+      "id": "wdog1",
+      "name": "WDOG1 (u54_1)",
+      "base": "0x20101000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "WDOG1",
+      "bus": "mss-apb",
+      "source": "hss include/mpfs_reg_map.h L104",
+      "category": "peripheral",
+      "end": "0x20101fff",
+      "size_verified": false,
+      "sim_unit": "soc.wdog",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [{"source": "hss", "file": "include/mpfs_reg_map.h", "line": 104, "define": "WDOG1_LO_BASE_ADDR", "base": "0x20101000"}],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "mmuart2",
+      "name": "MMUART2",
+      "base": "0x20102000",
+      "size": "0x400",
+      "kind": "mmio",
+      "owner": "MMUART2",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L347; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c L24",
+      "category": "peripheral",
+      "end": "0x201023ff",
+      "size_verified": true,
+      "sim_unit": "soc.mmuart2",
+      "refdes": ["U1", "U14"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 347,
+          "node": "mmuart2: serial@20102000",
+          "base": "0x20102000",
+          "size": "0x400"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c",
+          "line": 24,
+          "define": "MSS_UART2_LO_BASE",
+          "base": "0x20102000"
+        }
+      ]
+    },
+    {
+      "id": "wdog2",
+      "name": "WDOG2 (u54_2)",
+      "base": "0x20103000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "WDOG2",
+      "bus": "mss-apb",
+      "source": "hss include/mpfs_reg_map.h L105",
+      "category": "peripheral",
+      "end": "0x20103fff",
+      "size_verified": false,
+      "sim_unit": "soc.wdog",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [{"source": "hss", "file": "include/mpfs_reg_map.h", "line": 105, "define": "WDOG2_LO_BASE_ADDR", "base": "0x20103000"}],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "mmuart3",
+      "name": "MMUART3",
+      "base": "0x20104000",
+      "size": "0x400",
+      "kind": "mmio",
+      "owner": "MMUART3",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L359; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c L25",
+      "category": "peripheral",
+      "end": "0x201043ff",
+      "size_verified": true,
+      "sim_unit": "soc.mmuart3",
+      "refdes": ["U1", "U14"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 359,
+          "node": "mmuart3: serial@20104000",
+          "base": "0x20104000",
+          "size": "0x400"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c",
+          "line": 25,
+          "define": "MSS_UART3_LO_BASE",
+          "base": "0x20104000"
+        }
+      ]
+    },
+    {
+      "id": "wdog3",
+      "name": "WDOG3 (u54_3)",
+      "base": "0x20105000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "WDOG3",
+      "bus": "mss-apb",
+      "source": "hss include/mpfs_reg_map.h L106",
+      "category": "peripheral",
+      "end": "0x20105fff",
+      "size_verified": false,
+      "sim_unit": "soc.wdog",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [{"source": "hss", "file": "include/mpfs_reg_map.h", "line": 106, "define": "WDOG3_LO_BASE_ADDR", "base": "0x20105000"}],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "mmuart4",
+      "name": "MMUART4",
+      "base": "0x20106000",
+      "size": "0x400",
+      "kind": "mmio",
+      "owner": "MMUART4",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L371; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c L26",
+      "category": "peripheral",
+      "end": "0x201063ff",
+      "size_verified": true,
+      "sim_unit": "soc.mmuart4",
+      "refdes": ["U1", "J8"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 371,
+          "node": "mmuart4: serial@20106000",
+          "base": "0x20106000",
+          "size": "0x400"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c",
+          "line": 26,
+          "define": "MSS_UART4_LO_BASE",
+          "base": "0x20106000"
+        }
+      ]
+    },
+    {
+      "id": "wdog4",
+      "name": "WDOG4 (u54_4)",
+      "base": "0x20107000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "WDOG4",
+      "bus": "mss-apb",
+      "source": "hss include/mpfs_reg_map.h L107",
+      "category": "peripheral",
+      "end": "0x20107fff",
+      "size_verified": false,
+      "sim_unit": "soc.wdog",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [{"source": "hss", "file": "include/mpfs_reg_map.h", "line": 107, "define": "WDOG4_LO_BASE_ADDR", "base": "0x20107000"}],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "spi0",
+      "name": "SPI0",
+      "base": "0x20108000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "SPI0",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L396; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_spi/mss_spi.h L260",
+      "category": "peripheral",
+      "end": "0x20108fff",
+      "size_verified": true,
+      "sim_unit": "soc.spi0",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 396,
+          "node": "spi0: spi@20108000",
+          "base": "0x20108000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_spi/mss_spi.h",
+          "line": 260,
+          "define": "SPI0_LO_BASE",
+          "base": "0x20108000"
+        }
+      ]
+    },
+    {
+      "id": "spi1",
+      "name": "SPI1 (mikroBUS)",
+      "base": "0x20109000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "SPI1",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L407; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_spi/mss_spi.h L261",
+      "category": "peripheral",
+      "end": "0x20109fff",
+      "size_verified": true,
+      "sim_unit": "soc.spi1",
+      "refdes": ["U1", "J44"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 407,
+          "node": "spi1: spi@20109000",
+          "base": "0x20109000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_spi/mss_spi.h",
+          "line": 261,
+          "define": "SPI1_LO_BASE",
+          "base": "0x20109000"
+        }
+      ]
+    },
+    {
+      "id": "i2c0",
+      "name": "I2C0 (mikroBUS)",
+      "base": "0x2010a000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "I2C0",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L427; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_i2c/mss_i2c.c L107",
+      "category": "peripheral",
+      "end": "0x2010afff",
+      "size_verified": true,
+      "sim_unit": "soc.i2c0",
+      "refdes": ["U1", "J8"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 427,
+          "node": "i2c0: i2c@2010a000",
+          "base": "0x2010a000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_i2c/mss_i2c.c",
+          "line": 107,
+          "define": "MSS_I2C0_LO_BASE",
+          "base": "0x2010a000"
+        }
+      ]
+    },
+    {
+      "id": "i2c1",
+      "name": "I2C1 (PAC1934)",
+      "base": "0x2010b000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "I2C1",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L439; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_i2c/mss_i2c.c L108",
+      "category": "peripheral",
+      "end": "0x2010bfff",
+      "size_verified": true,
+      "sim_unit": "soc.i2c1",
+      "refdes": ["U1", "U55"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 439,
+          "node": "i2c1: i2c@2010b000",
+          "base": "0x2010b000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_i2c/mss_i2c.c",
+          "line": 108,
+          "define": "MSS_I2C1_LO_BASE",
+          "base": "0x2010b000"
+        }
+      ],
+      "notes": ["PAC1934 at address 0x10 (mpfs-icicle-kit-common.dtsi)"]
+    },
+    {
+      "id": "can0",
+      "name": "CAN0 (J27 via fabric)",
+      "base": "0x2010c000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CAN0",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L451; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_can/mss_can.h L899",
+      "category": "peripheral",
+      "end": "0x2010cfff",
+      "size_verified": true,
+      "sim_unit": "soc.can0",
+      "refdes": ["U1", "U47", "J27"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 451,
+          "node": "can0: can@2010c000",
+          "base": "0x2010c000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_can/mss_can.h",
+          "line": 899,
+          "define": "MSS_CAN_0_LO_BASE",
+          "base": "0x2010c000"
+        }
+      ]
+    },
+    {
+      "id": "can1",
+      "name": "CAN1 (J25 via Bank 2)",
+      "base": "0x2010d000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CAN1",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L461; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_can/mss_can.h L900",
+      "category": "peripheral",
+      "end": "0x2010dfff",
+      "size_verified": true,
+      "sim_unit": "soc.can1",
+      "refdes": ["U1", "U48", "J25"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 461,
+          "node": "can1: can@2010d000",
+          "base": "0x2010d000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_can/mss_can.h",
+          "line": 900,
+          "define": "MSS_CAN_1_LO_BASE",
+          "base": "0x2010d000"
+        }
+      ]
+    },
+    {
+      "id": "gem0",
+      "name": "GEM0 (MAC0)",
+      "base": "0x20110000",
+      "size": "0x2000",
+      "kind": "mmio",
+      "owner": "GEM0",
+      "bus": "mss-axi",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L471; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_ethernet_mac/mss_ethernet_mac.c L76",
+      "category": "peripheral",
+      "end": "0x20111fff",
+      "size_verified": true,
+      "sim_unit": "soc.gem0",
+      "refdes": ["U1", "U4", "J1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 471,
+          "node": "mac0: ethernet@20110000",
+          "base": "0x20110000",
+          "size": "0x2000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_ethernet_mac/mss_ethernet_mac.c",
+          "line": 76,
+          "define": "MSS_MAC0_BASE",
+          "base": "0x20110000"
+        }
+      ],
+      "notes": ["SGMII to U4 VSC8662 port 0, PHY address 8"]
+    },
+    {
+      "id": "gem1",
+      "name": "GEM1 (MAC1, Linux eth0)",
+      "base": "0x20112000",
+      "size": "0x2000",
+      "kind": "mmio",
+      "owner": "GEM1",
+      "bus": "mss-axi",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L485; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_ethernet_mac/mss_ethernet_mac.c L78",
+      "category": "peripheral",
+      "end": "0x20113fff",
+      "size_verified": true,
+      "sim_unit": "soc.gem1",
+      "refdes": ["U1", "U4", "J2"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 485,
+          "node": "mac1: ethernet@20112000",
+          "base": "0x20112000",
+          "size": "0x2000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_ethernet_mac/mss_ethernet_mac.c",
+          "line": 78,
+          "define": "MSS_MAC1_BASE",
+          "base": "0x20112000"
+        }
+      ],
+      "notes": ["SGMII to U4 VSC8662 port 1, PHY address 9; MDIO for both PHYs"]
+    },
+    {
+      "id": "gpio0",
+      "name": "GPIO0",
+      "base": "0x20120000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "GPIO0",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L499; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_gpio/mss_gpio.h L285",
+      "category": "peripheral",
+      "end": "0x20120fff",
+      "size_verified": true,
+      "sim_unit": "soc.gpio0",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 499,
+          "node": "gpio0: gpio@20120000",
+          "base": "0x20120000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_gpio/mss_gpio.h",
+          "line": 285,
+          "define": "GPIO0_LO",
+          "base": "0x20120000"
+        }
+      ]
+    },
+    {
+      "id": "gpio1",
+      "name": "GPIO1",
+      "base": "0x20121000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "GPIO1",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L516; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_gpio/mss_gpio.h L286",
+      "category": "peripheral",
+      "end": "0x20121fff",
+      "size_verified": true,
+      "sim_unit": "soc.gpio1",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 516,
+          "node": "gpio1: gpio@20121000",
+          "base": "0x20121000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_gpio/mss_gpio.h",
+          "line": 286,
+          "define": "GPIO1_LO",
+          "base": "0x20121000"
+        }
+      ]
+    },
+    {
+      "id": "gpio2",
+      "name": "GPIO2",
+      "base": "0x20122000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "GPIO2",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L535; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_gpio/mss_gpio.h L287",
+      "category": "peripheral",
+      "end": "0x20122fff",
+      "size_verified": true,
+      "sim_unit": "soc.gpio2",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 535,
+          "node": "gpio2: gpio@20122000",
+          "base": "0x20122000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_gpio/mss_gpio.h",
+          "line": 287,
+          "define": "GPIO2_LO",
+          "base": "0x20122000"
+        }
+      ],
+      "notes": ["GPIO2 drives LEDs, reads switches and the RPi GPIOs through the fabric (gpio2.json)"]
+    },
+    {
+      "id": "rtc",
+      "name": "RTC",
+      "base": "0x20124000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "RTC",
+      "bus": "mss-apb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L556; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_rtc/mss_rtc_regs.h L59",
+      "category": "peripheral",
+      "end": "0x20124fff",
+      "size_verified": true,
+      "sim_unit": "soc.rtc",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 556,
+          "node": "rtc: rtc@20124000",
+          "base": "0x20124000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_rtc/mss_rtc_regs.h",
+          "line": 59,
+          "define": "MSS_RTC_LO_ADDR",
+          "base": "0x20124000"
+        }
+      ]
+    },
+    {
+      "id": "timer",
+      "name": "MSS timer",
+      "base": "0x20125000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "TIMER",
+      "bus": "mss-apb",
+      "source": "mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_timer/mss_timer_regs.h L55",
+      "category": "peripheral",
+      "end": "0x20125fff",
+      "size_verified": false,
+      "sim_unit": "soc.timer",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_timer/mss_timer_regs.h",
+          "line": 55,
+          "define": "TIMER_LO_BASE",
+          "base": "0x20125000"
+        }
+      ],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "usb",
+      "name": "USB OTG (MUSB)",
+      "base": "0x20201000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "USB",
+      "bus": "mss-axi",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L566; mpfs-hal baremetal/drivers/mss/mss_usb/mss_usb_core_regs.h L525",
+      "category": "peripheral",
+      "end": "0x20201fff",
+      "size_verified": true,
+      "sim_unit": "soc.usb",
+      "refdes": ["U1", "U33", "J16"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 566,
+          "node": "usb: usb@20201000",
+          "base": "0x20201000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/drivers/mss/mss_usb/mss_usb_core_regs.h",
+          "line": 525,
+          "define": "USB_BASE",
+          "base": "0x20201000"
+        }
+      ]
+    },
+    {
+      "id": "envm",
+      "name": "eNVM (128 KiB)",
+      "base": "0x20220000",
+      "size": "0x20000",
+      "kind": "nvm",
+      "owner": "ENVM",
+      "bus": "mss-ahb",
+      "source": "mss-xml boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml L13; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L94",
+      "category": "memory",
+      "end": "0x2023ffff",
+      "size_verified": true,
+      "sim_unit": "soc.envm",
+      "refdes": ["U1"],
+      "verification": "two-source-contained",
+      "sources": [
+        {
+          "source": "mss-xml",
+          "file": "boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml",
+          "line": 13,
+          "mem": "RESET_VECTOR_HART0",
+          "base": "0x20220000"
+        },
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 94,
+          "region": "envm",
+          "length": "(128k-256)",
+          "base": "0x20220100",
+          "size": "0x1ff00"
+        }
+      ],
+      "size_basis": "hss-l2scratch.lds: envm LENGTH = (128k-256) from 0x2022_0100",
+      "notes": ["MSS configurator XML: all five reset vectors are 0x2022_0000", "the HSS image is linked from 0x2022_0100 (envm-wrapper)"]
+    },
+    {
+      "id": "qspi",
+      "name": "MSS QSPI (to J26)",
+      "base": "0x21000000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "QSPI",
+      "bus": "mss-axi",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L418; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_qspi/mss_qspi.h L395",
+      "category": "peripheral",
+      "end": "0x21000fff",
+      "size_verified": true,
+      "sim_unit": "soc.qspi",
+      "refdes": ["U1", "J26"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 418,
+          "node": "qspi: spi@21000000",
+          "base": "0x21000000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_qspi/mss_qspi.h",
+          "line": 395,
+          "define": "QSPI_BASE",
+          "base": "0x21000000"
+        }
+      ],
+      "notes": ["routed through the fabric to the RPi header (reference-design README)"]
+    },
+    {
+      "id": "control_scb",
+      "name": "System controller SCB control",
+      "base": "0x37020000",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "CONTROL_SCB",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L576; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_sys_services/mss_sys_services.h L2460",
+      "category": "peripheral",
+      "end": "0x370200ff",
+      "size_verified": true,
+      "sim_unit": "sysctrl",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 576,
+          "node": "control_scb: syscon@37020000",
+          "base": "0x37020000",
+          "size": "0x100"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_sys_services/mss_sys_services.h",
+          "line": 2460,
+          "define": "MSS_SCBCTRL",
+          "base": "0x37020000"
+        }
+      ]
+    },
+    {
+      "id": "sc_qspi",
+      "name": "System controller QSPI (to U43)",
+      "base": "0x37020100",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "SC_QSPI",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L592",
+      "category": "peripheral",
+      "end": "0x370201ff",
+      "size_verified": true,
+      "sim_unit": "sysctrl.qspi",
+      "refdes": ["U1", "U43"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 592,
+          "node": "syscontroller_qspi: spi@37020100",
+          "base": "0x37020100",
+          "size": "0x100"
+        }
+      ],
+      "notes": ["disabled in Linux on ES silicon (mpfs-icicle-kit-common.dtsi comment)"]
+    },
+    {
+      "id": "sc_mailbox",
+      "name": "System controller mailbox",
+      "base": "0x37020800",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "SC_MAILBOX",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L581; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_sys_services/mss_sys_services.h L2463",
+      "category": "peripheral",
+      "end": "0x370217ff",
+      "size_verified": true,
+      "sim_unit": "sysctrl",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 581,
+          "node": "mbox: mailbox@37020800",
+          "base": "0x37020800",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_sys_services/mss_sys_services.h",
+          "line": 2463,
+          "define": "MSS_SCBMAILBOX",
+          "base": "0x37020800"
+        }
+      ],
+      "notes": ["HSS reads the device serial number through system services"]
+    },
+    {
+      "id": "ccc_se",
+      "name": "CCC SE clock conditioning circuit",
+      "base": "0x38010000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CCC_SE",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L291",
+      "category": "peripheral",
+      "end": "0x38010fff",
+      "size_verified": true,
+      "sim_unit": "clocks.ccc",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 291,
+          "node": "ccc_se: clock-controller@38010000",
+          "base": "0x38010000",
+          "size": "0x1000"
+        }
+      ],
+      "notes": ["reg also lists a second 4 KiB block (see source)"]
+    },
+    {
+      "id": "ccc_ne",
+      "name": "CCC NE clock conditioning circuit",
+      "base": "0x38040000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CCC_NE",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L299",
+      "category": "peripheral",
+      "end": "0x38040fff",
+      "size_verified": true,
+      "sim_unit": "clocks.ccc",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 299,
+          "node": "ccc_ne: clock-controller@38040000",
+          "base": "0x38040000",
+          "size": "0x1000"
+        }
+      ],
+      "notes": ["reg also lists a second 4 KiB block (see source)"]
+    },
+    {
+      "id": "ccc_nw",
+      "name": "CCC NW clock conditioning circuit",
+      "base": "0x38100000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CCC_NW",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L307",
+      "category": "peripheral",
+      "end": "0x38100fff",
+      "size_verified": true,
+      "sim_unit": "clocks.ccc",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 307,
+          "node": "ccc_nw: clock-controller@38100000",
+          "base": "0x38100000",
+          "size": "0x1000"
+        }
+      ],
+      "notes": ["reg also lists a second 4 KiB block (see source)"]
+    },
+    {
+      "id": "ccc_sw",
+      "name": "CCC SW clock conditioning circuit",
+      "base": "0x38400000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CCC_SW",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L315",
+      "category": "peripheral",
+      "end": "0x38400fff",
+      "size_verified": true,
+      "sim_unit": "clocks.ccc",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 315,
+          "node": "ccc_sw: clock-controller@38400000",
+          "base": "0x38400000",
+          "size": "0x1000"
+        }
+      ],
+      "notes": ["reg also lists a second 4 KiB block (see source)"]
+    },
+    {
+      "id": "clkcfg",
+      "name": "Clock configuration (MSS PLL)",
+      "base": "0x3e001000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "CLKCFG",
+      "bus": "scb",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs.dtsi L601; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_scb_nwc_regs.h L89",
+      "category": "peripheral",
+      "end": "0x3e001fff",
+      "size_verified": true,
+      "sim_unit": "clocks.mss",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs.dtsi",
+          "line": 601,
+          "node": "clkcfg: clkcfg@3e001000",
+          "base": "0x3e001000",
+          "size": "0x1000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_scb_nwc_regs.h",
+          "line": 89,
+          "define": "MSS_SCB_MSS_PLL_BASE",
+          "base": "0x3e001000"
+        }
+      ]
+    },
+    {
+      "id": "ddr_pll",
+      "name": "DDR PLL",
+      "base": "0x3e010000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "DDR_PLL",
+      "bus": "scb",
+      "source": "hss include/mpfs_reg_map.h L85; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_scb_nwc_regs.h L90",
+      "category": "peripheral",
+      "end": "0x3e010fff",
+      "size_verified": false,
+      "sim_unit": "clocks.ddr",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {"source": "hss", "file": "include/mpfs_reg_map.h", "line": 85, "define": "MSS_SCB_DDR_PLL_BASE_ADDR", "base": "0x3e010000"},
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_scb_nwc_regs.h",
+          "line": 90,
+          "define": "MSS_SCB_DDR_PLL_BASE",
+          "base": "0x3e010000"
+        }
+      ],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size",
+      "notes": ["CTRL +0x4: lock bit 25, output enables bits 5:2 (mpfs_reg_map.h)"]
+    },
+    {
+      "id": "sgmii_pll",
+      "name": "SGMII PLL",
+      "base": "0x3e080000",
+      "size": "0x1000",
+      "kind": "mmio",
+      "owner": "SGMII_PLL",
+      "bus": "scb",
+      "source": "mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_scb_nwc_regs.h L91",
+      "category": "peripheral",
+      "end": "0x3e080fff",
+      "size_verified": false,
+      "sim_unit": "clocks.sgmii",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_scb_nwc_regs.h",
+          "line": 91,
+          "define": "MSS_SCB_SGMII_PLL_BASE",
+          "base": "0x3e080000"
+        }
+      ],
+      "size_basis": "assumed 4 KiB: none of the sources gives a size"
+    },
+    {
+      "id": "fabric_pwm",
+      "name": "PWM (CorePWM)",
+      "base": "0x40000000",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "FABRIC_PWM",
+      "bus": "fic3",
+      "source": "refdesign README.md L184; linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi L10",
+      "category": "fabric",
+      "end": "0x400000ff",
+      "size_verified": true,
+      "sim_unit": "fabric.pwm",
+      "refdes": ["U1", "J8"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 184,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | PWM | N/A | J8 (mikroBUS socket) | 0x4000_0000 -> 0x4000_00FF",
+          "base": "0x40000000",
+          "size": "0x100"
+        },
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi",
+          "line": 10,
+          "node": "core_pwm0: pwm@40000000",
+          "base": "0x40000000",
+          "size": "0xf0"
+        }
+      ],
+      "notes": ["mikroBUS PWM pin"]
+    },
+    {
+      "id": "fabric_coregpio",
+      "name": "CoreGPIO (LEDs)",
+      "base": "0x40000100",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "FABRIC_COREGPIO",
+      "bus": "fic3",
+      "source": "refdesign README.md L185",
+      "category": "fabric",
+      "end": "0x400001ff",
+      "size_verified": true,
+      "sim_unit": "fabric.coregpio",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 185,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | CoreGPIO | LEDs | N/A | 0x4000_0100 -> 0x4000_01FF",
+          "base": "0x40000100",
+          "size": "0x100"
+        }
+      ]
+    },
+    {
+      "id": "fabric_corei2c",
+      "name": "CoreI2C (RPi header)",
+      "base": "0x40000200",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "FABRIC_COREI2C",
+      "bus": "fic3",
+      "source": "refdesign README.md L186; linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi L19",
+      "category": "fabric",
+      "end": "0x400002ff",
+      "size_verified": true,
+      "sim_unit": "fabric.corei2c",
+      "refdes": ["U1", "J26"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 186,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | CoreI2C | N/A | J26 (Raspberry Pi connector) | 0x4000_0200 -> 0x4000_02FF",
+          "base": "0x40000200",
+          "size": "0x100"
+        },
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi",
+          "line": 19,
+          "node": "i2c2: i2c@40000200",
+          "base": "0x40000200",
+          "size": "0x100"
+        }
+      ]
+    },
+    {
+      "id": "fabric_coreuart",
+      "name": "CoreUART (RPi header)",
+      "base": "0x40000300",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "FABRIC_COREUART",
+      "bus": "fic3",
+      "source": "refdesign README.md L187",
+      "category": "fabric",
+      "end": "0x400003ff",
+      "size_verified": true,
+      "sim_unit": "fabric.coreuart",
+      "refdes": ["U1", "J26"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 187,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | CoreUART | N/A | J26 (Raspberry Pi connector) | 0x4000_0300 -> 0x4000_03FF",
+          "base": "0x40000300",
+          "size": "0x100"
+        }
+      ]
+    },
+    {
+      "id": "fabric_rpi_id_i2c",
+      "name": "RPi_ID_I2C (RPi HAT EEPROM)",
+      "base": "0x40000400",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "FABRIC_RPI_ID_I2C",
+      "bus": "fic3",
+      "source": "refdesign README.md L188",
+      "category": "fabric",
+      "end": "0x400004ff",
+      "size_verified": true,
+      "sim_unit": "fabric.rpi_id_i2c",
+      "refdes": ["U1", "J26"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 188,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | RPi_ID_I2C | N/A | J26 (Raspberry Pi connector) | 0x4000_0400 -> 0x4000_04FF",
+          "base": "0x40000400",
+          "size": "0x100"
+        }
+      ]
+    },
+    {
+      "id": "fabric_mss_reset_counter",
+      "name": "MSS_reset_counter (SW4, J19)",
+      "base": "0x40000500",
+      "size": "0x100",
+      "kind": "mmio",
+      "owner": "FABRIC_MSS_RESET_COUNTER",
+      "bus": "fic3",
+      "source": "refdesign README.md L189",
+      "category": "fabric",
+      "end": "0x400005ff",
+      "size_verified": true,
+      "sim_unit": "fabric.reset_counter",
+      "refdes": ["U1", "SW4", "J19"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 189,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | MSS_reset_counter | N/A | SW4 & J19 | 0x4000_0500 -> 0x4000_05FF",
+          "base": "0x40000500",
+          "size": "0x100"
+        }
+      ]
+    },
+    {
+      "id": "fabric_reconfig_0",
+      "name": "Reconfiguration interface (DRI)",
+      "base": "0x43000000",
+      "size": "0x1000000",
+      "kind": "mmio",
+      "owner": "FABRIC_RECONFIG_0",
+      "bus": "fic3",
+      "source": "refdesign README.md L190; linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi L55",
+      "category": "fabric",
+      "end": "0x43ffffff",
+      "size_verified": true,
+      "sim_unit": "fabric.dri",
+      "refdes": ["U1"],
+      "verification": "two-source-contained",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 190,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | RECONFIGURATION_INTERFACE | N/A | N/A | 0x4300_0000 -> 0x43FF_FFFF",
+          "base": "0x43000000",
+          "size": "0x1000000"
+        },
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi",
+          "line": 55,
+          "node": "pcie: pcie@3000000000",
+          "base": "0x43008000",
+          "size": "0x2000"
+        }
+      ],
+      "notes": ["Linux pcie node 'bridge' (0x4300_8000) and 'ctrl' (0x4300_A000) registers sit inside this window"]
+    },
+    {
+      "id": "fabric_reconfig_1",
+      "name": "Reconfiguration interface (DRI)",
+      "base": "0x48000000",
+      "size": "0x1000000",
+      "kind": "mmio",
+      "owner": "FABRIC_RECONFIG_1",
+      "bus": "fic3",
+      "source": "refdesign README.md L191",
+      "category": "fabric",
+      "end": "0x48ffffff",
+      "size_verified": true,
+      "sim_unit": "fabric.dri",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 191,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | RECONFIGURATION_INTERFACE | N/A | N/A | 0x4800_0000 -> 0x48FF_FFFF",
+          "base": "0x48000000",
+          "size": "0x1000000"
+        }
+      ]
+    },
+    {
+      "id": "fabric_sd_emmc_demux",
+      "name": "fabric_sd_emmc_demux_select (U29/U44)",
+      "base": "0x4f000000",
+      "size": "0x1000000",
+      "kind": "mmio",
+      "owner": "FABRIC_SD_EMMC_DEMUX",
+      "bus": "fic3",
+      "source": "refdesign README.md L192; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_io_config.h L35",
+      "category": "fabric",
+      "end": "0x4fffffff",
+      "size_verified": true,
+      "sim_unit": "fabric.sd_emmc_demux",
+      "refdes": ["U1", "U29", "U44"],
+      "verification": "two-source-contained",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 192,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | fabric_sd_emmc_demux_select | U29 & U44 (SDIO de-mux) | N/A | 0x4F00_0000 -> 0x4FFF_FFFF",
+          "base": "0x4f000000",
+          "size": "0x1000000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_io_config.h",
+          "line": 35,
+          "define": "FABRIC_SD_EMMC_DEMUX_SELECT_ADDRESS",
+          "base": "0x4fffff00"
+        }
+      ],
+      "notes": [
+        "the HSS writes 1 (SD) or 0 (eMMC) to 0x4FFF_FF00 (mss_io_config.h; HSS def_config CONFIG_SERVICE_MMC_FABRIC_SD_EMMC_DEMUX_SELECT_ADDRESS=0x4fffff00)",
+        "the register was at 0x4F00_0000 before reference design 2022.09 (mss_io_config.h comment); docs/PLAN.md says 0x4F00_0000",
+        "drives SDIO_SW_SEL0 (D7), SDIO_SW_SEL1 (C7), SDIO_SW_EN_N (B7)"
+      ]
+    },
+    {
+      "id": "fabric_miv_ihc",
+      "name": "Mi-V IHC (inter-hart communication)",
+      "base": "0x50000000",
+      "size": "0x100000",
+      "kind": "mmio",
+      "owner": "FABRIC_MIV_IHC",
+      "bus": "fic3",
+      "source": "refdesign README.md L193; linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi L40",
+      "category": "fabric",
+      "end": "0x500fffff",
+      "size_verified": true,
+      "sim_unit": "fabric.ihc",
+      "refdes": ["U1"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 193,
+          "row": "MSS: FIC3 | FIC_3_ADDRESS_GENERATION | MIV_IHC | N/A | N/A | 0x5000_0000 -> 0x500F_FFFF",
+          "base": "0x50000000",
+          "size": "0x100000"
+        },
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi",
+          "line": 40,
+          "node": "mailbox@50000000",
+          "base": "0x50000000",
+          "size": "0x1c000"
+        }
+      ]
+    },
+    {
+      "id": "fabric_lsram",
+      "name": "MSS_LSRAM",
+      "base": "0x60000000",
+      "size": "0x1000",
+      "kind": "ram",
+      "owner": "FABRIC_LSRAM",
+      "bus": "fic0",
+      "source": "refdesign README.md L181",
+      "category": "fabric",
+      "end": "0x60000fff",
+      "size_verified": true,
+      "sim_unit": "fabric.lsram",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 181,
+          "row": "MSS: FIC0 | FIC0_INITIATOR | MSS_LSRAM | N/A | N/A | 0x6000_0000 -> 0x6000_1000",
+          "base": "0x60000000",
+          "size": "0x1001"
+        }
+      ],
+      "notes": ["README writes the range as 0x6000_0000 -> 0x6000_1000 (4 KiB + 1 byte as written; taken as 4 KiB)"]
+    },
+    {
+      "id": "fabric_dma",
+      "name": "DMA_CONTROLLER (CoreAXI4DMAController)",
+      "base": "0x60010000",
+      "size": "0x10000",
+      "kind": "mmio",
+      "owner": "FABRIC_DMA",
+      "bus": "fic0",
+      "source": "refdesign README.md L182",
+      "category": "fabric",
+      "end": "0x6001ffff",
+      "size_verified": true,
+      "sim_unit": "fabric.dma",
+      "refdes": ["U1"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 182,
+          "row": "MSS: FIC0 | FIC0_INITIATOR | DMA_CONTROLLER | N/A | N/A | 0x6001_0000 -> 0x6001_FFFF",
+          "base": "0x60010000",
+          "size": "0x10000"
+        }
+      ]
+    },
+    {
+      "id": "ddr_cached_32",
+      "name": "DDR cached, 32-bit window",
+      "base": "0x80000000",
+      "size": "0x40000000",
+      "kind": "window",
+      "owner": "U2",
+      "bus": "ddr",
+      "source": "mss-xml boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml L18; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h L66; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L106",
+      "category": "ddr-window",
+      "end": "0xbfffffff",
+      "size_verified": true,
+      "sim_unit": "lpddr4",
+      "refdes": ["U2"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "mss-xml",
+          "file": "boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml",
+          "line": 18,
+          "mem": "DDR_32_CACHE",
+          "base": "0x80000000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h",
+          "line": 66,
+          "define": "BASE_ADDRESS_CACHED_32_DDR",
+          "base": "0x80000000"
+        },
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 106,
+          "region": "ddr",
+          "length": "32m",
+          "base": "0x80000000",
+          "size": "0x2000000"
+        }
+      ],
+      "size_basis": "Linux memory@80000000 (1 GiB) in mpfs-icicle-kit-common.dtsi; the architectural window size is not stated in these sources",
+      "notes": ["SEG0_0 -> physical DDR 0x0", "HSS 'DDR-Lo' tests 32 MiB here"]
+    },
+    {
+      "id": "ddr_noncached_32",
+      "name": "DDR non-cached, 32-bit window",
+      "base": "0xc0000000",
+      "size": "0x10000000",
+      "kind": "window",
+      "owner": "U2",
+      "bus": "ddr",
+      "source": "mss-xml boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml L19; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h L67",
+      "category": "ddr-window",
+      "end": "0xcfffffff",
+      "size_verified": true,
+      "sim_unit": "lpddr4",
+      "refdes": ["U2"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "mss-xml",
+          "file": "boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml",
+          "line": 19,
+          "mem": "DDR_32_NON_CACHE",
+          "base": "0xc0000000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h",
+          "line": 67,
+          "define": "BASE_ADDRESS_NON_CACHED_32_DDR",
+          "base": "0xc0000000"
+        }
+      ],
+      "size_basis": "gap to the next DDR window (inferred; the sources give only the base)",
+      "notes": ["SEG1_2; see ddr_segments for the physical offset"]
+    },
+    {
+      "id": "ddr_wcb_32",
+      "name": "DDR non-cached write-combining, 32-bit window",
+      "base": "0xd0000000",
+      "size": "0x10000000",
+      "kind": "window",
+      "owner": "U2",
+      "bus": "ddr",
+      "source": "mss-xml boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml L22",
+      "category": "ddr-window",
+      "end": "0xdfffffff",
+      "size_verified": true,
+      "sim_unit": "lpddr4",
+      "refdes": ["U2"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "mss-xml",
+          "file": "boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml",
+          "line": 22,
+          "mem": "DDR_32_WCB",
+          "base": "0xd0000000"
+        }
+      ],
+      "size_basis": "assumed equal to the non-cached 32-bit window (not stated)",
+      "notes": ["SEG1_4"]
+    },
+    {
+      "id": "ddr_cached_64",
+      "name": "DDR cached, 38-bit window",
+      "base": "0x1000000000",
+      "size": "0x400000000",
+      "kind": "window",
+      "owner": "U2",
+      "bus": "ddr",
+      "source": "mss-xml boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml L20; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h L68; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L107",
+      "category": "ddr-window",
+      "end": "0x13ffffffff",
+      "size_verified": true,
+      "sim_unit": "lpddr4",
+      "refdes": ["U2"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "mss-xml",
+          "file": "boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml",
+          "line": 20,
+          "mem": "DDR_64_CACHE",
+          "base": "0x1000000000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h",
+          "line": 68,
+          "define": "BASE_ADDRESS_CACHED_64_DDR",
+          "base": "0x1000000000"
+        },
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 107,
+          "region": "ddrhi",
+          "length": "1888m",
+          "base": "0x1000000000",
+          "size": "0x76000000"
+        }
+      ],
+      "size_basis": "gap to the next DDR window (inferred; the sources give only the base)",
+      "notes": ["SEG0_1", "HSS 'DDR-Hi' 1888 MiB", "Linux memory@1040000000 (1 GiB) lies inside"]
+    },
+    {
+      "id": "ddr_noncached_64",
+      "name": "DDR non-cached, 38-bit window",
+      "base": "0x1400000000",
+      "size": "0x400000000",
+      "kind": "window",
+      "owner": "U2",
+      "bus": "ddr",
+      "source": "mss-xml boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml L21; mpfs-hal baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h L69; hss boards/mpfs-icicle-kit/hss-l2scratch.lds L108",
+      "category": "ddr-window",
+      "end": "0x17ffffffff",
+      "size_verified": true,
+      "sim_unit": "lpddr4",
+      "refdes": ["U2"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "mss-xml",
+          "file": "boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml",
+          "line": 21,
+          "mem": "DDR_64_NON_CACHE",
+          "base": "0x1400000000"
+        },
+        {
+          "source": "mpfs-hal",
+          "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/mpfs_hal/common/nwc/mss_ddr_defs.h",
+          "line": 69,
+          "define": "BASE_ADDRESS_NON_CACHED_64_DDR",
+          "base": "0x1400000000"
+        },
+        {
+          "source": "hss",
+          "file": "boards/mpfs-icicle-kit/hss-l2scratch.lds",
+          "line": 108,
+          "region": "ncddrhi",
+          "length": "2048m",
+          "base": "0x1400000000",
+          "size": "0x80000000"
+        }
+      ],
+      "size_basis": "gap to the next DDR window (inferred; the sources give only the base)",
+      "notes": ["SEG1_3"]
+    },
+    {
+      "id": "ddr_wcb_64",
+      "name": "DDR non-cached write-combining, 38-bit window",
+      "base": "0x1800000000",
+      "size": "0x400000000",
+      "kind": "window",
+      "owner": "U2",
+      "bus": "ddr",
+      "source": "mss-xml boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml L23",
+      "category": "ddr-window",
+      "end": "0x1bffffffff",
+      "size_verified": true,
+      "sim_unit": "lpddr4",
+      "refdes": ["U2"],
+      "verification": "single-source",
+      "sources": [
+        {
+          "source": "mss-xml",
+          "file": "boards/mpfs-icicle-kit/soc_fpga_design/xml/ICICLE_MSS_mss_cfg.xml",
+          "line": 23,
+          "mem": "DDR_64_WCB",
+          "base": "0x1800000000"
+        }
+      ],
+      "size_basis": "assumed equal to the other 38-bit windows (not stated)",
+      "notes": ["SEG1_5"]
+    },
+    {
+      "id": "pcie",
+      "name": "PCIe root port (FIC1)",
+      "base": "0x3000000000",
+      "size": "0x1000000000",
+      "kind": "mmio",
+      "owner": "PCIE",
+      "bus": "fic1",
+      "source": "refdesign README.md L183; linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi L55",
+      "category": "fabric",
+      "end": "0x3fffffffff",
+      "size_verified": true,
+      "sim_unit": "fabric.pcie",
+      "refdes": ["U1", "J6"],
+      "verification": "two-source",
+      "sources": [
+        {
+          "source": "refdesign",
+          "file": "README.md",
+          "line": 183,
+          "row": "MSS: FIC1 | FIC1_INITIATOR | PF_PCIE_C0_0 | N/A | PCIe edge connector | 0x30_0000_0000 -> 0x3F_FFFF_FFFF",
+          "base": "0x3000000000",
+          "size": "0x1000000000"
+        },
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi",
+          "line": 55,
+          "node": "pcie: pcie@3000000000",
+          "base": "0x3000000000",
+          "size": "0x8000000"
+        }
+      ],
+      "notes": ["Linux maps the 128 MiB config space at the start of the window"]
+    }
+  ],
+  "ddr_segments": [
+    {
+      "seg": "SEG0_0",
+      "window": "0x80000000",
+      "xml_address_offset": "0x7f80",
+      "physical_from_xml": "0x0",
+      "physical_in_2021_log": "0x0",
+      "xml_description": "Cached access at 0x00_8000_0000 (-0x80+0x00) ",
+      "xml_line": 2550
+    },
+    {
+      "seg": "SEG0_1",
+      "window": "0x1000000000",
+      "xml_address_offset": "0x7000",
+      "physical_from_xml": "0x0",
+      "physical_in_2021_log": "0x2000000",
+      "xml_description": "Cached access at 0x10_0000_000",
+      "xml_line": 2555
+    },
+    {
+      "seg": "SEG1_2",
+      "window": "0xc0000000",
+      "xml_address_offset": "0x7f40",
+      "physical_from_xml": "0x0",
+      "physical_in_2021_log": "0x78000000",
+      "xml_description": "Non-Cached access at 0x00_c000_0000",
+      "xml_line": 2600
+    },
+    {
+      "seg": "SEG1_3",
+      "window": "0x1400000000",
+      "xml_address_offset": "0x6c00",
+      "physical_from_xml": "0x0",
+      "physical_in_2021_log": null,
+      "xml_description": "Non-Cached access at 0x14_0000_0000",
+      "xml_line": 2605
+    },
+    {
+      "seg": "SEG1_4",
+      "window": "0xd0000000",
+      "xml_address_offset": "0x7f30",
+      "physical_from_xml": "0x0",
+      "physical_in_2021_log": "0x78000000",
+      "xml_description": "Non-Cached WCB access at 0x00_d000_0000",
+      "xml_line": 2610
+    },
+    {
+      "seg": "SEG1_5",
+      "window": "0x1800000000",
+      "xml_address_offset": "0x6800",
+      "physical_from_xml": "0x0",
+      "physical_in_2021_log": null,
+      "xml_description": "Non-Cached WCB  0x18_0000_0000",
+      "xml_line": 2615
+    }
+  ],
+  "ddr_usage": [
+    {
+      "id": "linux_ddr_lo",
+      "name": "Linux memory (memory@80000000)",
+      "base": "0x80000000",
+      "size": "0x40000000",
+      "end": "0xbfffffff",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi L54",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi",
+          "line": 54,
+          "node": "ddrc_cache_lo: memory@80000000",
+          "base": "0x80000000",
+          "size": "0x40000000"
+        }
+      ]
+    },
+    {
+      "id": "linux_ddr_hi",
+      "name": "Linux memory (memory@1040000000)",
+      "base": "0x1040000000",
+      "size": "0x40000000",
+      "end": "0x107fffffff",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi L59",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi",
+          "line": 59,
+          "node": "ddrc_cache_hi: memory@1040000000",
+          "base": "0x1040000000",
+          "size": "0x40000000"
+        }
+      ]
+    },
+    {
+      "id": "hss_payload_reserved",
+      "name": "Reserved for the HSS payload",
+      "base": "0xbfc00000",
+      "size": "0x400000",
+      "end": "0xbfffffff",
+      "source": "linux-dts arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi L68",
+      "sources": [
+        {
+          "source": "linux-dts",
+          "file": "arch/riscv/boot/dts/microchip/mpfs-icicle-kit-common.dtsi",
+          "line": 68,
+          "node": "hss_payload: region@bfc00000",
+          "base": "0xbfc00000",
+          "size": "0x400000"
+        }
+      ]
+    }
+  ],
+  "ddr_usage_note": "how Linux uses DDR (inside the windows above); kept out of regions so regions never overlap",
+  "aliases": [
+    {
+      "base": "0x28000000",
+      "alias_of": "0x20000000",
+      "source": "mpfs-hal",
+      "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_mmuart/mss_uart.c",
+      "line": 28,
+      "define": "MSS_UART0_HI_BASE"
+    },
+    {
+      "base": "0x28001000",
+      "alias_of": "0x20001000",
+      "source": "hss",
+      "file": "include/mpfs_reg_map.h",
+      "line": 164,
+      "define": "WDOG0_HI_BASE_ADDR"
+    },
+    {
+      "base": "0x28108000",
+      "alias_of": "0x20108000",
+      "source": "mpfs-hal",
+      "file": "baremetal/polarfire-soc-bare-metal-library/src/platform/drivers/mss/mss_spi/mss_spi.h",
+      "line": 262,
+      "define": "SPI0_HI_BASE"
+    }
+  ],
+  "aliases_note": "MSS peripherals also answer at +0x0800_0000 ('HI' bases in the HAL and mpfs_reg_map.h); extent not stated",
+  "ddr_segments_note": "decoded from the MSS configurator XML at the HSS commit (2025 Libero design). The 2021 HSS log in logs/hss.json shows SEG1_2/SEG1_4 at physical 0x7800_0000, i.e. an older design; both are kept.",
+  "known_addresses": [
+    {"id": "boot_image_2021", "addr": "0xa0000000", "what": "HSS copies the 748336-byte boot image here", "source": "logs/hss.json hss.053"},
+    {
+      "id": "boot_image_current",
+      "addr": "0x103fc00000",
+      "what": "current HSS def_config CONFIG_SERVICE_BOOT_DDR_TARGET_ADDR",
+      "source": "hss boards/mpfs-icicle-kit/def_config"
+    },
+    {
+      "id": "ipi_queues_2021",
+      "addr": "0xa035e88",
+      "what": "IPI queues (6056 bytes) in the L2 scratchpad",
+      "source": "logs/hss.json hss.045"
+    },
+    {"id": "fit_image", "addr": "0x88300000", "what": "U-Boot loads the FIT image here", "source": "logs/uboot.json uboot.523"},
+    {"id": "kernel", "addr": "0x80200000", "what": "kernel load and entry", "source": "logs/uboot.json uboot.533"},
+    {"id": "fdt", "addr": "0x82200000", "what": "device tree load address", "source": "logs/uboot.json uboot.547"},
+    {"id": "fdt_relocated", "addr": "0x8fffa000", "what": "device tree relocated by bootm", "source": "logs/uboot.json uboot.554"}
+  ],
+  "reset_vectors": {"hart0": "0x20220000", "hart1": "0x20220000", "hart2": "0x20220000", "hart3": "0x20220000", "hart4": "0x20220000"},
+  "boot_mode": {
+    "value": 1,
+    "meaning": "harts start from eNVM using the reset vectors in U_MSS_BOOTCFG (Icicle Kit with the HSS in eNVM)",
+    "source": "https://github.com/polarfire-soc/polarfire-soc-documentation/blob/f844a87d7849bd43335d147a3d9a6907b6f9da24/knowledge-base/boot-modes"
+  }
+}

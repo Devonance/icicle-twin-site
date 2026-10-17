@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "built": "2026-10-17T12:48:34Z",
+  "boot": "direct",
+  "files": [
+    {"name": "qemu-system-riscv64.js", "bytes": 153379, "gzip": 39384, "sha256": "e34ac6d4a547ab5bbaff7332c90b07ac44702b0c0e038b938143659484dc5076"},
+    {"name": "qemu-system-riscv64.wasm", "bytes": 11135822, "gzip": 3009151, "sha256": "b3b80474d6e0dcb36bb7155ead3934569de659659b158cc14993bbeaa983c642"},
+    {"name": "qemu-system-riscv64.worker.js", "bytes": 2774, "gzip": 1223, "sha256": "a8d1c446ee69b84dbe5af4f8ca7ebe9ba3a590f1beb17ff2769c2babd827cd41"},
+    {"name": "opensbi-riscv64-generic-fw_dynamic.bin", "bytes": 138368, "gzip": 69287, "sha256": "2335a28682ddf65e46c1f492632c2cb026efcb2271caf544a3f7ddc858b03e02"},
+    {"name": "Image", "bytes": 6806528, "gzip": 3664252, "sha256": "3690b234fc902ec29302d841ccb30fd63ba20464b7c39dd2f13cbda4accf8ddc"},
+    {"name": "icicle-twin.dtb", "bytes": 6200, "gzip": 1655, "sha256": "d35b6b446d34c9b15fb4acda79c259f0c0827b69ae22584c450346eff07cb893"}
+  ],
+  "lazy": [
+    {"name": "freedoom-pack.cpio", "bytes": 19435008, "gzip": 6637853, "sha256": "4209ccde36ee186cf0a16cdbd3ce6dcd0275acdeba7a0fcbe02bc861912766cb"}
+  ]
+}

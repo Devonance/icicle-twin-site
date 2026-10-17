@@ -1,0 +1,311 @@
+{
+  "schema": "icicle-twin/jumpers@1",
+  "generated_by": "tools/content",
+  "retrieved": "2026-10-16",
+  "sources": {
+    "docs": {
+      "title": "PolarFire SoC documentation",
+      "repo": "https://github.com/polarfire-soc/polarfire-soc-documentation",
+      "commit": "f844a87d7849bd43335d147a3d9a6907b6f9da24",
+      "licence": "CC-BY-4.0",
+      "licence_note": "LICENSE.txt: licensed under CC BY 4.0",
+      "local": "reference/vendor/gh-polarfire-soc-documentation (shallow clone, git-ignored)"
+    },
+    "ug": {
+      "title": "PolarFire SoC Icicle Kit User Guide DS60001679E (06/2026)",
+      "url": "https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es",
+      "licence": "Microchip copyright",
+      "licence_note": "Facts only (tables of jumpers, rails, probe points, test points)",
+      "local": "reference/userguide/Icicle_Kit_User_Guide_vB.pdf"
+    },
+    "ipc": {
+      "title": "IPC-D-356 netlist exported by kicad-cli 10.0.6 from the KiCad import of icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd",
+      "licence": "derived from Microchip board files",
+      "licence_note": "Net names per pad; derived data, see docs/PLAN.md section 3.5. Net names are truncated to their last 14 characters and refdes to 6 by the IPC-D-356 format",
+      "local": "build/kicad/icicle.ipc (git-ignored)"
+    }
+  },
+  "id": "jumpers",
+  "default_rule": "default = the GitHub embedded-software user guide setting (the jumpers needed to boot Linux); ug_pdf_default keeps the UG PDF Table 2-1 column for the honesty card. J9 follows the twin's embedded-programmer default; J47 and J21 come from the UG.",
+  "github_source": "https://github.com/polarfire-soc/polarfire-soc-documentation/blob/f844a87d7849bd43335d147a3d9a6907b6f9da24/reference-designs-fpga-and-development-kits/icicle-kit-embedded-software-user-guide.md#L44-L77",
+  "ug_source": {"source": "ug", "doc": "DS60001679E", "page": 8, "item": "Table 2-1 Jumper Settings"},
+  "conflict": "The UG PDF lists J15/J17/J24/J28/J34/J35/J43/J45 as 'Short pin 1-2'. For J34/J35/J43 the netlist shows 1-2 selects 3.3 V, so the PDF column contradicts the HSS 1.8 V default and the GitHub guide.",
+  "netlist_checks": [
+    {
+      "jumper": "J34",
+      "netlist": "1=3P3V 2=VDDI4 3=1P8V",
+      "conclusion": "2-3 gives Bank 4 1.8 V: matches the GitHub guide and the HSS 1.8 V MMC default",
+      "netlist_now": "1=3P3V 2=VDDI4 3=1P8V"
+    },
+    {
+      "jumper": "J35",
+      "netlist": "1=3P3V 2=VDDAUX4 3=2P5V",
+      "conclusion": "2-3 gives VDDAUX4 2.5 V: matches the GitHub guide",
+      "netlist_now": "1=3P3V 2=VDDAUX4 3=2P5V"
+    },
+    {
+      "jumper": "J43",
+      "netlist": "1=3P3V 2=VCC_SD_EM 3=VDDI4",
+      "conclusion": "2-3 ties the mux supply to Bank 4 VDDI: matches the GitHub guide",
+      "netlist_now": "1=3P3V 2=VCC_SD_EM 3=VDDI4"
+    },
+    {
+      "jumper": "J45",
+      "netlist": "three unnamed nets",
+      "conclusion": "cannot be confirmed from net names; GitHub 2-3 = 1.05 V is used (unverified)",
+      "netlist_now": "1=N19780930 2=N19376144 3=N19780641"
+    },
+    {
+      "jumper": "J17",
+      "netlist": "1=USB_5V",
+      "conclusion": "UG text (5 V for the USB3340 VBUS switch) matches the nets; the GitHub text calls it USB mode selection",
+      "netlist_now": "1=USB_5V 2=N26875229"
+    }
+  ],
+  "count": 13,
+  "jumpers": [
+    {
+      "refdes": "J9",
+      "pins": 2,
+      "pin_nets": {"1": "PF_SOC_JTAG_SEL", "2": "GND"},
+      "default": "closed",
+      "default_basis": "docs/WORKPLAN.json M3-09: the program scenario uses the embedded path by default; UG Table 3-1",
+      "github_default": null,
+      "github_text": "Used to select between Embedded FlashPro6 and external FlashPro header. Closed: eFP6 connected to J33 micro-USB port. Open: External FlashPro connected to J23 header.",
+      "ug_pdf_default": "Open",
+      "ug_pdf_text": "Select pin for programming FPGA with external FlashPro header or with on-board programmer.",
+      "options": [
+        {"setting": "closed", "meaning": "on-board programmer (embedded FlashPro6, J33)"},
+        {"setting": "open", "meaning": "external FlashPro header J23"}
+      ],
+      "options_detail": {"closed": "on-board programmer (embedded FlashPro6, J33)", "open": "external FlashPro header J23"},
+      "id": "J9",
+      "purpose": "Used to select between Embedded FlashPro6 and external FlashPro header. Closed: eFP6 connected to J33 micro-USB port. Open: External FlashPro connected to J23 header.",
+      "ugPdfDefault": "Open",
+      "source": "docs/WORKPLAN.json M3-09: the program scenario uses the embedded path by default; UG Table 3-1"
+    },
+    {
+      "refdes": "J15",
+      "pins": 2,
+      "pin_nets": {"1": "USB1_ID", "2": "GND"},
+      "default": "open",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "open",
+      "github_text": "USB device mode selection. Open: USB client. Closed: USB host",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "To select USB ID",
+      "options": [{"setting": "open", "meaning": "USB client (ID floating)"}, {"setting": "closed", "meaning": "USB host (ID grounded)"}],
+      "options_detail": {"open": "USB client (ID floating)", "closed": "USB host (ID grounded)"},
+      "id": "J15",
+      "purpose": "USB device mode selection. Open: USB client. Closed: USB host",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J17",
+      "pins": 2,
+      "pin_nets": {"1": "USB_5V", "2": "N26875229"},
+      "default": "open",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "open",
+      "github_text": "USB device mode selection. Open: USB client. Closed: USB host",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "5 V for VBUS switch for USB3340",
+      "options": [
+        {"setting": "open", "meaning": "no 5 V to the USB3340 VBUS switch (client)"},
+        {"setting": "closed", "meaning": "5 V to the USB3340 VBUS switch (host)"}
+      ],
+      "options_detail": {"open": "no 5 V to the USB3340 VBUS switch (client)", "closed": "5 V to the USB3340 VBUS switch (host)"},
+      "id": "J17",
+      "purpose": "USB device mode selection. Open: USB client. Closed: USB host",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J21",
+      "pins": 2,
+      "pin_nets": {"1": "PF_SOC_NTRST", "2": "N30080983"},
+      "default": "open",
+      "default_basis": "UG Table 2-1 (not in the GitHub table)",
+      "github_default": null,
+      "github_text": "JTAG nTRST interface pull down enable. Leave open.",
+      "ug_pdf_default": "Open",
+      "ug_pdf_text": "To select PolarFire SoC JTAG reset.",
+      "options": [{"setting": "open", "meaning": "no JTAG nTRST pull-down"}, {"setting": "closed", "meaning": "JTAG nTRST pulled down"}],
+      "options_detail": {"open": "no JTAG nTRST pull-down", "closed": "JTAG nTRST pulled down"},
+      "id": "J21",
+      "purpose": "JTAG nTRST interface pull down enable. Leave open.",
+      "ugPdfDefault": "Open",
+      "source": "UG Table 2-1 (not in the GitHub table)"
+    },
+    {
+      "refdes": "J24",
+      "pins": 2,
+      "pin_nets": {"1": "USB_5V_FP6", "2": "N18666111"},
+      "default": "closed",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "closed",
+      "github_text": "Required for Embedded FlashPro6 (eFP6)",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "5 V for VBUS switch for USB3320",
+      "options": [
+        {"setting": "closed", "meaning": "5 V VBUS for USB3320 (embedded FlashPro6)"},
+        {"setting": "open", "meaning": "no VBUS for the eFP6 PHY"}
+      ],
+      "options_detail": {"closed": "5 V VBUS for USB3320 (embedded FlashPro6)", "open": "no VBUS for the eFP6 PHY"},
+      "id": "J24",
+      "purpose": "Required for Embedded FlashPro6 (eFP6)",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J28",
+      "pins": 2,
+      "pin_nets": {"1": "N16954520", "2": "XCVR_VREF"},
+      "default": "closed",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "closed",
+      "github_text": "Transceiver external reference clock. Closed: ground (no clock provided).",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "Jumper for PolarFire SoC Serdes Vref",
+      "options": [
+        {"setting": "closed", "meaning": "transceiver reference input grounded (no external clock)"},
+        {"setting": "open", "meaning": "external transceiver reference"}
+      ],
+      "options_detail": {"closed": "transceiver reference input grounded (no external clock)", "open": "external transceiver reference"},
+      "id": "J28",
+      "purpose": "Transceiver external reference clock. Closed: ground (no clock provided).",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J31",
+      "pins": 2,
+      "pin_nets": {"1": "0P55V_REG_DDR4", "2": "N16910766"},
+      "default": "open",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "open",
+      "github_text": "DDR controller reference voltage. Open: no external reference. Closed: External reference provided.",
+      "ug_pdf_default": "Open",
+      "ug_pdf_text": "To select LPDDR4 Vref",
+      "options": [{"setting": "open", "meaning": "no external LPDDR4 Vref"}, {"setting": "closed", "meaning": "external Vref provided"}],
+      "options_detail": {"open": "no external LPDDR4 Vref", "closed": "external Vref provided"},
+      "id": "J31",
+      "purpose": "DDR controller reference voltage. Open: no external reference. Closed: External reference provided.",
+      "ugPdfDefault": "Open",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J34",
+      "pins": 3,
+      "pin_nets": {"1": "3P3V", "2": "VDDI4", "3": "1P8V"},
+      "default": "2-3",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "2-3",
+      "github_text": "Bank 4 reference voltage 1&2 = 3v3 2&3 = 1v8",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "To select 1.8 V or 3.3 V for BANK4 voltage",
+      "options": [{"setting": "1-2", "meaning": "Bank 4 VDDI = 3.3 V"}, {"setting": "2-3", "meaning": "Bank 4 VDDI = 1.8 V"}],
+      "options_detail": {"1-2": "Bank 4 VDDI = 3.3 V", "2-3": "Bank 4 VDDI = 1.8 V"},
+      "id": "J34",
+      "purpose": "Bank 4 reference voltage 1&2 = 3v3 2&3 = 1v8",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J35",
+      "pins": 3,
+      "pin_nets": {"1": "3P3V", "2": "VDDAUX4", "3": "2P5V"},
+      "default": "2-3",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "2-3",
+      "github_text": "Bank 4 I/O auxiliary supply voltage. 1&2 = 3v3 2&3 = 2v5",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "To select 2.5 V or 3.3 V for BANK4 Aux voltage",
+      "options": [{"setting": "1-2", "meaning": "VDDAUX4 = 3.3 V"}, {"setting": "2-3", "meaning": "VDDAUX4 = 2.5 V"}],
+      "options_detail": {"1-2": "VDDAUX4 = 3.3 V", "2-3": "VDDAUX4 = 2.5 V"},
+      "id": "J35",
+      "purpose": "Bank 4 I/O auxiliary supply voltage. 1&2 = 3v3 2&3 = 2v5",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J43",
+      "pins": 3,
+      "pin_nets": {"1": "3P3V", "2": "VCC_SD_EM", "3": "VDDI4"},
+      "default": "2-3",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "2-3",
+      "github_text": "U44 reference voltage 1&2 = 3v3 2&3 = bank 4 reference voltage",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "To select 1.8 V 0r 3.3 V for eMMC modes",
+      "options": [
+        {"setting": "1-2", "meaning": "SD/eMMC mux supply VCC_SD_EM = 3.3 V"},
+        {"setting": "2-3", "meaning": "VCC_SD_EM = Bank 4 VDDI (follows J34)"}
+      ],
+      "options_detail": {"1-2": "SD/eMMC mux supply VCC_SD_EM = 3.3 V", "2-3": "VCC_SD_EM = Bank 4 VDDI (follows J34)"},
+      "id": "J43",
+      "purpose": "U44 reference voltage 1&2 = 3v3 2&3 = bank 4 reference voltage",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J45",
+      "pins": 3,
+      "pin_nets": {"1": "N19780930", "2": "N19376144", "3": "N19780641"},
+      "default": "2-3",
+      "default_basis": "GitHub embedded software user guide",
+      "github_default": "2-3",
+      "github_text": "Core voltage (VDD) set to 1.05v",
+      "ug_pdf_default": "Short pin 1-2",
+      "ug_pdf_text": "To select 1 V or 1.05 V for VDD core voltage",
+      "options": [
+        {"setting": "1-2", "meaning": "VDD = 1.0 V (per the GitHub guide's 2-3 = 1.05 V; not confirmable from net names)"},
+        {"setting": "2-3", "meaning": "VDD = 1.05 V"}
+      ],
+      "options_detail": {"1-2": "VDD = 1.0 V (per the GitHub guide's 2-3 = 1.05 V; not confirmable from net names)", "2-3": "VDD = 1.05 V"},
+      "id": "J45",
+      "purpose": "Core voltage (VDD) set to 1.05v",
+      "ugPdfDefault": "Short pin 1-2",
+      "source": "GitHub embedded software user guide"
+    },
+    {
+      "refdes": "J46",
+      "pins": 2,
+      "pin_nets": {"1": "3P3V", "2": "RPI_3P3V"},
+      "default": "open",
+      "default_basis": "Kevin's photos 01 and 05 (reference/photos): J46 has no shunt; the BOM comment says 'Default = OPEN, Bag & Tag' and the UG Table 2-1 says Open (the GitHub guide's 'closed' is not used)",
+      "github_default": "closed",
+      "github_text": "RPi 3v3 enable",
+      "ug_pdf_default": "Open",
+      "ug_pdf_text": "To select 3.3 V for RPI connector from the Icicle Kit",
+      "options": [
+        {"setting": "closed", "meaning": "3.3 V to the RPi header (RPI_3P3V)"},
+        {"setting": "open", "meaning": "RPi header 3.3 V pins unpowered"}
+      ],
+      "options_detail": {"closed": "3.3 V to the RPi header (RPI_3P3V)", "open": "RPi header 3.3 V pins unpowered"},
+      "id": "J46",
+      "purpose": "RPi 3v3 enable",
+      "ugPdfDefault": "Open",
+      "source": "Kevin's photos 01 and 05 (reference/photos): J46 has no shunt; the BOM comment says 'Default = OPEN, Bag & Tag' and the UG Table 2-1 says Open (the GitHub guide's 'closed' is not used)"
+    },
+    {
+      "refdes": "J47",
+      "pins": 2,
+      "pin_nets": {"1": "5P0V", "2": "RPI_5V"},
+      "default": "open",
+      "default_basis": "UG Table 2-1 (not in the GitHub table)",
+      "github_default": null,
+      "github_text": null,
+      "ug_pdf_default": "Open",
+      "ug_pdf_text": "To select 5 V for RPI connector from the Icicle Kit",
+      "options": [{"setting": "closed", "meaning": "5 V to the RPi header (RPI_5V)"}, {"setting": "open", "meaning": "RPi header 5 V pins unpowered"}],
+      "options_detail": {"closed": "5 V to the RPi header (RPI_5V)", "open": "RPi header 5 V pins unpowered"},
+      "id": "J47",
+      "purpose": "To select 5 V for RPI connector from the Icicle Kit",
+      "ugPdfDefault": "Open",
+      "source": "UG Table 2-1 (not in the GitHub table)"
+    }
+  ],
+  "netlist": {"file": "build/kicad/icicle.ipc", "blob_sha1": "f40f06e8864b4d472299b3546023263ab927eb8d", "full_net_names": true}
+}

@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Credits and licences of Icicle Twin, the interactive digital twin of the Microchip PolarFire SoC Icicle Kit.">
+<link rel="icon" href="data:,">
+<title>Icicle Twin: credits and licences</title>
+<script>try{if(localStorage.getItem('icicle-twin.theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
+<style>
+:root{color-scheme:dark;--bg:#121314;--surface:#18191b;--rule:#2a2d30;--ink:#e3e8ee;--ink-2:#a8b3c0;
+--accent:#ff9d3c;--code-bg:#111214}
+:root[data-theme=light]{color-scheme:light;--bg:#e9eaea;--surface:#fff;--rule:#d3dae2;--ink:#16202a;
+--ink-2:#435061;--accent:#a8501a;--code-bg:#f2f5f8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,'Segoe UI',
+Roboto,'Helvetica Neue',Arial,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
+a{color:var(--accent)}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.2rem;margin:36px 0 8px;padding-top:12px;border-top:1px solid var(--rule)}
+h3{font-size:1.05rem;margin:24px 0 6px}
+h4{font-size:.95rem;margin:18px 0 6px}
+p,li{color:var(--ink);max-width:80ch}
+.meta{color:var(--ink-2);margin:0 0 16px;font:13px/1.5 ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace}
+.links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 24px;padding:12px 14px;background:var(--surface);
+border:1px solid var(--rule);border-radius:8px}
+code{font:12.5px/1.4 ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;background:var(--code-bg);
+padding:1px 4px;border-radius:4px;overflow-wrap:anywhere}
+.table{overflow-x:auto;margin:8px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{border:1px solid var(--rule);padding:6px 8px;vertical-align:top;text-align:left}
+th{background:var(--surface)}
+td a{overflow-wrap:anywhere}
+details{margin:8px 0;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:8px 12px}
+summary{cursor:pointer;font-weight:600}
+pre{white-space:pre-wrap;font:12px/1.45 ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;color:var(--ink-2)}
+</style>
+</head>
+<body>
+<main>
+<p class="meta">Icicle Twin v1.0.0 · build 6d1bdee</p>
+<nav class="links" aria-label="Links">
+<a href="./">Back to the twin</a>
+<a href="qemu/source/">GPL/LGPL source code of the Real CPU (QEMU) mode</a>
+<a href="#licence-texts">Licence texts</a>
+</nav>
+<h1 id="credits-and-licences">Credits and licences</h1>
+<p>Icicle Twin (<a href="https://devonance.github.io/icicle-twin-site/">https://devonance.github.io/icicle-twin-site/</a>) is built on other people's work: Microchip's published design files for the Icicle Kit, open-source software, and a few freely licensed assets. This page lists every third-party library, asset, data source, quoted excerpt and tool, with its licence and where it comes from. The live site shows this same file as its credits page (<code>credits.html</code>, linked from the About card), with the full licence texts of the code bundled into its JavaScript.</p>
+<p>Everything not listed here (the app's code, the 3-D models built by our own Blender scripts, the simulator, the cards, lessons and glossary) is Icicle Twin's own, under the licences below.</p>
+<h2 id="icicle-twin-s-own-licences">Icicle Twin's own licences</h2>
+<p>Icicle Twin is open source, © 2026 Kevin Horton. It combines material under several licences, so each file carries its own: the repository follows the REUSE specification (<a href="https://reuse.software">https://reuse.software</a>), with the licence of every file in <code>REUSE.toml</code> or in the file's SPDX header, and every licence text in <code>LICENSES/</code>.</p>
+<div class="table"><table><thead><tr><th>What</th><th>Licence</th></tr></thead><tbody><tr><td>Our code: the app (<code>src/</code>), tests, <code>tools/</code>, build, deploy, QEMU build, stage and package scripts, the guest programs <code>blinky</code>, <code>oled-hello</code> and <code>pac-power</code></td><td>Apache-2.0</td></tr><tr><td>Our written content: part cards, glossary, lessons and the About text (<code>content/</code>), <code>docs/</code>, our screenshots (<code>docs/shots/</code>), README and this page, our 3-D part and peripheral models, the launch video</td><td>CC BY 4.0</td></tr><tr><td>Our patches to QEMU (<code>tools/qemu/patches/</code>)</td><td>GPL-2.0-or-later (two also touch an MIT file of QEMU: GPL-2.0-or-later AND MIT)</td></tr><tr><td>Derivatives of GPL code: the doomgeneric platform layer (<code>tools/qemu/doom/doomgeneric_icicle.c</code>), the qemu-wasm toolchain Dockerfile, the guest kernel config</td><td>as their upstream: GPL-2.0-only (the platform layer, the kernel config), GPL-2.0-or-later (the Dockerfile)</td></tr><tr><td>The guest device trees (<code>tools/qemu/image/*.dts</code>, from Linux's Microchip device trees)</td><td>GPL-2.0-only OR MIT</td></tr><tr><td>Third-party material (the tables below): code excerpts, coi-serviceworker, the xterm.js copy, the HDRI, the npm packages, the QEMU-mode binaries</td><td>its own licence, as listed (excerpts: the upstream licence, our notes CC BY 4.0)</td></tr><tr><td>Data derived from Microchip's design files and documents (<code>data/board/</code>, the pin, rail and map tables in <code>data/</code>, the job-file facts, Microchip tool logs, the board models)</td><td>no licence claimed: <code>LicenseRef-Microchip-derived</code>, credited to Microchip, no grant (<code>LICENSES/LicenseRef-Microchip-derived.txt</code>)</td></tr></tbody></table></div>
+<h2 id="at-a-glance-what-the-public-site-contains">At a glance: what the public site contains</h2>
+<div class="table"><table><thead><tr><th>Component</th><th>Where it is in the site</th><th>Licence</th><th>Source</th></tr></thead><tbody><tr><td>three.js 0.184.0</td><td>the 3-D views (bundled JavaScript)</td><td>MIT</td><td><a href="https://github.com/mrdoob/three.js">https://github.com/mrdoob/three.js</a></td></tr><tr><td>xterm.js 5.5.0 and @xterm/addon-fit 0.10.0</td><td>the terminal (bundled JavaScript; a copy in <code>qemu-spike/vendor/</code>)</td><td>MIT</td><td><a href="https://github.com/xtermjs/xterm.js">https://github.com/xtermjs/xterm.js</a></td></tr><tr><td>Draco decoder (Google), as shipped with three.js</td><td>decodes the photoreal GLBs (<code>assets/</code>)</td><td>Apache-2.0</td><td><a href="https://github.com/google/draco">https://github.com/google/draco</a></td></tr><tr><td>Basis Universal transcoder (Binomial), as shipped with three.js</td><td>transcodes the KTX2 board textures (<code>assets/</code>)</td><td>Apache-2.0</td><td><a href="https://github.com/BinomialLLC/basis_universal">https://github.com/BinomialLLC/basis_universal</a></td></tr><tr><td>coi-serviceworker 0.1.7, Guido Zuidhof and contributors</td><td><code>coi-serviceworker.js</code>: cross-origin isolation for the Real CPU mode, loaded only after you opt in</td><td>MIT</td><td><a href="https://github.com/gzuidhof/coi-serviceworker">https://github.com/gzuidhof/coi-serviceworker</a></td></tr><tr><td>Studio Small 09 HDRI, Poly Haven</td><td>the photoreal view's light</td><td>CC0 1.0</td><td><a href="https://polyhaven.com/a/studio_small_09">https://polyhaven.com/a/studio_small_09</a></td></tr><tr><td>Data derived from Microchip's Icicle Kit design files (layout, BOM, schematic, user guide)</td><td><code>data/board/</code>, <code>data/*.json</code>, the board GLBs</td><td>© Microchip Technology Inc.; derived data published with credit (raw files are not published)</td><td><a href="https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es">https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es</a></td></tr><tr><td>Code excerpts: HSS, MPFS HAL, the Icicle Kit reference design, Linux device trees and drivers, U-Boot docs, PolarFire SoC docs</td><td><code>data/code/</code>, <code>data/logs/</code> (the code panel and the consoles)</td><td>MIT; GPL-2.0 OR MIT; GPL-2.0; GPL-2.0+; CC BY 4.0 (per row below)</td><td>see &quot;Source code and documents quoted verbatim&quot;</td></tr><tr><td>QEMU 8.2.0 (ktock/qemu-wasm) with glib, zlib, libffi, pixman, dtc/libfdt and the Emscripten runtime</td><td><code>qemu/bin/</code> (Real CPU mode, downloaded on demand)</td><td>GPL-2.0; LGPL-2.1+; Zlib; MIT; GPL-2.0+ OR BSD-2-Clause</td><td><a href="https://github.com/ktock/qemu-wasm">https://github.com/ktock/qemu-wasm</a></td></tr><tr><td>OpenSBI v1.3.1</td><td><code>qemu/bin/</code></td><td>BSD-2-Clause</td><td><a href="https://github.com/riscv-software-src/opensbi">https://github.com/riscv-software-src/opensbi</a></td></tr><tr><td>Linux 6.18.57</td><td><code>qemu/bin/Image</code> (the guest kernel)</td><td>GPL-2.0 WITH Linux-syscall-note</td><td><a href="https://kernel.org">https://kernel.org</a></td></tr><tr><td>BusyBox 1.36.1</td><td>the guest's userland, in <code>Image</code></td><td>GPL-2.0</td><td><a href="https://busybox.net">https://busybox.net</a></td></tr><tr><td>glibc 2.39 (Ubuntu 24.04 cross toolchain)</td><td>linked statically into the guest's programs</td><td>LGPL-2.1-or-later</td><td><a href="https://launchpad.net/ubuntu/+source/glibc">https://launchpad.net/ubuntu/+source/glibc</a></td></tr><tr><td>doomgeneric (from Chocolate Doom and id Software's Doom source)</td><td><code>qemu/bin/freedoom-pack.cpio</code> (the finale only)</td><td>GPL-2.0</td><td><a href="https://github.com/ozkl/doomgeneric">https://github.com/ozkl/doomgeneric</a></td></tr><tr><td>Freedoom 0.13.0 Phase 1, the Freedoom contributors</td><td>the same pack (the finale only)</td><td>BSD-3-Clause</td><td><a href="https://freedoom.github.io">https://freedoom.github.io</a></td></tr><tr><td>ISO-GLOW by April Zhu, on iso-figure by Tolga Cohce</td><td>the x-ray look, re-implemented (technique credit; no code copied)</td><td>MIT</td><td><a href="https://iso-glow.vercel.app">https://iso-glow.vercel.app</a></td></tr><tr><td>Fonts</td><td>none: the site uses your system's own fonts</td><td>n/a</td><td>n/a</td></tr></tbody></table></div>
+<h2 id="source-code-of-the-gpl-and-lgpl-parts">Source code of the GPL and LGPL parts</h2>
+<p>The Real CPU (QEMU) mode and the finale download GPL and LGPL binaries. Their complete corresponding source, at the exact versions used, with our patches and build scripts, is published next to them: <strong><a href="https://devonance.github.io/icicle-twin-site/qemu/source/">https://devonance.github.io/icicle-twin-site/qemu/source/</a></strong> (made by <code>tools/qemu/package-sources.sh</code>; <code>tools/deploy/publish-local.sh</code> refuses to publish the binaries without it). <code>tools/qemu/SOURCES.md</code> lists what is in each binary, and how to rebuild and relink.</p>
+<h2 id="libraries-package-json">Libraries (package.json)</h2>
+<p>Shipped in the site's JavaScript:</p>
+<div class="table"><table><thead><tr><th>Package</th><th>Version</th><th>Licence</th><th>Source</th></tr></thead><tbody><tr><td>three</td><td>0.184.0</td><td>MIT</td><td><a href="https://github.com/mrdoob/three.js">https://github.com/mrdoob/three.js</a></td></tr><tr><td>@xterm/xterm</td><td>5.5.0</td><td>MIT</td><td><a href="https://github.com/xtermjs/xterm.js">https://github.com/xtermjs/xterm.js</a></td></tr><tr><td>@xterm/addon-fit</td><td>0.10.0</td><td>MIT</td><td><a href="https://github.com/xtermjs/xterm.js">https://github.com/xtermjs/xterm.js</a></td></tr></tbody></table></div>
+<p>Used to build and test the site, not shipped:</p>
+<div class="table"><table><thead><tr><th>Package</th><th>Version</th><th>Licence</th><th>Source</th></tr></thead><tbody><tr><td>Vite (with Rollup and esbuild)</td><td>6.4.4</td><td>MIT</td><td><a href="https://github.com/vitejs/vite">https://github.com/vitejs/vite</a></td></tr><tr><td>TypeScript</td><td>5.9.3</td><td>Apache-2.0</td><td><a href="https://github.com/microsoft/TypeScript">https://github.com/microsoft/TypeScript</a></td></tr><tr><td>Vitest</td><td>4.1.12</td><td>MIT</td><td><a href="https://github.com/vitest-dev/vitest">https://github.com/vitest-dev/vitest</a></td></tr><tr><td>Playwright (@playwright/test)</td><td>1.64.1</td><td>Apache-2.0</td><td><a href="https://github.com/microsoft/playwright">https://github.com/microsoft/playwright</a></td></tr><tr><td>axe-core and @axe-core/playwright (accessibility checks in the e2e suite)</td><td>4.13.0</td><td>MPL-2.0</td><td><a href="https://github.com/dequelabs/axe-core">https://github.com/dequelabs/axe-core</a></td></tr><tr><td>ESLint, @eslint/js, typescript-eslint, eslint-config-prettier, globals</td><td>10.13.0, 10.0.1, 8.71.2, 10.1.8, 17.13.0</td><td>MIT</td><td><a href="https://eslint.org">https://eslint.org</a></td></tr><tr><td>Prettier</td><td>3.9.10</td><td>MIT</td><td><a href="https://github.com/prettier/prettier">https://github.com/prettier/prettier</a></td></tr><tr><td>happy-dom</td><td>21.0.3</td><td>MIT</td><td><a href="https://github.com/capricorn86/happy-dom">https://github.com/capricorn86/happy-dom</a></td></tr><tr><td>@types/node, @types/three</td><td>24.19.2, 0.184.1</td><td>MIT</td><td><a href="https://github.com/DefinitelyTyped/DefinitelyTyped">https://github.com/DefinitelyTyped/DefinitelyTyped</a></td></tr></tbody></table></div>
+<h2 id="microchip-s-icicle-kit-design-files-the-board-data">Microchip's Icicle Kit design files (the board data)</h2>
+<p>The board in the twin is Microchip's own design: every outline point, footprint, pad, copper track, via, net, reference designator and BOM row comes from the design files Microchip publishes for the Icicle Kit (PCB 20-0532 Rev 1.0). They are © Microchip Technology Inc. The raw files are kept in the private repository and never published; the site ships data derived from them (<code>data/board/</code> and the tables in <code>data/</code>), credited to Microchip (Kevin's decision, docs/QUESTIONS_FOR_KEVIN.md, answer 2). Icicle Twin is not affiliated with or endorsed by Microchip.</p>
+<div class="table"><table><thead><tr><th>File</th><th>Used for</th><th>Source</th></tr></thead><tbody><tr><td>Allegro 16.6 layout <code>icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd</code> (Rev 1.0, 24 Jun 2020), imported with KiCad 10.0.6</td><td>outline, holes, ten copper layers, tracks, vias, zones, footprints, pads and nets (<code>tools/board/</code>)</td><td><a href="https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/ReferenceManuals/icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd">https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/ReferenceManuals/icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd</a></td></tr><tr><td>BOM <code>ICICLE_Kit_Rev1.0_BOM_062920_01.xls</code></td><td>part numbers, values, makers, do-not-load flags</td><td><a href="https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/ReferenceManuals/ICICLE_Kit_Rev1.0_BOM_062920_01.xls">https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/ReferenceManuals/ICICLE_Kit_Rev1.0_BOM_062920_01.xls</a></td></tr><tr><td>Schematic <code>MPFS-ICICLE-KIT-ES_Schematics.zip</code> (OrCAD <code>.DSN</code> and PDF, DVP-102-000536-001, 29 sheets)</td><td>sheet index, power-tree wiring, U1 ball names (<code>data/u1-balls.json</code>); the inspector links to Microchip's PDF</td><td><a href="https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/BoardDesignFiles/MPFS-ICICLE-KIT-ES_Schematics.zip">https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/BoardDesignFiles/MPFS-ICICLE-KIT-ES_Schematics.zip</a> and <a href="https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/BoardDesignFiles/PolarFire_SoC_ICICLE_KIT_Schematics0725.pdf">https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/BoardDesignFiles/PolarFire_SoC_ICICLE_KIT_Schematics0725.pdf</a></td></tr><tr><td>Mechanical drawing <code>ICICLE_Kit_Rev_1P0_20-0532_PDF_MECH.pdf</code></td><td>outline, corner radius and mounting-hole checks</td><td><a href="https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/BoardDesignFiles/polarfire-soc/ICICLE_Kit_Rev_1P0_20-0532_PDF_MECH.pdf">https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/BoardDesignFiles/polarfire-soc/ICICLE_Kit_Rev_1P0_20-0532_PDF_MECH.pdf</a></td></tr><tr><td>PolarFire SoC Icicle Kit User Guide DS60001679E (06/2026)</td><td>silkscreen label positions (figures 5-1 and 5-2, by <code>tools/extract_silkscreen.py</code>), jumper column of Table 2-1, rail probe table 1-4, regulator table 2-5, test points table 2-3, clock descriptions</td><td><a href="https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es">https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es</a></td></tr><tr><td>FlashPro Express User Guide DS50003089Q</td><td>action names and descriptions; the FlashPro6 connector, TCK range and VJTAG load</td><td><a href="http://coredocs.s3.amazonaws.com/Libero/2025_1/Tool/flashpro_express_ug.pdf">http://coredocs.s3.amazonaws.com/Libero/2025_1/Tool/flashpro_express_ug.pdf</a></td></tr><tr><td>FlashPro Express job <code>BASE_DESIGN_ES_FD0AEBB95776A72.job</code> and <code>_job.digest</code> (reference-design release v2026.04)</td><td><code>data/jobfile/</code> header fields, sizes, digests, BSR pin list; the code panel's <code>job-header-xml</code> excerpt (selected header.xml elements and values). The bitstream is not copied.</td><td><a href="https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2026.04">https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2026.04</a></td></tr></tbody></table></div>
+<p>No text from these documents is reproduced beyond names, values and table entries.</p>
+<h2 id="parts-checked-against-datasheets-and-kevin-s-photos">Parts checked against datasheets and Kevin's photos</h2>
+<p>Every package model is built by our own script (<code>tools/blender/packages/</code>) from the maker's datasheet dimensions and the board's own footprints, then checked against photos of Kevin's own kit (docs/DIMENSIONS.md, docs/QA_PHOTO_ROUND2.md). Each written part card names and links the datasheets its facts come from (Microchip, Würth Elektronik, Texas Instruments, Micron, E-Switch, onsemi, Coilcraft and the other makers in the BOM); facts only, no text reproduced. Kevin's photos are reference material and are not published.</p>
+<h2 id="3-d-assets-searched-first-none-used">3-D assets: searched first, none used</h2>
+<p>Kevin's order for 3-D assets is BlenderKit (CC0 or Royalty Free only), then Poly Haven or ambientCG (CC0), then our own Blender script. BlenderKit, Poly Haven and ambientCG were searched for every part family, the peripherals and the finale's monitor (results in <code>tools/blender/**/research/</code>, docs/ASSETS.md); no model matched a real part, so none is used. Meshy was looked at for form only and no Meshy model is shipped. The one stock asset is the Poly Haven HDRI above (<code>assets/packages/CREDITS.md</code>).</p>
+<h2 id="source-code-and-documents-quoted-verbatim-public-data-code-public-data-logs">Source code and documents quoted verbatim (public/data/code, public/data/logs)</h2>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Version</th><th>Licence</th></tr></thead><tbody><tr><td>Hart Software Services (HSS), Microchip FPGA Embedded Systems Solutions</td><td>code excerpts <code>hss-*</code>, banner format, TinyCLI table, register/linker facts</td><td><a href="https://github.com/polarfire-soc/hart-software-services">https://github.com/polarfire-soc/hart-software-services</a></td><td>commit 19c8c0dbc0b37ae3b1197f6e817d2d766ad2af87</td><td>MIT (LICENSE.md, per-file SPDX)</td></tr><tr><td>PolarFire SoC bare-metal library (MPFS HAL), vendored in the HSS tree</td><td>code excerpts <code>hal-*</code>, memory-map cross-checks</td><td><a href="https://github.com/polarfire-soc/polarfire-soc-bare-metal-library">https://github.com/polarfire-soc/polarfire-soc-bare-metal-library</a></td><td>copy in HSS 19c8c0db</td><td>MIT (per-file SPDX)</td></tr><tr><td>ICICLE_MSS_mss_cfg.xml (MSS configurator output), in the HSS tree</td><td>reset vectors, DDR windows and segments, RTC clock</td><td>HSS <code>boards/mpfs-icicle-kit/soc_fpga_design/xml/</code></td><td>HSS 19c8c0db</td><td>MIT (HSS repository licence)</td></tr><tr><td>Icicle Kit Reference Design (Tcl, PDC, README)</td><td>code excerpts <code>tcl-*</code>, <code>pdc-*</code>, <code>readme-*</code>; fabric memory map, interrupt, GPIO2 and RPi tables; pin constraints</td><td><a href="https://github.com/polarfire-soc/icicle-kit-reference-design">https://github.com/polarfire-soc/icicle-kit-reference-design</a></td><td>commit 9c34320f91e8e8a144c7d87bf299527fc5f02081</td><td>MIT (LICENSE.md, Copyright 2019-2023 Microchip Corporation)</td></tr><tr><td>Linux device trees <code>mpfs.dtsi</code>, <code>mpfs-icicle-kit-common.dtsi</code>, <code>mpfs-icicle-kit-fabric.dtsi</code>, Microchip Technology Inc</td><td>code excerpts <code>dts-*</code>; addresses, PLIC numbers, LEDs, PAC1934</td><td><a href="https://github.com/torvalds/linux/tree/master/arch/riscv/boot/dts/microchip">https://github.com/torvalds/linux/tree/master/arch/riscv/boot/dts/microchip</a></td><td>master, retrieved 2026-10-16 (git blob sha1 in each excerpt)</td><td>GPL-2.0 OR MIT (per-file SPDX)</td></tr><tr><td>Linux <code>drivers/mtd/spi-nor/micron-st.c</code></td><td>code excerpt <code>linux-spi-nor-n25q00</code></td><td><a href="https://github.com/torvalds/linux/blob/master/drivers/mtd/spi-nor/micron-st.c">https://github.com/torvalds/linux/blob/master/drivers/mtd/spi-nor/micron-st.c</a></td><td>master, retrieved 2026-10-16</td><td>GPL-2.0</td></tr><tr><td>U-Boot <code>doc/board/microchip/mpfs_icicle.rst</code></td><td><code>logs/uboot.json</code>, <code>logs/linux.json</code> (sample boot log), code excerpts <code>uboot-doc-*</code></td><td><a href="https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst">https://github.com/u-boot/u-boot/blob/v2022.01/doc/board/microchip/mpfs_icicle.rst</a></td><td>v2022.01</td><td>GPL-2.0+</td></tr><tr><td>PolarFire SoC documentation (embedded software user guide, memory hierarchy, Linux boot authentication how-to)</td><td>jumper defaults, LIM/scratchpad ranges, the 2022 HSS banner sample</td><td><a href="https://github.com/polarfire-soc/polarfire-soc-documentation">https://github.com/polarfire-soc/polarfire-soc-documentation</a></td><td>commit f844a87d7849bd43335d147a3d9a6907b6f9da24</td><td>CC BY 4.0 (LICENSE.txt)</td></tr><tr><td>HSS console capture posted in GitHub discussion polarfire-soc #552 &quot;Boot fails.&quot;</td><td><code>logs/hss.json</code></td><td><a href="https://github.com/orgs/polarfire-soc/discussions/552">https://github.com/orgs/polarfire-soc/discussions/552</a></td><td>retrieved 2026-10-16</td><td>no licence stated; quoted verbatim as a factual record of tool output</td></tr><tr><td>FlashPro Express DEVICE_INFO log by suozhang (cnblogs)</td><td><code>logs/flashpro_device_info.json</code></td><td><a href="https://www.cnblogs.com/suozhang/p/19604397">https://www.cnblogs.com/suozhang/p/19604397</a></td><td>2026-02-11</td><td>no licence stated; tool output quoted as a factual record, the author's annotations removed</td></tr></tbody></table></div>
+<h2 id="photoreal-view-wp-42">Photoreal view (WP-42)</h2>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td>Studio Small 09 HDRI (1k), Poly Haven</td><td>the photoreal environment light (<code>assets/packages/hdri/studio_small_09_1k.hdr</code>, shipped in the built site)</td><td><a href="https://polyhaven.com/a/studio_small_09">https://polyhaven.com/a/studio_small_09</a></td><td>CC0 1.0</td></tr><tr><td>Draco decoder (<code>draco_decoder.wasm</code>, <code>draco_wasm_wrapper.js</code>), Google, as distributed with three.js 0.184</td><td>decodes the Draco meshes of the board and parts GLBs; bundled into <code>dist/assets</code> (no CDN)</td><td><a href="https://github.com/google/draco">https://github.com/google/draco</a></td><td>Apache-2.0</td></tr><tr><td>Basis Universal transcoder (<code>basis_transcoder.wasm/.js</code>), Binomial, as distributed with three.js 0.184</td><td>transcodes the KTX2 board textures; bundled into <code>dist/assets</code> (no CDN)</td><td><a href="https://github.com/BinomialLLC/basis_universal">https://github.com/BinomialLLC/basis_universal</a></td><td>Apache-2.0</td></tr><tr><td>three.js &quot;contact shadows&quot; example technique</td><td>the baked soft shadow under the board (<code>src/view/photoreal/shadow.ts</code>, re-implemented and frozen to one bake)</td><td><a href="https://threejs.org/examples/webgl_shadow_contact.html">https://threejs.org/examples/webgl_shadow_contact.html</a></td><td>MIT</td></tr></tbody></table></div>
+<h2 id="rendering-techniques-x-ray-view-wp-11">Rendering techniques (x-ray view, WP-11)</h2>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td>ISO-GLOW by April Zhu (built on iso-figure by Tolga Cohce), as seen in alxshp's &quot;Postgres Internals in 3D&quot; (pgrun.dev)</td><td>The x-ray look: rounded unit boxes, the three line tiers and their colours, the back-face silhouette shell, per-point halos shaded <code>exp(-9 d^2)</code> with a hot core instead of bloom, haze pool, hash dither, CanvasTexture screens and their glyph language. Re-implemented in <code>src/view/xray/**</code> and <code>src/view/screens/**</code>; no code was copied from the pgrun page (which carries no licence).</td><td><a href="https://iso-glow.vercel.app">https://iso-glow.vercel.app</a>, <a href="https://github.com/MrBongoC/ai-iso-skill">https://github.com/MrBongoC/ai-iso-skill</a></td><td>MIT (ISO-GLOW and iso-figure)</td></tr></tbody></table></div>
+<h2 id="peripherals-cables-pods-and-cards-wp-54">Peripherals: cables, pods and cards (WP-54)</h2>
+<p>No third-party 3-D asset is used. BlenderKit was searched first (CC0 / Royalty Free; results in <code>tools/blender/peripherals/research/blenderkit_results.json</code>): its CC0 &quot;USB cable&quot; is USB-A at both ends and its Royalty Free &quot;Ethernet Cable&quot; is a fixed short loop, so neither matches the parts; Poly Haven and ambientCG have no such models. Every model in <code>assets/peripherals/{usb-cable,rj45-cable,sd-card,power-brick,flashpro6,la-pod, rpi-breakout}.glb</code> is built by our own script, <code>tools/blender/peripherals/build.py</code>.</p>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td>FlashPro Express User Guide DS50003089Q (Microchip): sect. 5.2 TCK range, sect. 12.1 the FlashPro6 10-pin connector, its ribbon, pins 4/7 and the ~30 mA VJTAG load</td><td>the FlashPro6 descriptor, its VJTAG load and model (facts only)</td><td><a href="http://coredocs.s3.amazonaws.com/Libero/2025_1/Tool/flashpro_express_ug.pdf">http://coredocs.s3.amazonaws.com/Libero/2025_1/Tool/flashpro_express_ug.pdf</a></td><td>facts, no text reproduced</td></tr><tr><td>USB 2.0 Micro-USB Cables and Connectors Specification rev 1.01 (USB-IF)</td><td>micro-B plug shell size</td><td><a href="https://www.usb.org/document-library/usb-20-specification">https://www.usb.org/document-library/usb-20-specification</a></td><td>facts only</td></tr><tr><td>SD Physical Layer Simplified Specification (SD Association)</td><td>SD card outline and thickness</td><td><a href="https://www.sdcard.org/downloads/pls/">https://www.sdcard.org/downloads/pls/</a></td><td>facts only</td></tr><tr><td>libgpiod command-line tools (<code>gpiodetect</code>, <code>gpioinfo</code>, <code>gpioget</code>, <code>gpioset</code>), Bartosz Golaszewski et al.</td><td>the command names, argument forms and messages the twin's shell answers (<code>src/sim/peripherals/rpi-breakout/gpiod.ts</code>); no code copied</td><td><a href="https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git">https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git</a></td><td>LGPL-2.1-or-later (tools GPL-2.0-or-later); behaviour only</td></tr></tbody></table></div>
+<h2 id="qemu-spike-issue-153-public-qemu-spike-tools-qemu">QEMU spike (issue #153; <code>public/qemu-spike/</code>, <code>tools/qemu/</code>)</h2>
+<p>The binaries are built by <code>tools/qemu/</code> and are not in git (<code>public/qemu-spike/bin/</code> is git-ignored). Publishing them requires publishing the matching source (GPL/LGPL): the pinned upstreams below plus <code>tools/qemu/</code>.</p>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Version</th><th>Licence</th></tr></thead><tbody><tr><td>QEMU, as patched by ktock/qemu-wasm (Wasm TCG backend), with our patches <code>tools/qemu/patches/</code></td><td><code>bin/qemu-system-riscv64.{js,wasm,worker.js}</code></td><td><a href="https://github.com/ktock/qemu-wasm">https://github.com/ktock/qemu-wasm</a></td><td>commit 0ef7b4e2814b231705d8371dd7997f5b72e70baf (QEMU 8.2.0)</td><td>GPL-2.0 (QEMU <code>LICENSE</code>; parts LGPL/BSD/MIT)</td></tr><tr><td>qemu-wasm <code>Dockerfile</code></td><td><code>tools/qemu/Dockerfile.toolchain</code> (copied, one URL changed)</td><td>same</td><td>same</td><td>as above</td></tr><tr><td>glib, zlib, libffi, pixman, mimalloc, Emscripten runtime</td><td>statically linked into the wasm</td><td>gnome.org, github.com/madler/zlib, github.com/libffi/libffi, gitlab.freedesktop.org/pixman, Emscripten</td><td>glib 2.75.0, zlib 1.3.1, libffi adbcf2b2, pixman 0.42.2, Emscripten 3.1.50</td><td>LGPL-2.1-or-later, zlib, MIT, MIT, MIT, MIT/UIUC</td></tr><tr><td>OpenSBI <code>fw_dynamic</code> (copy in QEMU's <code>pc-bios</code>)</td><td><code>bin/opensbi-riscv64-generic-fw_dynamic.bin</code></td><td><a href="https://github.com/riscv-software-src/opensbi">https://github.com/riscv-software-src/opensbi</a></td><td>v1.3.1</td><td>BSD-2-Clause</td></tr><tr><td>Linux kernel</td><td><code>bin/Image</code></td><td><a href="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.57.tar.xz">https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.57.tar.xz</a> (sha256 checked)</td><td>6.18.57</td><td>GPL-2.0</td></tr><tr><td>BusyBox</td><td>in the <code>Image</code> initramfs</td><td><a href="https://busybox.net/downloads/busybox-1.36.1.tar.bz2">https://busybox.net/downloads/busybox-1.36.1.tar.bz2</a> (sha256 checked)</td><td>1.36.1</td><td>GPL-2.0</td></tr><tr><td>Linux device trees <code>mpfs.dtsi</code>, <code>mpfs-icicle-kit-common.dtsi</code> (Microchip)</td><td>addresses, IRQs and LED wiring in <code>tools/qemu/image/icicle-spike.dts</code></td><td>linux-6.18.57 <code>arch/riscv/boot/dts/microchip/</code></td><td>6.18.57</td><td>GPL-2.0 OR MIT</td></tr><tr><td>xterm.js</td><td><code>public/qemu-spike/vendor/xterm.{js,css}</code> (the app's dependency, copied)</td><td><a href="https://github.com/xtermjs/xterm.js">https://github.com/xtermjs/xterm.js</a></td><td>5.5.0</td><td>MIT (<code>vendor/xterm.LICENSE</code>)</td></tr><tr><td>coi-serviceworker, Guido Zuidhof and contributors</td><td><code>public/qemu-spike/coi-serviceworker.js</code></td><td><a href="https://github.com/gzuidhof/coi-serviceworker">https://github.com/gzuidhof/coi-serviceworker</a> (npm <code>coi-serviceworker</code>)</td><td>0.1.7</td><td>MIT (header in the file)</td></tr></tbody></table></div>
+<h2 id="finale-pcie-display-card-and-monitor-issue-164">Finale: PCIe display card and monitor (issue #164)</h2>
+<p>No third-party 3-D asset: the card, cable and monitor are built by our own script (<code>tools/blender/peripherals/pcie_display.py</code>; the search record is in <code>docs/ASSETS.md</code> section 10).</p>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td>QEMU <code>hw/display/bochs-display.c</code>, <code>include/hw/display/bochs-vbe.h</code></td><td>the display card's IDs (1234:1111, class 0380, revision 2), BAR layout and DISPI/QEXT register map (<code>src/sim/modules/pcie/data.ts</code>); facts only, no code copied</td><td><a href="https://github.com/qemu/qemu">https://github.com/qemu/qemu</a> (v8.2.0)</td><td>GPL-2.0-or-later; facts only</td></tr><tr><td>Linux <code>drivers/gpu/drm/tiny/bochs.c</code> (bochs-drm)</td><td>the probe's register order and its <code>DRM_INFO</code> format strings in the reconstructed console lines (<code>pcie.ts</code> <code>bochsDrm</code>)</td><td><a href="https://github.com/torvalds/linux">https://github.com/torvalds/linux</a> (v6.18)</td><td>GPL-2.0; format strings and behaviour only</td></tr><tr><td>SMPTE ECR 1-1978 colour bars</td><td>the layout of the card self-test picture (<code>src/sim/peripherals/pcie-display/selftest.ts</code>); 8-bit RGB approximations</td><td>SMPTE engineering guideline EG 1-1990 / ECR 1-1978</td><td>facts only</td></tr><tr><td>Standard 5 x 7 ASCII glyphs (46 characters)</td><td>the self-test picture's text (<code>selftest.ts</code>), column bytes as in many character-LCD drivers</td><td>e.g. Adafruit-GFX-Library <code>glcdfont.c</code>, <a href="https://github.com/adafruit/Adafruit-GFX-Library">https://github.com/adafruit/Adafruit-GFX-Library</a></td><td>BSD-2-Clause (Adafruit-GFX); bitmap glyph data</td></tr></tbody></table></div>
+<h2 id="real-cpu-qemu-mode-qemu-1">Real CPU (QEMU) mode (QEMU-1)</h2>
+<p>Downloaded on demand from <code>qemu/bin/</code>; the corresponding source is published in <code>qemu/source/</code>. Full list with versions: <code>tools/qemu/SOURCES.md</code>.</p>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td>QEMU 8.2.0 (ktock/qemu-wasm, Wasm TCG backend), with our patches</td><td><code>qemu-system-riscv64.{wasm,js,worker.js}</code></td><td><a href="https://github.com/ktock/qemu-wasm">https://github.com/ktock/qemu-wasm</a></td><td>GPL-2.0</td></tr><tr><td>glib, zlib, libffi, pixman, dtc/libfdt, Emscripten runtime</td><td>linked into the QEMU WebAssembly</td><td>see <code>tools/qemu/SOURCES.md</code></td><td>LGPL-2.1+, Zlib, MIT, GPL-2.0+ OR BSD-2-Clause, MIT/Apache-2.0</td></tr><tr><td>OpenSBI v1.3.1 (QEMU's <code>pc-bios</code> build)</td><td><code>opensbi-riscv64-generic-fw_dynamic.bin</code></td><td><a href="https://github.com/riscv-software-src/opensbi">https://github.com/riscv-software-src/opensbi</a></td><td>BSD-2-Clause</td></tr><tr><td>Linux 6.18.57</td><td>the guest kernel (<code>Image</code>)</td><td><a href="https://kernel.org">https://kernel.org</a></td><td>GPL-2.0 WITH Linux-syscall-note</td></tr><tr><td>BusyBox 1.36.1, glibc 2.39 (Ubuntu cross toolchain, static)</td><td>the guest's userland in <code>Image</code></td><td><a href="https://busybox.net">https://busybox.net</a>, <a href="https://launchpad.net/ubuntu/+source/glibc">https://launchpad.net/ubuntu/+source/glibc</a></td><td>GPL-2.0, LGPL-2.1+</td></tr><tr><td>coi-serviceworker 0.1.7, Guido Zuidhof and contributors</td><td><code>public/coi-serviceworker.js</code> (cross-origin isolation, opt-in)</td><td><a href="https://github.com/gzuidhof/coi-serviceworker">https://github.com/gzuidhof/coi-serviceworker</a></td><td>MIT</td></tr></tbody></table></div>
+<h3 id="the-finale-s-freedoom-pack-finale-b-issue-164">The finale's Freedoom pack (FINALE-B, issue #164)</h3>
+<p>Fetched only when the finale hands over to QEMU (<code>qemu/bin/freedoom-pack.cpio</code>, built by <code>tools/qemu/doom/build-doom.sh</code>); its sources are in <code>qemu/source/</code>.</p>
+<div class="table"><table><thead><tr><th>Material</th><th>Where used</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td>doomgeneric, ozkl and contributors (from Chocolate Doom and id Software's Doom source)</td><td><code>/usr/games/doomgeneric</code> in the pack (static riscv64), commit <code>dcb7a8dbc7a16ce3dda29382ac9aae9d77d21284</code> (the one Kevin's freedoom-mod uses)</td><td><a href="https://github.com/ozkl/doomgeneric">https://github.com/ozkl/doomgeneric</a></td><td>GPL-2.0 (<code>/usr/share/doc/doomgeneric/doomgeneric-LICENSE.txt</code> in the pack)</td></tr><tr><td>doomgeneric <code>doomgeneric_linuxvt.c</code>, Techflash</td><td>the base of our platform layer <code>tools/qemu/doom/doomgeneric_icicle.c</code> (fbdev, no input)</td><td>same</td><td>GPL-2.0</td></tr><tr><td>Freedoom 0.13.0 Phase 1, the Freedoom contributors</td><td><code>freedoom1.wad</code> in the pack, trimmed by <code>tools/qemu/doom/mkpack.py</code> (the four maps its demos play, no sound effects); its demos autoplay on the monitor</td><td><a href="https://freedoom.github.io">https://freedoom.github.io</a> (release <code>freedoom-0.13.0.zip</code>)</td><td>BSD-3-Clause (<code>COPYING.txt</code>, <code>CREDITS.txt</code> in the pack's <code>/usr/share/doc/freedoom/</code>)</td></tr></tbody></table></div>
+<p>Kevin's own freedoom-mod project supplied the pinned doomgeneric commit, the 320 x 200 build flags and the WAD checksum. Its one doomgeneric patch (<code>m_misc-wad-exists.patch</code>, a WAD held in memory instead of a file) does not apply here: in Linux the WAD is a real file.</p>
+<h2 id="oled-w-click-wp-53">OLED W Click (WP-53)</h2>
+<p>No third-party 3-D asset (BlenderKit, Poly Haven and ambientCG have no such module): the Click is built by our own script, <code>tools/blender/peripherals/oled_w_click.py</code>.</p>
+<div class="table"><table><thead><tr><th>Material</th><th>Used for</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td>mikroBUS standard v2.00 (MikroElektronika)</td><td>the Click's size, row spacing and socket pinout</td><td><a href="https://www.mikroe.com/mikrobus">https://www.mikroe.com/mikrobus</a></td><td>facts only</td></tr><tr><td>OLED W Click manual v100 (MikroElektronika)</td><td>the layout below the glass and the green solder mask of HW rev 1.00</td><td><a href="https://www.mikroe.com/oled-w-click">https://www.mikroe.com/oled-w-click</a></td><td>facts only</td></tr><tr><td>Multi-Inno MI9639BO display specification 1.1</td><td>glass, active area and FPC sizes</td><td>Multi-Inno Technology</td><td>facts only</td></tr><tr><td>Solomon Systech SSD1306 datasheet Rev 1.1 (Apr 2008)</td><td>the controller's command set and framebuffer (<code>src/sim/peripherals/oled-ssd1306</code>)</td><td>Solomon Systech</td><td>facts only</td></tr></tbody></table></div>
+<h2 id="tools-used-to-make-the-data-and-the-models-not-shipped">Tools used to make the data and the models (not shipped)</h2>
+<div class="table"><table><thead><tr><th>Tool</th><th>Used for</th><th>Licence</th><th>Source</th></tr></thead><tbody><tr><td>KiCad 10.0.6 (<code>kicad-cli</code>)</td><td>imports the Allegro layout; exports positions, the IPC-D-356 netlist and silk/paste plots</td><td>GPL-3.0-or-later</td><td><a href="https://www.kicad.org">https://www.kicad.org</a></td></tr><tr><td>Blender 5.2</td><td>builds every 3-D model and bakes the board textures, headless</td><td>GPL-2.0-or-later (GPL-3.0 as a whole)</td><td><a href="https://www.blender.org">https://www.blender.org</a></td></tr><tr><td>BlenderKit add-on 3.21.2</td><td>the asset searches above (nothing downloaded)</td><td>GPL-2.0-or-later</td><td><a href="https://github.com/BlenderKit/BlenderKit">https://github.com/BlenderKit/BlenderKit</a></td></tr><tr><td>pcb2blender 2.17.5</td><td>an independent cross-check of the board bake</td><td>GPL-3.0</td><td><a href="https://github.com/30350n/pcb2blender">https://github.com/30350n/pcb2blender</a></td></tr><tr><td>PyMuPDF 1.28.2</td><td>reads the schematic and user-guide PDFs as data</td><td>AGPL-3.0 (or commercial)</td><td><a href="https://github.com/pymupdf/PyMuPDF">https://github.com/pymupdf/PyMuPDF</a></td></tr><tr><td>numpy 2.5.4, matplotlib 3.11.2, Pillow 12.3.0, pytest 9.1.1</td><td>the board pipeline and its tests (<code>tools/pyproject.toml</code>)</td><td>BSD-3-Clause, Matplotlib licence (PSF-style), MIT-CMU, MIT</td><td><a href="https://pypi.org">https://pypi.org</a></td></tr><tr><td>uv</td><td>the Python environment in <code>tools/.venv</code></td><td>MIT OR Apache-2.0</td><td><a href="https://github.com/astral-sh/uv">https://github.com/astral-sh/uv</a></td></tr><tr><td>reuse 6.2.0 (FSFE)</td><td><code>reuse lint</code>, the licence check of every file; <code>reuse download</code>, the texts in <code>LICENSES/</code></td><td>GPL-3.0-or-later</td><td><a href="https://github.com/fsfe/reuse-tool">https://github.com/fsfe/reuse-tool</a></td></tr><tr><td>Emscripten 3.1.50, Docker, the Ubuntu 24.04 riscv64 cross toolchain (GCC)</td><td>build QEMU to WebAssembly and the guest's Linux, BusyBox and programs (<code>tools/qemu/</code>)</td><td>MIT/UIUC; Apache-2.0; GPL-3.0-or-later</td><td><a href="https://emscripten.org">https://emscripten.org</a>, <a href="https://ubuntu.com">https://ubuntu.com</a></td></tr><tr><td>actionlint 1.7.12</td><td>checks the GitHub workflows</td><td>MIT</td><td><a href="https://github.com/rhysd/actionlint">https://github.com/rhysd/actionlint</a></td></tr></tbody></table></div>
+<h2 id="style-references">Style references</h2>
+<p>The x-ray view's look follows ISO-GLOW (above) as seen in alxshp's &quot;Postgres Internals in 3D&quot; (<a href="https://pgrun.dev">https://pgrun.dev</a>). Nothing was copied from that page, which carries no licence: the twin re-implements the ideas from scratch.</p>
+<h2 id="trademarks">Trademarks</h2>
+<p>Microchip, PolarFire, Libero and FlashPro are trademarks of Microchip Technology Inc. mikroBUS and Click are trademarks of MikroElektronika. Raspberry Pi is a trademark of Raspberry Pi Ltd. RISC-V is a trademark of RISC-V International. Linux is a registered trademark of Linus Torvalds. QEMU is a trademark of Fabrice Bellard. Doom is a trademark of id Software; Freedoom is an independent project. Icicle Twin is an independent training project and is not affiliated with or endorsed by any of them.</p>
+<h2 id="licence-texts">Licence texts</h2>
+<p>Icicle Twin's own licences, then the full notices of the code bundled into this site's JavaScript. QEMU, Linux, BusyBox, glibc, OpenSBI, doomgeneric and Freedoom carry their licences in <a href="qemu/source/">the source bundle</a>.</p>
+<details><summary>Icicle Twin's code (Apache-2.0)</summary><pre>Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      &quot;control&quot; means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      &quot;Source&quot; form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      &quot;Object&quot; form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      &quot;Work&quot; shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      &quot;Contribution&quot; shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+      &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets &quot;[]&quot;
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same &quot;printed page&quot; as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.</pre></details>
+<details><summary>Icicle Twin's written content (CC BY 4.0)</summary><pre>Creative Commons Attribution 4.0 International
+
+ Creative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.
+
+Using Creative Commons Public Licenses
+
+Creative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.
+
+Considerations for licensors: Our public licenses are intended for use by those authorized to give the public permission to use material in ways otherwise restricted by copyright and certain other rights. Our licenses are irrevocable. Licensors should read and understand the terms and conditions of the license they choose before applying it. Licensors should also secure all rights necessary before applying our licenses so that the public can reuse the material as expected. Licensors should clearly mark any material not subject to the license. This includes other CC-licensed material, or material used under an exception or limitation to copyright. More considerations for licensors.
+
+Considerations for the public: By using one of our public licenses, a licensor grants the public permission to use the licensed material under specified terms and conditions. If the licensor’s permission is not necessary for any reason–for example, because of any applicable exception or limitation to copyright–then that use is not regulated by the license. Our licenses grant only permissions under copyright and certain other rights that a licensor has authority to grant. Use of the licensed material may still be restricted for other reasons, including because others have copyright or other rights in the material. A licensor may make special requests, such as asking that all changes be marked or described. Although not required by our licenses, you are encouraged to respect those requests where reasonable. More considerations for the public.
+
+Creative Commons Attribution 4.0 International Public License
+
+By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution 4.0 International Public License (&quot;Public License&quot;). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
+
+Section 1 – Definitions.
+
+     a.	Adapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.
+
+     b.	Adapter's License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.
+
+     c.	Copyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.
+
+     d.	Effective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.
+
+     e.	Exceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.
+
+     f.	Licensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.
+
+     g.	Licensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.
+
+     h.	Licensor means the individual(s) or entity(ies) granting rights under this Public License.
+
+     i.	Share means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.
+
+     j.	Sui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.
+
+     k.	You means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.
+
+Section 2 – Scope.
+
+     a.	License grant.
+
+          1. Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:
+
+               A. reproduce and Share the Licensed Material, in whole or in part; and
+
+               B. produce, reproduce, and Share Adapted Material.
+
+          2. Exceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.
+
+          3. Term. The term of this Public License is specified in Section 6(a).
+
+          4. Media and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.
+
+          5. Downstream recipients.
+
+               A. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.
+
+               B. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.
+
+          6.  No endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).
+
+b. Other rights.
+
+          1. Moral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.
+
+          2. Patent and trademark rights are not licensed under this Public License.
+
+          3. To the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.
+
+Section 3 – License Conditions.
+
+Your exercise of the Licensed Rights is expressly made subject to the following conditions.
+
+     a.	Attribution.
+
+          1. If You Share the Licensed Material (including in modified form), You must:
+
+               A. retain the following if it is supplied by the Licensor with the Licensed Material:
+
+                    i. identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);
+
+                    ii. a copyright notice;
+
+                    iii. a notice that refers to this Public License;
+
+                    iv.	a notice that refers to the disclaimer of warranties;
+
+                    v. a URI or hyperlink to the Licensed Material to the extent reasonably practicable;
+
+               B. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and
+
+               C. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.
+
+          2. You may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.
+
+          3. If requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.
+
+          4. If You Share Adapted Material You produce, the Adapter's License You apply must not prevent recipients of the Adapted Material from complying with this Public License.
+
+Section 4 – Sui Generis Database Rights.
+
+Where the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:
+
+     a.	for the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;
+
+     b.	if You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material; and
+
+     c.	You must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.
+For the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.
+
+Section 5 – Disclaimer of Warranties and Limitation of Liability.
+
+     a.	Unless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.
+
+     b.	To the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.
+
+     c.	The disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.
+
+Section 6 – Term and Termination.
+
+     a.	This Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.
+
+     b.	Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:
+
+          1. automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or
+
+          2. upon express reinstatement by the Licensor.
+
+     c.	For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.
+
+     d.	For the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.
+
+     e.	Sections 1, 5, 6, 7, and 8 survive termination of this Public License.
+
+Section 7 – Other Terms and Conditions.
+
+     a.	The Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.
+
+     b.	Any arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.
+
+Section 8 – Interpretation.
+
+     a.	For the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.
+
+     b.	To the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.
+
+     c.	No term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.
+
+     d.	Nothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.
+
+Creative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.
+
+Creative Commons may be contacted at creativecommons.org.</pre></details>
+<details><summary>Data derived from Microchip files (no licence claimed)</summary><pre>Microchip-derived data: notice (no licence is granted)
+
+Files marked &quot;LicenseRef-Microchip-derived&quot; hold data taken from Microchip Technology Inc.'s published
+material for the PolarFire SoC Icicle Kit (MPFS-ICICLE-KIT-ES, PCB 20-0532 Rev 1.0), or are Microchip's
+own files kept as reference. This notice is not a licence. Icicle Twin claims no licence over this
+material and grants none.
+
+Source
+  - The Icicle Kit design files: the Allegro layout icicle_kit_rev_1p0_20-0532_pcb_0624_01.brd, the BOM
+    ICICLE_Kit_Rev1.0_BOM_062920_01.xls, the schematic MPFS-ICICLE-KIT-ES_Schematics.zip and the mechanical
+    drawing ICICLE_Kit_Rev_1P0_20-0532_PDF_MECH.pdf;
+  - the PolarFire SoC Icicle Kit User Guide, the FlashPro Express User Guide, the FlashPro Express job
+    file of the Icicle Kit reference design (release v2026.04) and the reference design's constraint
+    files;
+  - console output printed by Microchip's software (Hart Software Services, FlashPro Express), as
+    captured and posted by its users.
+  Download links and versions: CREDITS.md, section &quot;Microchip's Icicle Kit design files (the board
+  data)&quot;. Data files name their own sources in their &quot;sources&quot; fields.
+
+What the derived files contain
+  Facts read from those sources: outline points, footprints, pads, copper tracks, vias, zones, nets,
+  reference designators, BOM rows, pin and ball assignments, jumper, rail, clock and test-point tables,
+  job-file header fields, and console lines. They were extracted and reorganised by Icicle Twin's own
+  tools (tools/board, tools/content, tools/blender); no text of the documents is reproduced beyond names,
+  values and table entries. The 3-D board models and textures built from the layout are in the same
+  category.
+
+Attribution
+  Data derived from the PolarFire SoC Icicle Kit design files and documents of Microchip Technology Inc.
+  (https://www.microchip.com/en-us/development-tool/mpfs-icicle-kit-es). The underlying material is
+  (c) Microchip Technology Inc. Icicle Twin is not affiliated with or endorsed by Microchip.
+  Microchip, PolarFire, Libero and FlashPro are trademarks of Microchip Technology Inc.
+
+Use
+  Any right to use this material comes from Microchip's own terms for the files it publishes, not from
+  Icicle Twin. Icicle Twin's licences (Apache-2.0 for code, CC-BY-4.0 for written content) do not cover
+  it. The derived data is published on the site with credit to Microchip (Kevin Horton's decision,
+  docs/QUESTIONS_FOR_KEVIN.md, answer 2).
+
+Raw files
+  Microchip's own files in reference/ (layout, BOM, schematics, user guides, the FlashPro documents and
+  the files derived directly from them for research) are kept in the private repository as reference,
+  credited here, and are never published: they are not part of the site, and reference/ is left out of
+  any public release of the source.</pre></details>
+<details><summary>three.js 0.184.0 (MIT)</summary><pre>The MIT License
+
+Copyright © 2010-2026 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details>
+<details><summary>xterm.js 5.5.0 (MIT)</summary><pre>Copyright (c) 2017-2019, The xterm.js authors (https://github.com/xtermjs/xterm.js)
+Copyright (c) 2014-2016, SourceLair Private Company (https://www.sourcelair.com)
+Copyright (c) 2012-2013, Christopher Jeffrey (https://github.com/chjj/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details>
+<details><summary>@xterm/addon-fit 0.10.0 (MIT)</summary><pre>Copyright (c) 2019, The xterm.js authors (https://github.com/xtermjs/xterm.js)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre></details>
+<details><summary>coi-serviceworker 0.1.7 (MIT)</summary><pre>MIT License
+
+Copyright (c) 2021 Guido Zuidhof
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.</pre></details>
+<details><summary>Draco decoder (Google) and Basis Universal transcoder (Binomial), shipped with three.js (Apache-2.0)</summary><pre>Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      &quot;control&quot; means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      &quot;Source&quot; form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      &quot;Object&quot; form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      &quot;Work&quot; shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      &quot;Contribution&quot; shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+      &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets &quot;[]&quot;
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same &quot;printed page&quot; as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.</pre></details>
+</main>
+</body>
+</html>
